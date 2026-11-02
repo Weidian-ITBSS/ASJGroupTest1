@@ -1,0 +1,2237 @@
+/* ASJ / Editorial refinement — forest, warm stone, ivory.
+   Font: satu keluarga huruf untuk seluruh situs, didefinisikan sekali di
+   style.css (variabel --font). Jangan mendefinisikan ulang font di sini. */
+
+:root {
+  --forest: #214e3d;
+  --forest-deep: #153e30;
+  --forest-mid: #36644f;
+  --sage: #587564;
+  --mustard: #dfce9d;
+  --mustard-deep: #a7894c;
+  --paper: #fff;
+  --paper-deep: #f4f5f1;
+  --cream-card: #ffffff;
+  --ink: #253b31;
+  --ink-soft: #57675e;
+  --line: #dedfd6;
+  --line-soft: #eaede7;
+  --maxw: 1240px;
+  --shadow-sm: 0 1px 3px #173f3010;
+  --shadow-md: 0 4px 20px #173f3010;
+  --shadow-lg: 0 12px 36px #173f301c;
+}
+body {
+  font: 400 16px/1.65 var(--main-font);
+  letter-spacing: 0.005em;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--main-font);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+h1 {
+  line-height: 1.08;
+}
+h2 {
+  line-height: 1.18;
+}
+h3 {
+  line-height: 1.3;
+}
+button,
+input,
+select,
+textarea {
+  font-family: var(--main-font);
+}
+button {
+  letter-spacing: 0;
+}
+strong {
+  font-weight: 700;
+}
+p {
+  line-height: 1.7;
+}
+.wrap {
+  max-width: var(--maxw);
+}
+.section-kicker,
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+}
+.section-head h2 {
+  font-size: clamp(28px, 3vw, 40px);
+}
+.section-head p {
+  font-size: 16px;
+}
+.btn {
+  border-radius: 5px;
+  font-weight: 600;
+  box-shadow: none !important;
+  font-size: 14px;
+  letter-spacing: 0;
+  min-height: 48px;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-solid {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #fff;
+}
+.btn-solid:hover {
+  background: var(--forest-deep);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--forest);
+  color: var(--forest);
+}
+.btn-outline:hover {
+  background: #e8eee6;
+  color: var(--forest-deep);
+}
+:focus-visible {
+  outline: 3px solid #b1862f !important;
+  outline-offset: 4px !important;
+}
+.btn[aria-disabled="true"] {
+  background: #e3e5df;
+  border-color: #c6cec4;
+  color: #57655b;
+  cursor: not-allowed;
+  transform: none;
+}
+small {
+  font-size: 14px;
+}
+.site-header {
+  background: #fffefa;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 #183e3005;
+}
+.brand-text strong {
+  font-size: 23px;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+.brand-text span {
+  font-size: 11px;
+  letter-spacing: 0.005em;
+}
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+.main-nav {
+  gap: 22px;
+}
+.main-nav > a,
+.main-nav .nav-item-dropdown > a {
+  font-size: 14px;
+  font-weight: 500;
+}
+.main-nav .active {
+  font-weight: 700 !important;
+}
+
+/* Menu aktif: garis bawah hijau, sama di SEMUA halaman
+   (tidak bergantung pada ui-refresh.css). */
+.main-nav {
+  gap: 4px;
+}
+nav.main-nav > a,
+nav.main-nav .nav-item-dropdown > a {
+  position: relative;
+  padding: 10px 12px;
+}
+nav.main-nav a.active {
+  background: transparent;
+  color: var(--forest-deep);
+  font-weight: 600 !important;
+}
+nav.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--brand, #1b6b43);
+}
+.header-actions {
+  gap: 8px;
+}
+.header-actions .btn {
+  padding: 10px 15px;
+  font-size: 13px;
+}
+.header-row {
+  gap: 24px;
+  min-height: 84px;
+}
+.nav-dropdown {
+  border-radius: 6px;
+}
+.nav-dropdown a {
+  font-size: 14px;
+}
+.hero {
+  background: #153e30;
+  padding: 112px 0 96px;
+  /* Hero mengisi layar (dikurangi header dan strip kategori), dibatasi agar tidak terlalu tinggi */
+  min-height: clamp(640px, calc(100vh - 150px), 880px);
+  min-height: clamp(640px, calc(100svh - 150px), 880px);
+}
+.hero .hero-grid {
+  align-items: flex-start;
+  text-align: left;
+  max-width: var(--maxw);
+  padding-inline: 24px;
+}
+.hero-copy {
+  max-width: 920px;
+}
+.hero h1 {
+  max-width: 19ch;
+  font-size: clamp(32px, 4.6vw, 60px);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  margin: 0;
+}
+.hero h1 em {
+  color: #e3d4ae;
+}
+.hero-lede {
+  max-width: 660px;
+  font-size: clamp(17px, 1.45vw, 21px);
+  margin: 32px 0 0;
+  line-height: 1.8;
+  color: #edf1e9;
+}
+.hero-actions {
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 40px;
+}
+.hero-actions .btn {
+  padding: 16px 30px;
+  font-size: 16px;
+}
+.hero-actions .btn:first-child {
+  background: #eee6d3;
+  color: #163c2e;
+  border-color: #eee6d3;
+}
+.hero-actions .btn:nth-child(2) {
+  background: transparent;
+  border: 1px solid #d8e1d6;
+  color: #fff;
+}
+.hero-stats {
+  justify-content: flex-start;
+  gap: 40px;
+  max-width: 760px;
+}
+.hero-stats strong {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: #f4ebd5;
+}
+.hero-stats span {
+  color: #e3eae1;
+  font-size: 13px;
+}
+.hero-bg-img:after {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 48, 35, 0.92),
+    rgba(15, 48, 35, 0.48)
+  );
+}
+.cat-strip {
+  --cat-line: #d8cfae;
+  background: var(--forest-deep);
+  border-color: var(--forest-deep);
+}
+.cat-item {
+  color: #f4efe0;
+  border-color: var(--cat-line);
+}
+.cat-item:hover {
+  background: #0a6636;
+}
+.cat-count {
+  font-weight: 600;
+  color: #f4efe0;
+}
+.cat-name {
+  color: #d8cfae;
+}
+.about-story h2 {
+  font-size: clamp(29px, 3vw, 40px);
+}
+section {
+  padding-block: 72px;
+}
+.about-story-photo {
+  border-radius: 8px;
+}
+.lot {
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.lot-grid {
+  gap: 24px;
+}
+.lot-name {
+  font-size: 21px;
+  font-weight: 600;
+}
+.lot-info-btn {
+  background: #e8eee5;
+  border: 1px solid #d1ddd0;
+  color: #234c37;
+  min-height: 46px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.lot-info-btn:hover {
+  background: #d9e5d5;
+  color: #153e30;
+  border-color: #abc1ab;
+  box-shadow: none;
+}
+.lot-add {
+  background: var(--forest) !important;
+  border-color: var(--forest) !important;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.lot-media {
+  background: #f6f6f0;
+}
+.lot-media img {
+  object-fit: contain;
+}
+.filter-chip {
+  border-radius: 5px;
+  font-weight: 500;
+}
+.filter-chip.is-active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #fff;
+}
+.catalog-foot {
+  font-size: 14px;
+}
+.lot-num,
+.lot-tag,
+.lot-badge {
+  font-size: 12px;
+}
+.lot-tag {
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+#katalog {
+  background: #f7f4ec;
+}
+#produk-unggulan {
+  background: #fff;
+}
+#cara-pesan {
+  background: #163f31;
+  color: #e9eee6;
+}
+#cara-pesan h2,
+#cara-pesan h3,
+#cara-pesan .section-kicker {
+  color: #f4edda;
+}
+#cara-pesan p,
+#cara-pesan .step-desc {
+  color: #d3dfd1;
+}
+#cara-pesan .step-num {
+  background: transparent;
+  color: #e4d1a0;
+  border: 1px solid #6c8974;
+  box-shadow: none;
+}
+#testimoni {
+  background: #f4f5f1;
+}
+.testi-card {
+  background: #fffcf5;
+  border: 1px solid #dcd9ca;
+  border-radius: 8px;
+  box-shadow: none;
+}
+.testi-quote {
+  font-family: var(--main-font);
+  font-size: 17px;
+  font-style: normal;
+  line-height: 1.8;
+}
+.testi-avatar {
+  background: #e4e9dc;
+  color: #284d39;
+}
+.service-teaser {
+  background: #fff;
+  border: 0;
+}
+.faq-teaser {
+  background: #f4f5f1;
+}
+.faq-teaser h2 {
+  font-size: clamp(30px, 3.4vw, 44px);
+}
+.coverage {
+  background: #214e3d;
+  color: #e8ede4;
+}
+.coverage h2,
+.coverage h3,
+.coverage .section-kicker {
+  color: #f2e8d2;
+}
+.coverage p {
+  color: #e3eadd;
+}
+.coverage .btn {
+  background: #eee5cf;
+  color: #1b402f;
+  border-color: #eee5cf;
+}
+.about-hero {
+  padding: 52px 0 64px;
+  background: #f0ebdf;
+}
+.about-hero h1 {
+  font-size: clamp(36px, 4.4vw, 58px);
+  max-width: 850px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+.about-hero p {
+  font-size: 17px;
+  max-width: 670px;
+  color: #516254;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #566757;
+  letter-spacing: 0;
+}
+.why {
+  background: #1c4636;
+  color: #e6eddf;
+}
+.why h2,
+.why h3,
+.why .section-kicker {
+  color: #f0e6d0;
+}
+.why p {
+  color: #d7e0d1;
+}
+.why .why-card {
+  background: transparent;
+  border-color: #64816b;
+}
+.value-num {
+  color: #8b7038;
+}
+.contact-route {
+  background: #214e3d;
+}
+.contact-route h2,
+.contact-route .section-kicker {
+  color: #eee5d1;
+}
+.contact-route p {
+  color: #e1e9db;
+}
+.contact-route .btn {
+  color: #eee5d1;
+  border-color: #d9dfcf;
+}
+.contact-card {
+  border: 1px solid #d7ded1;
+  border-radius: 8px;
+  background: #faf8f1;
+  box-shadow: none;
+}
+.contact-field select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b7c5b6;
+  background: white;
+  border-radius: 5px;
+}
+.contact-field small {
+  display: block;
+  margin-top: 8px;
+  color: #5a6d5d;
+}
+.contact-info dt {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.contact-info dd {
+  font-size: 17px;
+}
+footer {
+  background: #12382b !important;
+  padding-top: 56px;
+  user-select: text;
+  color: #d6dfd2;
+}
+.footer-brand strong {
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+.footer-brand p,
+.footer-cols a,
+.footer-bottom {
+  font-size: 14px;
+  color: #d6dfd2;
+}
+.footer-cols h4 {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+.footer-cols a {
+  min-height: 30px;
+}
+.footer-whatsapp {
+  font-size: 14px;
+  color: #e5dac0;
+}
+.back-to-top {
+  border-radius: 6px;
+  background: #eee5d1;
+  color: #204932;
+  border: 1px solid #b5c0a9;
+}
+
+.cart-panel {
+  width: min(460px, 100%);
+  background: #fffdf6;
+}
+.cart-panel-head {
+  background: #f0ecdf;
+}
+.cart-panel-head strong {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.cart-region label {
+  font-size: 15px;
+}
+.cart-region-hint {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cart-panel-foot {
+  gap: 10px;
+}
+.cart-panel-foot .btn {
+  font-size: 14px;
+}
+.product-modal {
+  background: #ffffff;
+  border-radius: 8px;
+}
+.product-modal .lot-info-btn {
+  background: #e4ebdf;
+}
+.product-modal-body h3 {
+  font-weight: 600;
+}
+.product-modal .product-modal-desc {
+  color: #536153;
+}
+/* FAQ — editorial introduction with a practical, searchable knowledge index. */
+.help-hero {
+  background: #f4f5f1;
+  padding: 48px 0 64px;
+  border-bottom: 1px solid #dcd9ca;
+}
+.help-hero-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 96px;
+  align-items: center;
+}
+.help-hero .breadcrumb {
+  margin-bottom: 32px;
+}
+.help-hero h1 {
+  font-size: clamp(38px, 4.3vw, 60px);
+  line-height: 1.06;
+  font-weight: 500;
+  margin: 20px 0 24px;
+  letter-spacing: -0.045em;
+}
+.help-hero h1 > span {
+  color: #5c755c;
+}
+.help-hero p {
+  max-width: 510px;
+  font-size: 17px;
+  color: #506350;
+}
+.help-search-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 28px 0 8px;
+}
+.help-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fffefa;
+  border: 1px solid #b9c2b2;
+  border-radius: 6px;
+  min-height: 60px;
+  padding: 4px 16px;
+  max-width: 590px;
+}
+.help-search > span {
+  font-size: 30px;
+  color: #355744;
+}
+.help-search input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  min-width: 0;
+  font-size: 15px;
+  outline: none;
+  padding: 12px 0;
+  color: #294331;
+}
+.help-search:focus-within {
+  outline: 3px solid #b1862f;
+  outline-offset: 3px;
+}
+.help-search input:focus-visible {
+  outline: none !important;
+}
+.help-search kbd {
+  padding: 0 8px;
+  border: 1px solid #d2d6c8;
+  color: #6a7966;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.help-guide {
+  background: #1d4636;
+  color: #e9eee1;
+  border-radius: 8px;
+  padding: 36px 32px;
+  position: relative;
+}
+.guide-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #d5d9c1;
+  font-weight: 600;
+}
+.help-guide h2 {
+  color: #f2e8d0;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 20px 0 32px;
+  letter-spacing: -0.035em;
+}
+.help-guide ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.help-guide li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  border-top: 1px solid #65836c;
+  padding: 18px 0;
+}
+.help-guide li > span {
+  font-size: 12px;
+  color: #e3d0a0;
+}
+.help-guide li strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.help-guide li p {
+  font-size: 14px;
+  color: #d6dfcc;
+  margin: 4px 0 0;
+}
+.help-guide > a {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #65836c;
+  margin-top: 12px;
+  padding-top: 20px;
+  font-size: 15px;
+  color: #f0e6ce;
+  min-height: 48px;
+}
+.help-body {
+  padding: 64px 0 80px;
+}
+.help-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+.help-sidebar {
+  position: sticky;
+  top: 120px;
+}
+.help-tabs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 4px;
+}
+.help-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  border-radius: 5px;
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #435844;
+  gap: 8px;
+  min-height: 48px;
+}
+.help-tabs button span {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.help-tabs button[aria-pressed="true"] {
+  background: #214e3d;
+  color: #fff;
+}
+.help-tabs button:hover:not([aria-pressed="true"]) {
+  background: #f0f0e6;
+}
+.help-side-note {
+  margin-top: 32px;
+  border-top: 1px solid #d9ddd1;
+  padding-top: 24px;
+}
+.help-side-note strong {
+  font-size: 15px;
+}
+.help-side-note p {
+  font-size: 14px;
+  color: #667462;
+  margin-top: 8px;
+}
+.help-results-head {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.help-results-head h2 {
+  font-size: 28px;
+}
+.help-results-head > span {
+  font-size: 13px;
+  white-space: nowrap;
+  color: #586958;
+}
+.help-item {
+  border-top: 1px solid #d3dace;
+}
+.help-item:last-child {
+  border-bottom: 1px solid #d3dace;
+}
+.help-item summary {
+  /* 3 anak: nomor, teks pertanyaan, ikon "+" — tapi grid-template-columns
+     di bawah cuma mendefinisikan 2 kolom. Akibatnya anak ke-3 (teks
+     pertanyaan) kebagian kolom sempit 24px dan ikon "+" terlempar ke
+     baris baru. Perbaikan: 3 kolom, kolom tengah yang melebar. */
+  display: grid;
+  grid-template-columns: 28px 1fr 24px;
+  align-items: baseline;
+  gap: 16px;
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 0;
+  color: #244333;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.help-item summary::-webkit-details-marker {
+  display: none;
+}
+.question-number {
+  font-size: 11px;
+  color: #73846d;
+  font-variant-numeric: tabular-nums;
+}
+.help-plus {
+  font-size: 22px;
+  line-height: 1;
+}
+.help-item[open] {
+  background: #f8f8f0;
+}
+.help-item[open] .help-plus {
+  transform: rotate(45deg);
+}
+.help-answer {
+  padding: 0 40px 24px 46px;
+}
+.help-answer p {
+  margin: 0;
+  font-size: 15px;
+  color: #50644e;
+  line-height: 1.85;
+}
+.help-item summary:hover {
+  color: #627b4f;
+}
+.help-empty {
+  padding: 40px 24px;
+  background: #f3f0e5;
+  border-radius: 8px;
+}
+.help-empty h3 {
+  font-size: 23px;
+}
+.help-empty p {
+  margin-top: 12px;
+}
+.help-bottom {
+  background: #e9e3d4;
+  padding: 56px 0;
+}
+.help-bottom h2 {
+  font-size: clamp(29px, 3vw, 40px);
+}
+.help-bottom .teaser-row p {
+  margin-top: 16px;
+}
+.help-bottom .btn {
+  background: #214e3d;
+  color: white;
+}
+/* Region locator. Offline-capable pins + text alternatives. */
+.service-hero {
+  background: #f4f5f1;
+  padding: 48px 0 64px;
+}
+.service-hero h1 {
+  font-size: clamp(38px, 4.6vw, 62px);
+  font-weight: 500;
+  max-width: 870px;
+  line-height: 1.08;
+}
+.service-hero h1 span {
+  color: #5c755c;
+}
+.service-hero p {
+  font-size: 17px;
+  max-width: 630px;
+}
+.branch-section {
+  padding: 64px 0;
+}
+.branch-explorer {
+  display: grid;
+  grid-template-columns: 205px minmax(0, 1fr) 280px;
+  border: 1px solid #cdd7c8;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fffefa;
+}
+.branch-sidebar {
+  background: #f8f7ef;
+  padding: 24px 16px;
+  border-right: 1px solid #d8dfd1;
+}
+.branch-sidebar label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.branch-sidebar input {
+  width: 100%;
+  border: 1px solid #bcc9b6;
+  border-radius: 5px;
+  background: white;
+  padding: 10px;
+  font-size: 14px;
+}
+.branch-sidebar .location-list {
+  max-height: 520px;
+  padding: 3px 0;
+  gap: 2px;
+}
+.branch-sidebar .location-option {
+  font-size: 14px;
+  min-height: 44px;
+  padding: 8px 10px;
+}
+.location-option[aria-pressed="true"] {
+  background: #214e3d;
+}
+.other-region {
+  border: 0;
+  border-top: 1px solid #d8dfd1;
+  background: transparent;
+  color: #284f35;
+  font-size: 13px;
+  margin-top: 16px;
+  padding: 16px 0 0;
+  text-align: left;
+  width: 100%;
+}
+.branch-canvas {
+  background: #eef2e9;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.map-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 20px 0;
+  font-size: 10px;
+  color: #52694f;
+  letter-spacing: 0.12em;
+}
+.map-stage {
+  position: relative;
+  height: 530px;
+  width: 100%;
+  margin: 10px 0;
+}
+.map-stage > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.map-sea {
+  position: absolute;
+  top: 63%;
+  left: 5%;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #536e62;
+  writing-mode: vertical-rl;
+}
+.map-north {
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  font-size: 14px;
+  color: #345b45;
+}
+.branch-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  z-index: 1;
+}
+.pin-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #587c5d;
+  border: 3px solid #fffdf6;
+  box-shadow: 0 0 0 1px #476d50;
+  transition: transform 0.15s;
+}
+.pin-label {
+  position: absolute;
+  top: calc(50% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fbfcf5ef;
+  border: 1px solid #c7d3bf;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #284831;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.branch-pin[aria-pressed="true"] {
+  z-index: 2;
+}
+.branch-pin[aria-pressed="true"] .pin-dot {
+  background: #143e2c;
+  box-shadow: 0 0 0 6px #214e3d24;
+  transform: scale(1.2);
+}
+.branch-pin[aria-pressed="true"] .pin-label {
+  background: #214e3d;
+  color: #fff;
+  border-color: #214e3d;
+  font-weight: 600;
+}
+.branch-pin:hover .pin-dot {
+  transform: scale(1.3);
+}
+.map-caption {
+  font-size: 12px;
+  color: #53664f;
+  margin: 0;
+  padding: 16px 20px;
+  border-top: 1px solid #d2ddca;
+}
+.sales-card {
+  border-left: 1px solid #d8dfd1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.sales-card .section-kicker {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.demo-badge {
+  display: inline-block;
+  margin-top: 24px;
+  background: #f0e7d3;
+  color: #6e5a31;
+  padding: 3px 7px;
+  font-size: 11px;
+  border-radius: 3px;
+}
+.sales-card h3 {
+  font-size: 32px;
+  margin: 12px 0 4px;
+}
+.sales-card > p {
+  font-size: 14px;
+  color: #627359;
+  margin-bottom: 16px;
+}
+.sales-number {
+  border-block: 1px solid #d8dfd1;
+  padding: 20px 0;
+  width: 100%;
+  margin: 8px 0 20px;
+}
+.sales-number > span {
+  font-size: 12px;
+  color: #60715b;
+  display: block;
+}
+.sales-number strong {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  display: block;
+  color: #244932;
+}
+.sales-number small {
+  font-size: 12px;
+  color: #775c2e;
+}
+.sales-card .btn {
+  width: 100%;
+  font-size: 13px;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.sales-card > .text-link {
+  font-size: 13px;
+}
+.sales-card > small {
+  font-size: 12px;
+  color: #5a6a51;
+}
+.sales-card .region-saved {
+  font-size: 13px;
+  margin: 6px 0 0;
+  color: #245837;
+}
+.sales-card .region-saved:empty {
+  display: none;
+}
+.branch-note {
+  display: flex;
+  gap: 24px;
+  padding: 20px 24px;
+  background: #f5f1e7;
+  border-left: 3px solid #a88c53;
+  margin-top: 24px;
+  font-size: 14px;
+}
+.branch-note strong {
+  flex: 0 0 210px;
+  color: #5c543a;
+}
+.branch-note p {
+  margin: 0;
+  color: #5e604b;
+  font-size: 14px;
+}
+.service-process {
+  background: #214e3d;
+  color: #e3e9dc;
+}
+.service-process h2,
+.service-process h3,
+.service-process .section-kicker {
+  color: #f0e5cd;
+}
+.service-process p {
+  color: #d6e2d0;
+}
+.service-steps article > span {
+  color: #e7d6a3;
+}
+.service-steps .text-link {
+  color: #e7d6a3;
+}
+.service-steps article {
+  border-color: #739276;
+}
+/* Real modal dialog: native keyboard trap, Escape and restored focus. */
+body.preview-open {
+  overflow: hidden;
+}
+.sales-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(600px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  border: 1px solid #c9d3c2;
+  border-radius: 10px;
+  padding: 36px;
+  background: #fffdf6;
+  color: #24402f;
+  box-shadow: 0 24px 70px #0b29194d;
+}
+.sales-dialog::backdrop {
+  background: #102e22b8;
+}
+.sales-dialog h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 18px 0 24px;
+}
+.preview-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d2dacc;
+  border-radius: 50%;
+  font-size: 26px;
+  background: transparent;
+  color: #2b4f38;
+  line-height: 1;
+}
+.preview-recipient {
+  display: flex;
+  flex-direction: column;
+  background: #eaf0e4;
+  padding: 16px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  gap: 4px;
+}
+.preview-recipient > span {
+  font-size: 14px;
+}
+.preview-recipient strong {
+  font-size: 22px;
+  font-weight: 500;
+}
+.preview-notice {
+  font-size: 14px;
+  color: #756033;
+  line-height: 1.65;
+}
+.sales-dialog label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+}
+.sales-dialog label small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5d6e53;
+}
+.sales-dialog textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #a9baa0;
+  border-radius: 5px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  background: white;
+  color: #304b35;
+  min-height: 170px;
+}
+.preview-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.preview-actions .btn {
+  flex: 1;
+}
+.copy-status {
+  font-size: 14px;
+  color: #335f37;
+  margin: 12px 0;
+}
+.sales-dialog > small {
+  display: block;
+  font-size: 12px;
+  color: #5d6f53;
+}
+.sales-dialog .section-kicker {
+  padding-right: 40px;
+  display: block;
+}
+@media (min-width: 981px) and (max-width: 1240px) {
+  .main-nav {
+    gap: 14px;
+  }
+  .header-actions .btn-outline {
+    display: none;
+  }
+  .brand-text span {
+    display: none;
+  }
+  .help-hero-grid {
+    gap: 48px;
+  }
+  .branch-explorer {
+    grid-template-columns: 190px minmax(0, 1fr) 250px;
+  }
+  .sales-card {
+    padding: 22px 16px;
+  }
+}
+@media (max-width: 980px) {
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .help-hero-grid {
+    gap: 32px;
+    grid-template-columns: 1.45fr 1fr;
+  }
+  .help-guide {
+    padding: 28px 24px;
+  }
+  .help-guide h2 {
+    font-size: 34px;
+  }
+  .help-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+  }
+  .branch-explorer {
+    grid-template-columns: 210px 1fr;
+  }
+  .sales-card {
+    grid-column: 1/-1;
+    border-left: 0;
+    border-top: 1px solid #d8dfd1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+  }
+  .sales-card > * {
+    margin: 0 !important;
+  }
+  .sales-card .section-kicker,
+  .sales-card .demo-badge {
+    grid-column: 1;
+  }
+  .sales-card .sales-number {
+    grid-column: 2;
+    grid-row: 1/5;
+  }
+  .sales-card h3 {
+    margin-top: 8px !important;
+  }
+  .sales-card .btn {
+    align-self: start;
+  }
+  .map-stage {
+    height: 580px;
+  }
+  .branch-sidebar .location-list {
+    max-height: 560px;
+  }
+  .branch-note {
+    display: block;
+  }
+  .branch-note p {
+    margin-top: 8px;
+  }
+  .help-results-head {
+    display: block;
+  }
+  .help-results-head > span {
+    display: block;
+    margin-top: 8px;
+  }
+}
+@media (max-width: 700px) {
+  .wrap {
+    padding-inline: 20px;
+  }
+  .header-row {
+    min-height: 76px;
+  }
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+  .brand-text strong {
+    font-size: 21px;
+  }
+  .header-actions .btn {
+    display: none;
+  }
+  .hero {
+    padding: 56px 0 44px;
+    min-height: 0;
+  }
+  .hero .hero-grid {
+    padding-inline: 20px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    max-width: 18ch;
+    font-weight: 500;
+    line-height: 1.08;
+  }
+  .hero-lede {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .hero-stats > div:last-child {
+    grid-column: 1/-1;
+  }
+  .hero-stats strong {
+    font-size: 21px;
+  }
+  .hero-stats span {
+    font-size: 12px;
+  }
+  .hero-actions {
+    gap: 10px;
+  }
+  .hero-actions .btn {
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+  .cat-item {
+    border-color: var(--cat-line, #d8cfae);
+    border-bottom-color: var(--cat-line, #d8cfae) !important;
+  }
+  .cat-name,
+  .cat-count {
+    font-size: 13px;
+  }
+  section {
+    padding-block: 44px;
+  }
+  .section-head h2 {
+    font-size: 30px;
+  }
+  .about-hero,
+  .service-hero {
+    padding: 32px 0 40px;
+  }
+  .about-hero h1,
+  .service-hero h1 {
+    font-size: 38px;
+    letter-spacing: -0.04em;
+  }
+  .about-hero p,
+  .service-hero p {
+    font-size: 16px;
+  }
+  .about-story h2 {
+    font-size: 31px;
+  }
+  .faq-teaser h2,
+  .help-bottom h2 {
+    font-size: 32px;
+  }
+  .help-hero {
+    padding: 28px 0 36px;
+  }
+  .help-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .help-hero .breadcrumb {
+    margin-bottom: 24px;
+  }
+  .help-hero h1 {
+    font-size: 41px;
+    line-height: 1.06;
+  }
+  .help-hero p {
+    font-size: 16px;
+  }
+  .help-search {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .help-search input {
+    font-size: 14px;
+  }
+  .help-search kbd {
+    display: none;
+  }
+  .help-guide {
+    padding: 28px 24px;
+  }
+  .help-guide h2 {
+    font-size: 34px;
+    margin: 16px 0 24px;
+  }
+  .help-guide li {
+    padding: 16px 0;
+  }
+  .help-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .help-sidebar {
+    position: static;
+  }
+  .help-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .help-tabs button {
+    padding: 10px 12px;
+    border: 1px solid #d5dccd;
+    min-height: 44px;
+    font-size: 13px;
+    gap: 12px;
+  }
+  .help-side-note {
+    display: none;
+  }
+  .help-body {
+    padding: 36px 0 48px;
+  }
+  .help-results-head h2 {
+    font-size: 27px;
+  }
+  .help-item summary {
+    grid-template-columns: 22px 1fr 16px;
+    gap: 10px;
+    font-size: 16px;
+    padding: 20px 0;
+  }
+  .help-answer {
+    padding: 0 16px 20px 32px;
+  }
+  .help-answer p {
+    font-size: 14px;
+  }
+  .help-bottom {
+    padding: 40px 0;
+  }
+  .branch-section {
+    padding: 40px 0;
+  }
+  .branch-explorer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .branch-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #d8dfd1;
+    padding: 20px;
+  }
+  .branch-sidebar .location-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 185px;
+    gap: 4px;
+  }
+  .branch-sidebar .location-option {
+    font-size: 13px;
+  }
+  .other-region {
+    padding: 10px 0 0;
+    margin-top: 8px;
+  }
+  .map-stage {
+    height: 550px;
+  }
+  .map-topline {
+    font-size: 9px;
+  }
+  .pin-label {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+  .map-caption {
+    font-size: 12px;
+  }
+  .sales-card {
+    grid-column: auto;
+    display: flex;
+    padding: 24px;
+    gap: 0;
+  }
+  .sales-card .demo-badge {
+    margin-top: 20px !important;
+  }
+  .sales-card h3 {
+    margin-top: 14px !important;
+  }
+  .sales-card #salesName {
+    margin: 6px 0 12px !important;
+  }
+  .sales-card .sales-number {
+    margin: 10px 0 18px !important;
+  }
+  .sales-card #salesAddress {
+    margin-bottom: 18px !important;
+  }
+  .sales-card .btn {
+    margin-bottom: 10px !important;
+    font-size: 14px;
+  }
+  .sales-card .region-saved {
+    margin: 6px 0 !important;
+  }
+  .branch-note {
+    padding: 18px;
+  }
+  .service-steps {
+    gap: 28px;
+  }
+  .sales-dialog {
+    padding: 28px 20px 24px;
+    max-height: calc(100dvh - 24px);
+  }
+  .sales-dialog h2 {
+    font-size: 28px;
+    margin-top: 24px;
+  }
+  .preview-actions {
+    flex-direction: column;
+  }
+  .preview-close {
+    top: 8px;
+    right: 8px;
+  }
+  .sales-dialog .section-kicker {
+    font-size: 10px;
+  }
+  .cart-panel-foot .btn {
+    font-size: 13px;
+    padding-inline: 12px;
+  }
+  .footer-cols {
+    gap: 32px;
+  }
+  .footer-bottom {
+    gap: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* Final contrast and icon pass. */
+#cara-pesan .step {
+  background: transparent;
+  border: 1px solid #78937b;
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: none;
+}
+#cara-pesan .step-num {
+  border: 0;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#cara-pesan .step h3 {
+  font-size: 18px;
+}
+#cara-pesan .step p {
+  font-size: 15px;
+}
+.why .value-card {
+  background: transparent;
+  border: 1px solid #78937b;
+  box-shadow: none;
+  border-radius: 6px;
+}
+.why .value-num {
+  color: #e1ca92;
+  font-weight: 500;
+}
+.why .value-card h3 {
+  font-size: 18px;
+}
+.why .value-card p {
+  font-size: 15px;
+}
+.coverage .btn-outline {
+  background: transparent !important;
+  color: #f2e8d2 !important;
+  border-color: #c6d4bd !important;
+}
+.nav-caret {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  font-size: 0;
+  margin-left: 4px;
+}
+.help-search > span {
+  display: block;
+  position: relative;
+  font-size: 0;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border: 1.5px solid #49664e;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.help-search > span:after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 1.5px;
+  background: #49664e;
+  right: -5px;
+  bottom: -3px;
+  transform: rotate(45deg);
+}
+@media (min-width: 701px) {
+  .branch-sidebar .location-list {
+    max-height: none;
+  }
+  .map-stage {
+    height: 570px;
+  }
+}
+@media (max-width: 700px) {
+  .lot-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lot-actions .qty-stepper {
+    align-self: flex-start;
+  }
+  .lot-actions .lot-add {
+    width: 100%;
+    flex: auto;
+    min-height: 46px;
+  }
+}
+
+/* ============================================================
+   FINAL EDITORIAL PASS
+   Satu sistem tipografi, warna tenang, dan komponen tanpa efek dekoratif berlebih.
+   ============================================================ */
+:root {
+  --paper: #ffffff;
+  --paper-deep: #f4f5f1;
+  --cream-card: #ffffff;
+  --ink: #1f2b25;
+  --ink-soft: #5d6862;
+  --forest: #285b45;
+  --forest-deep: #1d4635;
+  --forest-mid: #47735f;
+  --sage: #607568;
+  --mustard: #eee6d2;
+  --mustard-deep: #8a6f3f;
+  --brick: #8b5148;
+  --line: #dfe3df;
+  --line-soft: #eceeeb;
+  --radius: 8px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+html,
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+.section-kicker,
+.hero-eyebrow,
+.lot,
+.lot-grid,
+.lot-name,
+.lot-num,
+.lot-tag,
+.lot-badge {
+  font-family: var(--main-font);
+}
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.section-kicker,
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.hero-eyebrow {
+  color: #e3d4ae;
+}
+.section-kicker {
+  color: var(--forest-mid);
+}
+.page-header,
+#katalog,
+.hero,
+.cta-banner,
+.sales-strip,
+.category-band,
+#cara-pesan {
+  background-image: none !important;
+}
+.site-header,
+.btn,
+.filter-chip,
+.search-box,
+.product-modal,
+.cart-panel,
+.mobile-drawer {
+  box-shadow: none !important;
+}
+.site-header {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.lot {
+  /* Kartu produk: sudut 2px (nyaris siku) diganti lengkungan lembut,
+     padding ditambah sedikit supaya kartu terasa lebih lapang. */
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.lot:hover {
+  border-color: #1e7a4c;
+  box-shadow: 0 10px 28px rgba(8, 85, 45, 0.14);
+}
+.lot-media {
+  /* Kotak foto: lengkungan menyesuaikan sudut kartu di atas (proporsional,
+     bukan sekadar ikut angka yang sama). */
+  background: #f4f5f1;
+  border-color: var(--line-soft);
+  border-radius: 10px;
+}
+.lot-media img {
+  transition: transform 0.35s ease;
+}
+.lot:hover .lot-media img {
+  transform: scale(1.04);
+}
+.lot-num {
+  color: #68736d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+.lot-name {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.lot-active {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.lot-specs dt {
+  color: #6b756f;
+  font-size: 12px;
+}
+.lot-specs dd {
+  color: #26342d;
+  font-size: 13px;
+}
+.lot-desc {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.lot-tag,
+.lot-badge {
+  /* Tag & badge jadi pil penuh — kontras sengaja dibuat dengan kartu yang
+     melengkung lembut (bukan pil), supaya keduanya tetap kelihatan beda
+     peran, bukan seragam serba-bulat. */
+  border-radius: 999px;
+  box-shadow: none;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+}
+.tag-hayati {
+  background: #446955;
+  color: #fff;
+}
+.filter-chip {
+  min-height: 44px;
+  border-radius: 6px;
+  padding-inline: 16px;
+}
+.filter-chip.is-active {
+  box-shadow: none;
+}
+.btn,
+.lot-add,
+.lot-info-btn,
+.qty-stepper {
+  /* Tombol & stepper: lengkungan dinaikkan supaya senada dengan kartu,
+     tapi tetap kotak (bukan pil) untuk membedakan peran dari tag/badge. */
+  border-radius: 10px;
+}
+.btn:hover,
+.lot-info-btn:hover,
+.lot-add:hover {
+  transform: none;
+  box-shadow: none;
+}
+.lot-media-placeholder {
+  cursor: zoom-in;
+}
+.lot-media-placeholder img {
+  padding: 28px;
+}
+.lot-new {
+  border-color: #cbd5ce;
+}
+.image-unavailable {
+  border: 0;
+  background: #f4f5f1;
+  color: #58655e;
+  min-height: 100%;
+}
+.image-unavailable::before {
+  content: "";
+  width: 42px;
+  height: 42px;
+  border: 1px solid #a9b5ad;
+  border-radius: 50%;
+}
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+  .section-kicker,
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.045em;
+  }
+  .lot {
+    padding: 16px;
+  }
+  .lot-name {
+    font-size: 19px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ============================================================
+   KONTAK — WhatsApp cepat
+   Pilih daerah, lalu chat sales wilayah tanpa mengisi formulir.
+   ============================================================ */
+.contact-info .wa-title {
+  display: block;
+}
+.wa-quick,
+.wa-fallback {
+  margin-top: 12px;
+}
+.wa-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wa-quick select {
+  flex: 1 1 170px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid #b7c5b6;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+  font: 500 15px/1.2 var(--main-font);
+}
+.wa-quick .btn,
+.wa-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.wa-quick .btn {
+  flex: 0 0 auto;
+  padding: 0 20px;
+}
+.wa-quick-icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.wa-quick + small,
+.wa-fallback + small {
+  margin-top: 14px;
+}
+.contact-info dd small.is-warning {
+  color: var(--brick);
+}
+@media (max-width: 600px) {
+  .wa-quick select {
+    font-size: 16px; /* cegah auto-zoom di iOS */
+  }
+}
+
+/* ============================================================
+   SARING PRODUK — dropdown Kategori & Tanaman (checkbox, multi-pilih)
+   Menggantikan strip chip lama; logika filternya ada di main.js.
+   ============================================================ */
+.saring-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.saring-label {
+  margin-right: 4px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+}
+.filter-dropdown {
+  position: relative;
+}
+.filter-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 58px;
+  padding: 0 26px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font: 600 16.5px var(--main-font);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+.filter-dropdown-btn:hover {
+  border-color: var(--forest-mid);
+}
+.filter-dropdown-btn[aria-expanded="true"],
+.filter-dropdown-btn.has-value {
+  border-color: var(--forest);
+  color: var(--forest-deep);
+}
+.filter-dropdown-count {
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--forest);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.filter-dropdown-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+.filter-dropdown-icon::before,
+.filter-dropdown-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transition: transform 0.15s ease;
+}
+.filter-dropdown-icon::before {
+  width: 12px;
+  height: 2px;
+  translate: -50% -50%;
+}
+.filter-dropdown-icon::after {
+  width: 2px;
+  height: 12px;
+  translate: -50% -50%;
+}
+.filter-dropdown-btn[aria-expanded="true"] .filter-dropdown-icon::after {
+  transform: rotate(90deg);
+}
+.filter-dropdown-panel {
+  /* Catatan: grid checkbox ada di .filter-dropdown-options (di bawah),
+     BUKAN di elemen ini. Sebelumnya baris Hapus/Terapkan ikut ditaruh di
+     grid yang sama lewat grid-row:3, dan itu membuat grid salah hitung
+     jumlah kolom — checkbox terakhir (mis. "Karet") jadi terlempar ke
+     baris/kolom yang salah. Memisahkan keduanya membuat perhitungan grid
+     jadi sederhana & selalu benar, berapa pun jumlah pilihannya. */
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 20;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  translate: 6px 0;
+}
+.filter-dropdown-options {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  column-gap: 22px;
+  row-gap: 6px;
+  margin-bottom: 12px;
+}
+.filter-check {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.filter-check:hover {
+  background: var(--paper-deep);
+}
+.filter-check input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--forest);
+  flex: none;
+}
+.filter-dropdown-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.filter-dropdown-clear {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font: 500 13.5px var(--main-font);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.filter-dropdown-apply {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--forest);
+  color: #fff;
+  font: 600 13.5px var(--main-font);
+  cursor: pointer;
+}
+.filter-dropdown-apply:hover {
+  background: var(--forest-deep);
+}
+.saring-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font: 500 13px var(--main-font);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.active-filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.active-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-deep);
+  color: var(--forest-deep);
+  font: 500 13px var(--main-font);
+  cursor: pointer;
+}
+.active-filter-tag:hover {
+  border-color: var(--forest-mid);
+}
+.active-filter-tag span {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  /* Tombol Kategori & Tanaman jadi satu baris penuh masing-masing
+     (bukan berdampingan), supaya posisinya di layar selalu bisa
+     ditebak — dan panelnya bisa dibuat selebar itu juga (bukan
+     mengikuti lebar tombol yang bisa ada di kiri atau kanan). */
+  .filter-dropdown {
+    flex: 1 1 100%;
+  }
+  .filter-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .filter-dropdown-panel {
+    /* Sebelumnya width:max-content + right:0 di sini bisa membuat
+       panel dipaksa lebih lebar dari layar dan terpotong ke kanan
+       tanpa cara untuk digeser (tidak ada scroll). Sekarang panel
+       selalu persis selebar tombolnya (yang sudah 100% lebar layar
+       di atas), jadi tidak mungkin meluber ke luar layar. */
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: none;
+    translate: 0 0;
+  }
+  .filter-dropdown-options {
+    /* 2 kolom yang membungkus baris sesuai kebutuhan (bukan dipaksa
+       tepat 2 baris) — supaya label panjang seperti "Alat Semprot"
+       tetap kebaca, bukan dipepetkan. */
+    grid-template-rows: none;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 14px;
+    row-gap: 2px;
+  }
+}

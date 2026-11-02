@@ -1,0 +1,858 @@
+/* ============================================================
+   ASJ GROUP — LAPISAN INTERAKSI
+   Dimuat PALING AKHIR (setelah ui-refresh.css / tambahan.css).
+   Hanya menambah perilaku: hover, tekan, fokus, buka-tutup, muncul.
+   Tidak mengubah warna atau tata letak yang sudah ada.
+
+   Aturan main:
+   1. Yang bisa diklik bereaksi; yang tidak bisa diklik tetap diam.
+   2. Satu kurva gerak dan beberapa durasi saja, di seluruh situs.
+   3. Hover hanya untuk perangkat dengan mouse; semua perangkat dapat
+      umpan balik saat ditekan.
+   4. Gerak (transform/animasi) otomatis mati bila pengguna memilih
+      "kurangi gerakan". Perubahan warna tetap jalan.
+   ============================================================ */
+
+:root {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-fast: 0.15s;
+  --t-med: 0.25s;
+  --t-slow: 0.5s;
+  --press-scale: 0.97;
+}
+
+/* ---------- 1. Dasar kecil ---------- */
+::selection {
+  background: var(--brand, #1b6b43);
+  color: #fff;
+}
+html {
+  -webkit-tap-highlight-color: rgba(27, 107, 67, 0.14);
+  scrollbar-width: thin;
+  scrollbar-color: #a9b5ad var(--paper-deep, #f3f4ef);
+}
+.cart-panel,
+.product-modal-scroll,
+.location-list,
+.nav-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #a9b5ad transparent;
+}
+a[href],
+button,
+summary,
+select,
+label[for],
+[role="button"],
+[role="radio"],
+[role="tab"] {
+  cursor: pointer;
+}
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  accent-color: var(--brand, #1b6b43);
+}
+/* Tombol tidak ikut terblok saat diklik cepat dua kali; tanpa jeda ketuk di HP */
+.btn,
+.qty-btn,
+.lot-add,
+.slider-btn,
+.nav-arrow,
+.cart-bar-btn,
+.back-to-top,
+.menu-toggle,
+.help-tabs button,
+.pick {
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* ---------- 2. Tombol: transisi bersama ---------- */
+.btn,
+.lot-add,
+.lot-info-btn,
+.pm-ask-btn,
+.filter-dropdown-btn,
+.filter-dropdown-apply,
+.cart-bar-btn,
+.wa-float,
+.back-to-top,
+.qty-btn,
+.slider-btn,
+.nav-arrow,
+.help-tabs button,
+.pick,
+.pick-clear,
+.pick-more,
+.faq-btn,
+.komitmen-btn {
+  transition:
+    background-color var(--t-fast) ease,
+    border-color var(--t-fast) ease,
+    color var(--t-fast) ease,
+    opacity var(--t-fast) ease,
+    transform 0.18s var(--ease-out),
+    background-size 0.3s var(--ease-out);
+}
+
+/* Tombol outline: warna "menyapu" masuk dari kiri saat disentuh kursor */
+.btn-outline {
+  background-image: linear-gradient(#d7e8de, #d7e8de);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+}
+.btn-outline:hover {
+  background-color: transparent;
+  background-size: 100% 100%;
+}
+
+/* ---------- 3. Gerak (dimatikan bila "kurangi gerakan") ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hover: hanya mouse */
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover,
+    .lot-info-btn:hover,
+    .pm-ask-btn:hover,
+    .filter-dropdown-apply:hover,
+    .faq-btn:hover,
+    .komitmen-btn:hover {
+      transform: translateY(-1px);
+    }
+    .cart-bar-btn:hover,
+    .wa-float:hover,
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+    .slider-btn:hover,
+    .nav-arrow:hover {
+      transform: scale(1.06);
+    }
+    .pick:hover,
+    .pick-more:hover {
+      transform: translateY(-1px);
+    }
+    .help-tabs button:hover:not([aria-pressed="true"]) {
+      transform: translateY(-1px);
+    }
+  }
+  /* Tekan: semua perangkat (termasuk layar sentuh) */
+  .btn:active,
+  .lot-info-btn:active,
+  .pm-ask-btn:active,
+  .filter-dropdown-apply:active,
+  .faq-btn:active,
+  .komitmen-btn:active {
+    transform: translateY(1px) scale(0.985);
+    transition-duration: 0.05s;
+  }
+  .lot-add:active,
+  .cart-bar-btn:active,
+  .wa-float:active,
+  .back-to-top:active,
+  .pick:active,
+  .pick-more:active,
+  .pick-clear:active,
+  .help-tabs button:active,
+  .filter-dropdown-btn:active {
+    transform: scale(var(--press-scale));
+    transition-duration: 0.05s;
+  }
+  .qty-btn:active,
+  .slider-btn:active,
+  .nav-arrow:active,
+  .menu-toggle:active {
+    transform: scale(0.9);
+    transition-duration: 0.05s;
+  }
+
+  /* Panah di ujung tombol/tautan bergeser sesuai arahnya (dibungkus js/interaksi.js) */
+  .arr,
+  .faq-btn > span[aria-hidden="true"],
+  .komitmen-btn > span[aria-hidden="true"] {
+    display: inline-block;
+    transition: transform 0.25s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    a:hover > .arr,
+    button:hover > .arr,
+    a:focus-visible > .arr,
+    button:focus-visible > .arr,
+    .faq-btn:hover > span[aria-hidden="true"],
+    .komitmen-btn:hover > span[aria-hidden="true"] {
+      transform: translateX(4px);
+    }
+    a:hover > .arr[data-dir="up-right"],
+    button:hover > .arr[data-dir="up-right"],
+    .faq-btn:hover > span[aria-hidden="true"] {
+      transform: translate(3px, -3px);
+    }
+    a:hover > .arr[data-dir="up"],
+    button:hover > .arr[data-dir="up"],
+    .back-to-top:hover > .arr {
+      transform: translateY(-3px);
+    }
+    a:hover > .arr[data-dir="down"],
+    button:hover > .arr[data-dir="down"] {
+      transform: translateY(3px);
+    }
+    a:hover > .arr[data-dir="left"],
+    button:hover > .arr[data-dir="left"] {
+      transform: translateX(-4px);
+    }
+  }
+
+  /* Kartu produk: terangkat, bayangan lembut, foto sedikit membesar */
+  .lot {
+    transition:
+      border-color var(--t-fast) ease,
+      transform 0.3s var(--ease-out),
+      box-shadow 0.3s var(--ease-out);
+  }
+  .lot-media {
+    overflow: hidden;
+  }
+  .lot-media img {
+    transition: transform 0.6s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .lot:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 28px -18px rgba(18, 55, 42, 0.5);
+    }
+    .lot:hover .lot-media img {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Kartu/tautan kecil lain yang bisa diklik */
+  .cat-strip .cat-count {
+    transition: transform 0.3s var(--ease-out);
+  }
+  .recently-viewed-item,
+  .related-item,
+  .faq-quick a {
+    transition:
+      transform 0.2s var(--ease-out),
+      border-color var(--t-fast) ease,
+      background-color var(--t-fast) ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .cat-strip .cat-item:hover .cat-count {
+      transform: translateY(-2px);
+    }
+    .recently-viewed-item:hover,
+    .related-item:hover,
+    .faq-quick a:hover {
+      transform: translateY(-2px);
+    }
+    .footer-cols a {
+      transition:
+        color var(--t-fast) ease,
+        transform 0.2s var(--ease-out);
+    }
+    .footer-cols a:hover {
+      transform: translateX(3px);
+    }
+    .nav-dropdown a {
+      transition:
+        background-color var(--t-fast) ease,
+        color var(--t-fast) ease,
+        transform 0.2s var(--ease-out);
+    }
+    .nav-dropdown a:hover {
+      transform: translateX(3px);
+    }
+  }
+
+  /* Tambah ke pesanan: kabar baik berupa "memantul" kecil, bukan sekadar ganti warna */
+  .lot-add.is-added {
+    animation: asj-pop 0.42s var(--ease-out);
+  }
+  .cart-badge.is-bump {
+    animation: asj-bump 0.5s var(--ease-out);
+  }
+
+  /* Garis menu: masuk saat dihover, dan garis halaman aktif "ditarik" saat halaman dibuka */
+  nav.main-nav a.active::after {
+    animation: asj-underline 0.5s 0.1s var(--ease-out) both;
+  }
+  nav.main-nav > a::after,
+  nav.main-nav .nav-item-dropdown > a::after {
+    transition: transform 0.28s var(--ease-out);
+  }
+
+  /* Muncul halus saat di-scroll (kelas ditambahkan js/interaksi.js) */
+  .js-rv .rv {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .js-rv .rv.rv-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s var(--ease-out) var(--rv-d, 0ms),
+      transform 0.6s var(--ease-out) var(--rv-d, 0ms);
+  }
+
+  /* FAQ: jawaban membuka dengan halus (browser baru; lainnya langsung terbuka) */
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+    .help-item::details-content {
+      block-size: 0;
+      overflow: hidden;
+      transition:
+        block-size 0.35s var(--ease-out),
+        content-visibility 0.35s allow-discrete;
+    }
+    .help-item[open]::details-content {
+      block-size: auto;
+    }
+  }
+}
+
+@keyframes asj-pop {
+  0% {
+    transform: scale(0.94);
+  }
+  55% {
+    transform: scale(1.045);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes asj-bump {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes asj-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- 4. Menu navigasi: garis bawah yang menyapu ---------- */
+nav.main-nav > a,
+nav.main-nav .nav-item-dropdown > a {
+  position: relative;
+}
+nav.main-nav > a::after,
+nav.main-nav .nav-item-dropdown > a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--brand, #1b6b43);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+nav.main-nav > a:hover::after,
+nav.main-nav > a:focus-visible::after,
+nav.main-nav .nav-item-dropdown > a:hover::after,
+nav.main-nav .nav-item-dropdown:focus-within > a::after {
+  transform: scaleX(1);
+}
+nav.main-nav a.active::after {
+  transform: scaleX(1);
+}
+/* Garis menggantikan latar abu saat hover */
+nav.main-nav > a:hover,
+nav.main-nav .nav-item-dropdown > a:hover {
+  background: transparent;
+}
+
+/* ---------- 5. Tautan teks: garis bawah menebal ---------- */
+.text-link,
+.breadcrumb a {
+  transition:
+    color var(--t-fast) ease,
+    text-decoration-thickness var(--t-fast) ease,
+    text-underline-offset var(--t-fast) ease;
+}
+.text-link:hover {
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 6px;
+}
+
+/* ---------- 6. Form ---------- */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  transition:
+    border-color var(--t-fast) ease,
+    box-shadow var(--t-fast) ease,
+    background-color var(--t-fast) ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
+      :focus
+    ):hover,
+  select:not(:focus):hover,
+  textarea:not(:focus):hover {
+    border-color: var(--brand, #1b6b43);
+  }
+}
+
+/* ---------- 7. Header & FAQ ---------- */
+.site-header {
+  transition:
+    box-shadow var(--t-med) ease,
+    border-color var(--t-med) ease;
+}
+.site-header.is-scrolled {
+  box-shadow: 0 8px 20px -14px rgba(18, 55, 42, 0.45);
+}
+.help-plus {
+  transition: transform 0.3s var(--ease-out);
+  display: inline-block;
+}
+.help-item {
+  transition: background-color var(--t-med) ease;
+}
+.help-item summary {
+  transition: color var(--t-fast) ease;
+}
+
+/* ---------- 8. Cetak: semuanya tampil ---------- */
+@media print {
+  .js-rv .rv {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   HALAMAN FAQ (faq.html) — efek hover & tekan yang jelas
+   Semua aturan dibatasi body[data-page="faq"] agar halaman lain
+   tidak terpengaruh. Warna: hijau forest, krem, putih.
+   ============================================================ */
+
+/* ---- Kolom cari: menyala saat disentuh/ diketik ---- */
+body[data-page="faq"] .help-search {
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+body[data-page="faq"] .help-search > span[aria-hidden="true"] {
+  transition:
+    color 0.18s ease,
+    transform 0.25s var(--ease-out);
+}
+body[data-page="faq"] .help-search kbd {
+  transition:
+    opacity 0.2s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="faq"] .help-search:hover {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px rgba(27, 107, 67, 0.1);
+  }
+  body[data-page="faq"] .help-search:hover > span[aria-hidden="true"] {
+    color: var(--brand);
+  }
+  body[data-page="faq"] .help-search:hover kbd {
+    background: var(--paper-deep);
+    color: var(--brand-deep);
+  }
+}
+body[data-page="faq"] .help-search:focus-within {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(27, 107, 67, 0.16);
+}
+body[data-page="faq"] .help-search:focus-within > span[aria-hidden="true"] {
+  color: var(--brand);
+}
+body[data-page="faq"] .help-search:focus-within kbd {
+  opacity: 0;
+}
+
+/* ---- Breadcrumb ---- */
+body[data-page="faq"] .breadcrumb a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+body[data-page="faq"] .breadcrumb a:hover {
+  color: var(--brand);
+  text-decoration-color: currentColor;
+}
+
+/* ---- Panel "Satu alur": baris menyala saat disentuh ---- */
+body[data-page="faq"] .help-guide li {
+  margin-inline: -12px;
+  padding-inline: 12px;
+  border-radius: 8px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.25s var(--ease-out);
+}
+body[data-page="faq"] .help-guide li > span {
+  transition:
+    color 0.2s ease,
+    transform 0.25s var(--ease-out);
+}
+body[data-page="faq"] .help-guide li strong {
+  transition: color 0.2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="faq"] .help-guide li:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  body[data-page="faq"] .help-guide li:hover strong {
+    color: var(--signal);
+  }
+}
+body[data-page="faq"] .help-guide > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 6px;
+  transition:
+    color 0.18s ease,
+    text-decoration-color 0.18s ease,
+    transform 0.18s var(--ease-out);
+}
+body[data-page="faq"] .help-guide > a > span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="faq"] .help-guide > a:hover {
+    color: var(--signal);
+    text-decoration-color: var(--signal);
+  }
+}
+body[data-page="faq"] .help-guide > a:active {
+  color: #fff;
+}
+
+/* ---- Tab topik ---- */
+body[data-page="faq"] .help-tabs button {
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.2s ease,
+    transform 0.22s var(--ease-out);
+}
+body[data-page="faq"] .help-tabs button > span {
+  min-width: 26px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(18, 55, 42, 0.08);
+  text-align: center;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+body[data-page="faq"] .help-tabs button[aria-pressed="true"] > span {
+  background: rgba(255, 255, 255, 0.22);
+}
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="faq"] .help-tabs button:hover:not([aria-pressed="true"]) {
+    background: var(--paper-deep);
+    color: var(--brand-deep);
+    box-shadow: inset 3px 0 0 var(--brand);
+  }
+  body[data-page="faq"]
+    .help-tabs
+    button:hover:not([aria-pressed="true"])
+    > span {
+    background: var(--brand);
+    color: #fff;
+  }
+  body[data-page="faq"] .help-tabs button[aria-pressed="true"]:hover {
+    background: var(--deep);
+  }
+}
+body[data-page="faq"] .help-tabs button:active:not([aria-pressed="true"]) {
+  background: #e6e8dd;
+}
+body[data-page="faq"] .help-tabs button[aria-pressed="true"]:active {
+  background: #0d2a20;
+}
+
+/* ---- Daftar pertanyaan ----
+   Sorotan = kartu di BELAKANG baris (pseudo-element) yang melebar 16px ke
+   kiri-kanan, jadi teks tetap sejajar dengan judul dan tidak ada yang
+   menimpa angka atau ikon. Ikon "+" tepat selebar kolomnya (24px). */
+body[data-page="faq"] .help-item {
+  position: relative;
+  isolation: isolate;
+}
+body[data-page="faq"] .help-item[open] {
+  background: transparent;
+}
+body[data-page="faq"] .help-item::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px -20px 0;
+  border-radius: 14px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+body[data-page="faq"] .help-item::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -12px;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--brand);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+body[data-page="faq"] .help-item[open]::before {
+  background-color: var(--paper-deep);
+}
+body[data-page="faq"] .help-item[open]::after {
+  opacity: 1;
+}
+body[data-page="faq"] .help-item summary {
+  transition: color 0.18s ease;
+}
+body[data-page="faq"] .question-number {
+  transition:
+    color 0.18s ease,
+    transform 0.25s var(--ease-out);
+}
+/* Kolom ikon dilebarkan (32px) agar lingkarannya muat; tanda + digambar dari
+   dua garis, bukan huruf "+", supaya benar-benar di tengah. Saat terbuka
+   lingkaran diputar 45deg -> jadi "x" yang juga tepat di tengah. */
+body[data-page="faq"] .help-item summary {
+  grid-template-columns: 28px minmax(0, 1fr) 28px;
+}
+body[data-page="faq"] .help-plus {
+  --ico: 28px;
+  position: relative;
+  display: block;
+  align-self: center;
+  justify-self: end;
+  /* margin negatif: ikon tidak ikut menambah tinggi baris, sehingga
+     titik tengahnya sejajar dengan teks pertanyaan. Selisih -5px/-7px
+     menurunkan ikon 1px: hasil ukur di layar menunjukkan titik tengah
+     huruf kecil teks berada sekitar 1px di bawah titik tengah baris. */
+  margin-block: -5px -7px;
+  width: var(--ico);
+  height: var(--ico);
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 0;
+  color: var(--ink);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.3s var(--ease-out);
+}
+body[data-page="faq"] .help-plus::before,
+body[data-page="faq"] .help-plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 1px;
+  background: currentColor;
+}
+body[data-page="faq"] .help-plus::before {
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+}
+body[data-page="faq"] .help-plus::after {
+  width: 2px;
+  height: 12px;
+  margin: -6px 0 0 -1px;
+}
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="faq"] .help-item:hover::before {
+    background-color: #f7f8f3;
+  }
+  body[data-page="faq"] .help-item[open]:hover::before {
+    background-color: var(--paper-deep);
+  }
+  body[data-page="faq"] .help-item:hover::after {
+    opacity: 1;
+  }
+  body[data-page="faq"] .help-item summary:hover .question-number {
+    color: var(--brand);
+  }
+  body[data-page="faq"] .help-item summary:hover .help-plus {
+    background: var(--brand);
+    color: #fff;
+  }
+}
+body[data-page="faq"] .help-item:active::before {
+  background-color: #eef2ea;
+}
+body[data-page="faq"] .help-item[open] .help-plus {
+  background: var(--brand);
+  color: #fff;
+}
+body[data-page="faq"] .help-item[open] .question-number {
+  color: var(--brand);
+}
+@media (max-width: 700px) {
+  body[data-page="faq"] .help-item summary {
+    grid-template-columns: 22px minmax(0, 1fr) 26px;
+  }
+  body[data-page="faq"] .help-plus {
+    --ico: 26px;
+  }
+  body[data-page="faq"] .help-plus::before {
+    width: 10px;
+    margin-left: -5px;
+  }
+  body[data-page="faq"] .help-plus::after {
+    height: 10px;
+    margin-top: -5px;
+  }
+  body[data-page="faq"] .help-item::before {
+    inset: -1px -12px 0;
+  }
+  body[data-page="faq"] .help-item::after {
+    left: -7px;
+  }
+}
+
+/* ---- Tautan di dalam jawaban & tombol salin ---- */
+body[data-page="faq"] .help-answer a {
+  border-radius: 3px;
+  color: var(--brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+body[data-page="faq"] .help-answer a:hover {
+  background-color: rgba(27, 107, 67, 0.12);
+  color: var(--deep);
+}
+body[data-page="faq"] .help-answer a:active {
+  background-color: rgba(27, 107, 67, 0.22);
+}
+body[data-page="faq"] .help-copy {
+  padding: 8px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s var(--ease-out);
+}
+body[data-page="faq"] .help-copy:hover,
+body[data-page="faq"] .help-copy:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+body[data-page="faq"] .help-copy:active {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+/* ---- Tombol di bagian bawah ----
+   Dua-duanya hijau dengan teks putih (sesuai desain), hover -> hijau tua. */
+body[data-page="faq"] .help-bottom .btn {
+  background-color: var(--brand);
+  background-image: none;
+  border-color: var(--brand);
+  color: #fff;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s var(--ease-out);
+}
+body[data-page="faq"] .help-bottom .btn:hover,
+body[data-page="faq"] .help-bottom .btn:focus-visible {
+  background-color: var(--deep);
+  border-color: var(--deep);
+  color: #fff;
+  box-shadow: 0 12px 18px -12px rgba(18, 55, 42, 0.6);
+}
+body[data-page="faq"] .help-bottom .btn:active {
+  background-color: #0d2a20;
+  border-color: #0d2a20;
+  color: #fff;
+  box-shadow: none;
+}
+body[data-page="faq"] .help-bottom .btn > span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out);
+}
+
+/* ---- Gerak (dimatikan bila "kurangi gerakan") ---- */
+@media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (pointer: fine) {
+    body[data-page="faq"] .help-guide li:hover {
+      transform: translateX(4px);
+    }
+    body[data-page="faq"] .help-guide li:hover > span {
+      transform: scale(1.15);
+    }
+    body[data-page="faq"] .help-guide > a:hover > span[aria-hidden="true"] {
+      transform: translate(3px, -3px);
+    }
+    body[data-page="faq"] .help-tabs button:hover:not([aria-pressed="true"]) {
+      transform: translateX(3px);
+    }
+    body[data-page="faq"] .help-item summary:hover .question-number {
+      transform: translateX(2px);
+    }
+    body[data-page="faq"] .help-item summary:hover .help-plus {
+      transform: scale(1.12);
+    }
+    body[data-page="faq"] .help-item[open] summary:hover .help-plus {
+      transform: rotate(45deg) scale(1.12);
+    }
+    body[data-page="faq"] .help-bottom .btn:hover {
+      transform: translateY(-2px);
+    }
+    body[data-page="faq"] .help-bottom .btn:hover > span[aria-hidden="true"] {
+      transform: translate(3px, -3px);
+    }
+  }
+  body[data-page="faq"] .help-tabs button:active,
+  body[data-page="faq"] .help-copy:active {
+    transform: scale(0.98);
+  }
+  body[data-page="faq"] .help-bottom .btn:active {
+    transform: translateY(1px) scale(0.985);
+  }
+}

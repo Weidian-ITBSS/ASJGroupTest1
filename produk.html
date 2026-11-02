@@ -1,0 +1,4615 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Katalog Produk — ASJ Group</title>
+    <meta
+      content="Katalog lengkap herbisida, insektisida, fungisida, pupuk, dan alat semprot dari ASJ Group. Bisa difilter dan dicari."
+      name="description"
+    />
+    <meta content="#12372a" name="theme-color" />
+    <link
+      href="https://www.agrosentosajaya.co.id/produk.html"
+      rel="canonical"
+    />
+    <link href="images/favicon.ico" rel="icon" />
+    <meta content="website" property="og:type" />
+    <meta content="id_ID" property="og:locale" />
+    <meta content="Katalog Produk — ASJ Group" property="og:title" />
+    <meta
+      content="Katalog lengkap herbisida, insektisida, fungisida, pupuk, dan alat semprot pertanian dari ASJ Group."
+      property="og:description"
+    />
+    <meta
+      content="https://www.agrosentosajaya.co.id/images/og-image.png"
+      property="og:image"
+    />
+    <meta content="1200" property="og:image:width" />
+    <meta content="630" property="og:image:height" />
+    <meta
+      content="https://www.agrosentosajaya.co.id/images/og-image.png"
+      name="twitter:image"
+    />
+    <meta
+      content="https://www.agrosentosajaya.co.id/produk.html"
+      property="og:url"
+    />
+    <meta content="summary_large_image" name="twitter:card" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/style.css?v=20261102" rel="stylesheet" />
+    <link href="css/refinements.css?v=20261102" rel="stylesheet" />
+    <link href="css/premium.css?v=20261102" rel="stylesheet" />
+    <link href="css/detail-produk.css?v=20261102" rel="stylesheet" />
+    <link href="css/ui-refresh.css?v=20261102" rel="stylesheet" />
+    <link href="css/tambahan.css?v=20261102" rel="stylesheet" />
+    <link href="css/layanan-v3.css?v=20261102" rel="stylesheet" />
+    <link href="css/produk-hover.css?v=20261102" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tipografi.css?v=20261102" />
+    <style id="animasi-masuk">
+      /* Animasi masuk ala halaman FAQ: hero berurutan saat halaman dibuka + muncul pelan saat di-scroll + garis progres.
+       Sengaja tetap jalan walau perangkat memakai "kurangi animasi" (sama seperti FAQ). Pasangan: skrip animasi-masuk-js di akhir halaman. */
+      :root {
+        --ax-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @keyframes ax-rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* 1. Hero: masuk berurutan saat halaman dibuka */
+      main .hero-copy > *,
+      main .about-hero .wrap > *,
+      main .service-hero .wrap > * {
+        animation: ax-rise 0.8s var(--ax-ease) backwards !important;
+      }
+      main .hero-copy > :nth-child(1),
+      main .about-hero .wrap > :nth-child(1),
+      main .service-hero .wrap > :nth-child(1) {
+        animation-delay: 0.05s !important;
+      }
+      main .hero-copy > :nth-child(2),
+      main .about-hero .wrap > :nth-child(2),
+      main .service-hero .wrap > :nth-child(2) {
+        animation-delay: 0.13s !important;
+      }
+      main .hero-copy > :nth-child(3),
+      main .about-hero .wrap > :nth-child(3),
+      main .service-hero .wrap > :nth-child(3) {
+        animation-delay: 0.22s !important;
+      }
+      main .hero-copy > :nth-child(4),
+      main .about-hero .wrap > :nth-child(4),
+      main .service-hero .wrap > :nth-child(4) {
+        animation-delay: 0.3s !important;
+      }
+      main .hero-copy > :nth-child(5),
+      main .about-hero .wrap > :nth-child(5),
+      main .service-hero .wrap > :nth-child(5) {
+        animation-delay: 0.38s !important;
+      }
+      main .hero-copy > :nth-child(n + 6),
+      main .about-hero .wrap > :nth-child(n + 6),
+      main .service-hero .wrap > :nth-child(n + 6) {
+        animation-delay: 0.46s !important;
+      }
+
+      /* 2. Muncul pelan saat di-scroll (kelas dipasang JS; dilepas lagi setelah selesai) */
+      html.ax-js .ax-rv {
+        opacity: 0 !important;
+        transform: translateY(24px) !important;
+        transition:
+          opacity 0.7s ease var(--ax-d, 0ms),
+          transform 0.85s var(--ax-ease) var(--ax-d, 0ms) !important;
+      }
+      html.ax-js .ax-rv.ax-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      /* 3. Garis progres scroll di paling atas layar */
+      .ax-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 3000;
+        background: var(--brand, #1f6b45);
+        transform: scaleX(0);
+        transform-origin: left center;
+        pointer-events: none;
+        will-change: transform;
+      }
+
+      /* Opsional: kalau ingin menghormati "kurangi animasi", ubah HORMATI_KURANGI_ANIMASI di skrip jadi true */
+      html.ax-calm main .hero-copy > *,
+      html.ax-calm main .about-hero .wrap > *,
+      html.ax-calm main .service-hero .wrap > * {
+        animation: none !important;
+      }
+      @media print {
+        html.ax-js .ax-rv,
+        html.ax-js .ax-rv.ax-in {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .ax-progress {
+          display: none;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://www.agrosentosajaya.co.id/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Katalog Produk",
+            "item": "https://www.agrosentosajaya.co.id/produk.html"
+          }
+        ]
+      }
+    </script>
+    <style id="produk-hero-forest">
+      /* Header produk: sama dengan hero halaman Area Layanan (hijau forest) */
+      main .service-hero {
+        background: var(--deep, #12372a);
+        background-image: none;
+        color: #fff;
+      }
+      main .service-hero::before,
+      main .service-hero::after {
+        display: none;
+      }
+      main .service-hero .breadcrumb,
+      main .service-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      main .service-hero .breadcrumb a:hover {
+        color: #fff;
+      }
+      main .service-hero h1 {
+        color: #fff;
+      }
+      main .service-hero p {
+        color: rgba(255, 255, 255, 0.86);
+      }
+      main .service-hero .btn.btn-solid {
+        background: #fff;
+        border-color: #fff;
+        color: var(--deep, #12372a);
+      }
+      main .service-hero .btn.btn-solid:hover {
+        background: var(--paper-deep, #eef0e6);
+        border-color: var(--paper-deep, #eef0e6);
+        color: var(--deep, #12372a);
+      }
+      main .service-hero .btn.btn-solid:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 3px;
+      }
+    </style>
+    <style id="kt-scroll-css">
+      /* Tombol "Lihat katalog": hidup saat di-hover dan saat turun */
+      .service-hero .btn-solid[href="#katalog"] {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition:
+          transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.25s ease;
+      }
+      .service-hero .btn-solid[href="#katalog"] [aria-hidden="true"] {
+        display: inline-block;
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .service-hero
+        .btn-solid[href="#katalog"].is-scrolling
+        [aria-hidden="true"] {
+        animation: kt-bob 0.9s ease-in-out infinite;
+      }
+      @keyframes kt-bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+      .service-hero .btn-solid[href="#katalog"]:active {
+        transform: scale(0.96);
+        transition-duration: 0.12s;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .service-hero .btn-solid[href="#katalog"]:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+        }
+        .service-hero .btn-solid[href="#katalog"]:hover [aria-hidden="true"] {
+          transform: translateY(4px);
+        }
+      }
+      /* denyut lembut di katalog setelah scroll selesai */
+      #katalog.kt-arrive {
+        animation: kt-arrive 1.4s ease-out;
+      }
+      @keyframes kt-arrive {
+        0% {
+          box-shadow: inset 0 4px 0 0 rgb(242, 183, 5);
+        }
+        100% {
+          box-shadow: inset 0 4px 0 0 rgba(242, 183, 5, 0);
+        }
+      }
+    </style>
+    <style id="search-focus-css">
+      /* Kolom cari: saat diklik/fokus memakai hijau merek, bukan garis kuning/oranye */
+      .nav-search:focus-within,
+      .bs-search:focus-within,
+      .help-search:focus-within,
+      .search-box:focus-within,
+      .search-input-wrap:focus-within {
+        --signal: var(--brand, #1b6b43);
+        --signal-ink: #fff;
+        --focus: var(--brand, #1b6b43);
+        --kp-gold: var(--brand, #1b6b43);
+        --hv-signal: var(--brand, #1b6b43);
+        --hv-signal-ink: #fff;
+      }
+      html body .nav-search:focus-within {
+        border-color: var(--brand, #1b6b43) !important;
+        box-shadow: none !important;
+      }
+      html body .nav-search input:focus,
+      html body .nav-search input:focus-visible,
+      html body .bs-search input:focus,
+      html body .bs-search input:focus-visible,
+      html body .search-input-wrap input:focus,
+      html body .search-input-wrap input:focus-visible,
+      html body #katalog .search-input-wrap input:focus,
+      html body #katalog .search-input-wrap input:focus-visible {
+        outline: 0 !important;
+        border-color: var(--brand, #1b6b43) !important;
+        box-shadow: 0 0 0 3px rgba(27, 107, 67, 0.18) !important;
+      }
+      html body .nav-search-btn:focus-visible {
+        outline: 2px solid var(--brand-deep, #12372a) !important;
+        outline-offset: 2px !important;
+      }
+      html body .nav-search-btn:focus:not(:focus-visible) {
+        outline: 0 !important;
+      }
+      html body[data-page="faq"] .help-search:focus-within {
+        border-color: var(--brand, #1f6b45) !important;
+        box-shadow:
+          0 0 0 4px rgba(31, 107, 69, 0.16),
+          0 22px 40px -26px rgba(18, 55, 42, 0.45) !important;
+      }
+      html body[data-page="faq"] .help-search button:focus-visible {
+        outline: 3px solid var(--brand-deep, #12372a) !important;
+        outline-offset: 2px !important;
+      }
+    </style>
+    <script id="animasi-boot">
+      /* Sembunyikan isi section setelah hero sejak frame pertama; dibuka lagi oleh skrip animasi di akhir halaman (pengaman: otomatis terbuka setelah 2,5 detik) */
+      document.documentElement.classList.add("ax-boot");
+      setTimeout(function () {
+        document.documentElement.classList.remove("ax-boot");
+      }, 2500);
+    </script>
+    <style id="animasi-section-kedua">
+      /* Section kedua (dan blok lain yang sudah terlihat saat halaman dibuka) ikut masuk berurutan setelah hero.
+         Kelas dipasang skrip animasi-section-kedua dan dilepas lagi setelah selesai. */
+      main .ax-s2 {
+        animation: ax-rise 0.8s var(--ax-ease) var(--s2-d, 0.55s) backwards !important;
+      }
+      html.ax-calm main .ax-s2 {
+        animation: none !important;
+      }
+      @media print {
+        main .ax-s2 {
+          animation: none !important;
+        }
+      }
+      html.ax-js .ax-rv.ax-nt {
+        transition: none !important;
+      }
+      html.ax-boot main > :not(:first-child) > * {
+        opacity: 0;
+      }
+      @media print {
+        html.ax-boot main > :not(:first-child) > * {
+          opacity: 1;
+        }
+      }
+    </style>
+    <style id="perbaikan-css">
+      /* ==========================================================================
+   perbaikan.css — dimuat PALING AKHIR di semua halaman.
+   Isi: (A) animasi yang hilang, (B) lapisan responsif HP / tablet / iPad.
+   ========================================================================== */
+
+      /* ---------- A1. Angka kategori & lini produk (24, 04, 03, dst) ---------- */
+      .cat-count,
+      .line-count {
+        font-variant-numeric: tabular-nums;
+        display: inline-block;
+      }
+      .cat-item:hover .cat-count,
+      .line-card:hover .line-count {
+        transform: translateY(-2px);
+      }
+      .cat-count,
+      .line-count {
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* ---------- A2. Search bar FAQ ---------- */
+      @keyframes pb-ring {
+        from {
+          outline-color: rgba(31, 107, 69, 0.45);
+          outline-offset: 0;
+        }
+        to {
+          outline-color: rgba(31, 107, 69, 0);
+          outline-offset: 12px;
+        }
+      }
+      @keyframes pb-icon-pop {
+        0% {
+          transform: scale(1) rotate(0);
+        }
+        45% {
+          transform: scale(1.28) rotate(-12deg);
+        }
+        100% {
+          transform: scale(1.14) rotate(-6deg);
+        }
+      }
+      /* masuk berurutan + denyut cincin sekali; tetap jalan walau perangkat "kurangi animasi" */
+      html body[data-page="faq"] .help-hero .help-search {
+        outline: 2px solid transparent;
+        animation:
+          kp-rise 0.8s var(--kp-ease, cubic-bezier(0.22, 1, 0.36, 1)) 0.36s
+            backwards,
+          pb-ring 1.4s ease-out 1.25s 1 both !important;
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.3s ease,
+          transform 0.35s var(--kp-ease, cubic-bezier(0.22, 1, 0.36, 1)) !important;
+      }
+      html body[data-page="faq"] .help-hero .help-search-label {
+        animation: kp-rise 0.8s var(--kp-ease, cubic-bezier(0.22, 1, 0.36, 1))
+          0.3s backwards !important;
+      }
+      html body[data-page="faq"] .help-hero .help-search:focus-within {
+        transform: translateY(-2px);
+      }
+      /* ikon cari (sekarang <button>, bukan <span>) ikut bergerak saat kolom diklik */
+      html body[data-page="faq"] .help-hero .help-search .hx-ico-btn .i-search {
+        transition:
+          transform 0.4s var(--kp-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+          color 0.3s ease !important;
+      }
+      html
+        body[data-page="faq"]
+        .help-hero
+        .help-search:focus-within
+        .hx-ico-btn
+        .i-search {
+        animation: pb-icon-pop 0.45s
+          var(--kp-ease, cubic-bezier(0.22, 1, 0.36, 1)) forwards !important;
+      }
+      html body[data-page="faq"] .help-hero .help-search input::placeholder {
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease !important;
+      }
+      html
+        body[data-page="faq"]
+        .help-hero
+        .help-search:focus-within
+        input::placeholder {
+        opacity: 0.35;
+        transform: translateX(6px);
+      }
+      /* tombol "Cari" menjawab sentuhan */
+      html body[data-page="faq"] .help-hero .help-search .hx-go {
+        transition:
+          background-color 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease !important;
+      }
+      html body[data-page="faq"] .help-hero .help-search .hx-go:hover {
+        box-shadow: 0 8px 18px -8px rgba(18, 55, 42, 0.6);
+        transform: translateY(-1px);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html body[data-page="faq"] .help-hero .help-search,
+        html body[data-page="faq"] .help-hero .help-search-label,
+        html
+          body[data-page="faq"]
+          .help-hero
+          .help-search
+          .hx-ico-btn
+          .i-search,
+        html body[data-page="faq"] .help-hero .help-search .hx-go {
+          animation-duration: 0.8s !important;
+        }
+      }
+
+      /* ---------- B. RESPONSIF ---------- */
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      img,
+      video,
+      canvas,
+      iframe,
+      embed,
+      object {
+        max-width: 100%;
+      }
+      img,
+      video {
+        height: auto;
+      }
+      /* gambar yang diberi tinggi tetap oleh kelas komponen tetap boleh dipangkas */
+      img[class*="photo"],
+      img[class*="cover"],
+      .asj-story-photo img,
+      .lot img,
+      .line-card img {
+        height: 100%;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      li,
+      a,
+      label,
+      small,
+      strong,
+      span {
+        overflow-wrap: break-word;
+      }
+      /* anak grid/flex boleh menyusut (kunci supaya tidak melebar keluar layar) */
+      .wrap > *,
+      .hx-grid > *,
+      .hero-grid > *,
+      .asj-story > *,
+      .branch-explorer > *,
+      .contact-grid > *,
+      .help-layout > *,
+      .order-layout > *,
+      .principles-layout > *,
+      .teaser-split > *,
+      .footer-cols > *,
+      .line-grid > *,
+      .lot-grid > *,
+      .testi-grid > *,
+      .pick-grid > *,
+      .related-grid > * {
+        min-width: 0;
+      }
+      table {
+        max-width: 100%;
+      }
+      .table-wrap,
+      .table-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      /* tombol & sentuhan */
+      @media (hover: none) and (pointer: coarse) {
+        .btn,
+        button,
+        .nav-search-btn,
+        .menu-toggle,
+        .drawer-close {
+          min-height: 44px;
+        }
+        input,
+        select,
+        textarea {
+          font-size: max(
+            16px,
+            1em
+          ); /* cegah iOS memperbesar layar saat kolom diklik */
+        }
+      }
+      /* elemen melayang: hormati poni / bar bawah iPhone & iPad */
+      .wa-float,
+      [class*="wa-float"],
+      [class*="whatsapp-float"],
+      .a11y-fab,
+      [class*="a11y-btn"] {
+        max-width: calc(100vw - 24px);
+      }
+
+      /* ----- Tablet & iPad (≤ 1024px) ----- */
+      @media (max-width: 1024px) {
+        .wrap {
+          max-width: 100%;
+          padding-inline: max(20px, env(safe-area-inset-left, 0px))
+            max(20px, env(safe-area-inset-right, 0px));
+        }
+        .header-row {
+          gap: 10px;
+          min-width: 0;
+        }
+        .lot-grid,
+        .line-grid {
+          grid-template-columns: repeat(
+            auto-fill,
+            minmax(min(100%, 240px), 1fr)
+          );
+        }
+        .testi-grid,
+        .pick-grid,
+        .related-grid {
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, 260px), 1fr)
+          );
+        }
+        .footer-cols {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .hero-actions .btn,
+        .cta-band-actions .btn {
+          min-width: 0;
+        }
+      }
+
+      /* ----- Tablet portrait & HP besar (≤ 900px): satu kolom ----- */
+      @media (max-width: 900px) {
+        .hero-grid,
+        .hx-grid,
+        .asj-story,
+        .help-layout,
+        .contact-grid,
+        .order-layout,
+        .principles-layout,
+        .teaser-split,
+        .about-story-band .wrap,
+        .branch-explorer {
+          grid-template-columns: minmax(0, 1fr) !important;
+        }
+        .help-layout > .help-sidebar,
+        .help-sidebar {
+          position: static;
+          width: 100%;
+        }
+        .section-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .section-head > p {
+          max-width: 100%;
+        }
+        .cta-band-actions {
+          flex-wrap: wrap;
+        }
+        /* strip kategori: bisa digeser samping, tidak menumpuk berantakan */
+        .cat-list {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 10px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x proximity;
+          padding-bottom: 6px;
+        }
+        .cat-list .cat-item {
+          flex: 0 0 auto;
+          scroll-snap-align: start;
+        }
+        .map-stage {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      /* ----- HP (≤ 560px) ----- */
+      @media (max-width: 560px) {
+        .wrap {
+          padding-inline: max(16px, env(safe-area-inset-left, 0px))
+            max(16px, env(safe-area-inset-right, 0px));
+        }
+        .lot-grid,
+        .line-grid,
+        .testi-grid,
+        .pick-grid,
+        .related-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .footer-cols {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .hero-actions,
+        .cta-band-actions,
+        .ticket-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .hero-actions .btn,
+        .cta-band-actions .btn,
+        .ticket-actions .btn {
+          width: 100%;
+          justify-content: center;
+        }
+        h1 {
+          font-size: clamp(1.6rem, 7.4vw, 2.2rem);
+          line-height: 1.15;
+        }
+        h2 {
+          font-size: clamp(1.35rem, 6vw, 1.8rem);
+          line-height: 1.2;
+        }
+        .legal-row,
+        .footer-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      /* ----- Layar sangat kecil (≤ 360px) ----- */
+      @media (max-width: 360px) {
+        .wrap {
+          padding-inline: 14px;
+        }
+        .btn {
+          padding-inline: 14px;
+        }
+      }
+
+      /* ----- HP/tablet posisi landscape: jangan paksa tinggi layar penuh ----- */
+      @media (max-height: 520px) and (orientation: landscape) {
+        .hero,
+        #beranda,
+        .service-hero,
+        .help-hero {
+          min-height: 0 !important;
+        }
+      }
+
+      /* FAQ: angka besar di "anatomi label" tidak boleh memaksa satu baris di HP */
+      @media (max-width: 560px) {
+        html body[data-page="faq"] .anatomy-part strong {
+          white-space: normal !important;
+          font-size: clamp(26px, 9vw, 40px) !important;
+        }
+      }
+
+      /* ======================================================================
+   Produk: kolom cari, filter (Kategori / Tanaman), tag aktif, rekomendasi
+   ====================================================================== */
+      @keyframes pb-rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes pb-pop {
+        0% {
+          opacity: 0;
+          transform: scale(0.6);
+        }
+        60% {
+          opacity: 1;
+          transform: scale(1.12);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes pb-panel {
+        from {
+          opacity: 0;
+          transform: translateY(-10px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes pb-ring-soft {
+        from {
+          outline-color: rgba(27, 107, 67, 0.4);
+          outline-offset: 0;
+        }
+        to {
+          outline-color: rgba(27, 107, 67, 0);
+          outline-offset: 12px;
+        }
+      }
+      @keyframes pb-icon-nudge {
+        0% {
+          transform: scale(1) rotate(0);
+        }
+        50% {
+          transform: scale(1.25) rotate(-12deg);
+        }
+        100% {
+          transform: scale(1.12) rotate(-6deg);
+        }
+      }
+
+      /* kolom cari: naik sedikit + cincin + ikon bergerak saat diklik */
+      .search-input-wrap {
+        outline: 2px solid transparent;
+        transition:
+          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.3s ease,
+          border-color 0.25s ease;
+      }
+      .search-input-wrap:focus-within {
+        transform: translateY(-2px);
+        animation: pb-ring-soft 0.9s ease-out 1 both;
+      }
+      .search-input-wrap .search-icon {
+        transition:
+          transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+          color 0.3s ease;
+      }
+      .search-input-wrap:focus-within .search-icon {
+        animation: pb-icon-nudge 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        color: var(--brand, #1b6b43);
+      }
+      .search-input-wrap input::placeholder {
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+      }
+      .search-input-wrap:focus-within input::placeholder {
+        opacity: 0.35;
+        transform: translateX(6px);
+      }
+
+      /* tombol filter */
+      .filter-dropdown-btn {
+        transition:
+          transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.25s ease,
+          border-color 0.25s ease,
+          background-color 0.25s ease;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .filter-dropdown-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px -12px rgba(18, 55, 42, 0.5);
+        }
+      }
+      .filter-dropdown-btn:active {
+        transform: scale(0.97);
+      }
+      .filter-dropdown-btn[aria-expanded="true"] {
+        box-shadow: 0 0 0 3px rgba(27, 107, 67, 0.18);
+      }
+      /* panel terbuka: turun halus, pilihan (Herbisida, Insektisida, dst) masuk satu-satu */
+      .filter-dropdown-panel:not([hidden]) {
+        transform-origin: top left;
+        animation: pb-panel 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check {
+        animation: pb-rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(1) {
+        animation-delay: 0.04s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(3) {
+        animation-delay: 0.12s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(4) {
+        animation-delay: 0.16s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(5) {
+        animation-delay: 0.2s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(6) {
+        animation-delay: 0.24s;
+      }
+      .filter-dropdown-panel:not([hidden]) .filter-check:nth-child(n + 7) {
+        animation-delay: 0.28s;
+      }
+      .filter-check {
+        transition: transform 0.2s ease;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .filter-check:hover {
+          transform: translateX(3px);
+        }
+      }
+      .filter-check input:checked + span {
+        animation: pb-pop 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      /* angka jumlah filter + tag filter aktif muncul dengan efek pop */
+      .filter-dropdown-count:not([hidden]) {
+        animation: pb-pop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .active-filter-tags > * {
+        animation: pb-pop 0.35s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+      }
+      .saring-reset {
+        transition: transform 0.2s ease;
+      }
+      .saring-reset:active {
+        transform: scale(0.95);
+      }
+
+      /* "Rekomendasi unggulan" & "Baru dilihat": muncul halus setiap kali dibuka */
+      #ppBand:not([hidden]),
+      #recentlyViewed:not([hidden]) {
+        animation: pb-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+      }
+
+      /* Beranda: foto "Tentang Kami" */
+      .asj-about .asj-story-photo img {
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .asj-about .asj-story-media:hover .asj-story-photo img {
+          transform: scale(1.04);
+        }
+      }
+
+      /* Kontrol katalog (chip kategori, Tanaman, Urutkan): sentuhan & hover bergerak halus */
+      #katalog button,
+      #katalog select {
+        transition:
+          transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.25s ease,
+          background-color 0.25s ease,
+          border-color 0.25s ease,
+          color 0.25s ease;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        #katalog .pp-controls button:hover,
+        #katalog .pp-controls select:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px -12px rgba(18, 55, 42, 0.5);
+        }
+      }
+      #katalog .pp-controls button:active {
+        transform: scale(0.96);
+      }
+      #katalog .pp-controls select:focus {
+        animation: pb-ring-soft 0.9s ease-out 1 both;
+      }
+    </style>
+    <style id="ritme-section">
+      /* Ritme vertikal: SETIAP section punya jarak atas = jarak bawah, dan nilainya sama di semua section & halaman.
+         Ubah satu angka --sec-y di bawah ini untuk mengatur seluruh situs. */
+      :root {
+        --sec-y: clamp(48px, 7vw, 96px);
+        --sec-y-slim: calc(
+          var(--sec-y) * 0.6
+        ); /* pita tipis (strip kategori, jam layanan): tetap simetris atas-bawah */
+      }
+      html body main > section:not(#_),
+      html body main > .about-hero:not(#_),
+      html body main > .cat-strip:not(#_) {
+        padding-block: var(--sec-y) !important;
+        margin-block: 0 !important;
+      }
+      html body main > .cat-strip:not(#_),
+      html body main > section#jam-layanan-band:not(#_) {
+        padding-block: var(--sec-y-slim) !important;
+      }
+      /* pembungkus isi tidak boleh menambah jarak sendiri */
+      html body main > section:not(#_) > .wrap:not(#_),
+      html body main > .about-hero:not(#_) > .wrap:not(#_),
+      html body main > .cat-strip:not(#_) > .wrap:not(#_) {
+        padding-block: 0 !important;
+        margin-block: 0 !important;
+      }
+      /* elemen pertama/terakhir tidak membawa margin sisa, supaya atas dan bawah benar-benar sama */
+      html body main > section:not(#_) > .wrap > :first-child:not(#_),
+      html body main > .about-hero:not(#_) > .wrap > :first-child:not(#_),
+      html body main > .cat-strip:not(#_) > .wrap > :first-child:not(#_) {
+        margin-top: 0 !important;
+      }
+      html body main > section:not(#_) > .wrap > :last-child:not(#_),
+      html
+        body
+        main
+        > section:not(#_)
+        > .wrap
+        > :last-child
+        > :last-child:not(#_),
+      html body main > .about-hero:not(#_) > .wrap > :last-child:not(#_),
+      html
+        body
+        main
+        > .about-hero:not(#_)
+        > .wrap
+        > :last-child
+        > :last-child:not(#_),
+      html body main > .cat-strip:not(#_) > .wrap > :last-child:not(#_) {
+        margin-bottom: 0 !important;
+      }
+    </style>
+    <style id="navbar-pemisah">
+      /* Navbar: di paling atas bersih (menyatu dengan hero); setelah di-scroll muncul garis tipis + bayangan lembut agar batasnya jelas di section berlatar putih. */
+      html body .site-header {
+        border-bottom: 1px solid transparent !important;
+        transition:
+          box-shadow 0.4s ease,
+          border-color 0.4s ease,
+          background-color 0.4s ease !important;
+      }
+      html body .site-header.nav-pemisah {
+        background-color: rgba(255, 255, 255, 0.97) !important;
+        border-bottom-color: rgba(31, 107, 69, 0.16) !important;
+        box-shadow:
+          0 10px 28px -18px rgba(18, 55, 42, 0.38),
+          0 2px 6px -3px rgba(18, 55, 42, 0.12) !important;
+      }
+      @media print {
+        html body .site-header,
+        html body .site-header.nav-pemisah {
+          box-shadow: none !important;
+          border-bottom-color: transparent !important;
+        }
+      }
+    </style>
+    <style id="hero-seragam">
+      /* =====================================================================
+         SECTION 1 (HERO): SATU BLOK YANG SAMA DI SEMUA HALAMAN
+         Patokan tinggi: halaman Produk (520px di layar lebar).
+         Urutan dan posisi isi selalu sama:
+           breadcrumb > judul (2 baris) > subjudul (3 baris) > satu aksi
+         Judul, subjudul, dan aksi punya slot tetap, jadi tiap elemen jatuh
+         di titik yang sama walau teksnya lebih pendek atau lebih panjang.
+         Blok ini identik di 7 halaman. Ubah angka di :root untuk mengatur
+         semuanya sekaligus.
+         ===================================================================== */
+      :root {
+        --hero-h: clamp(440px, 40vw, 520px);
+        --hero-pt: clamp(44px, 4.5vw, 64px);
+        --hero-pb: clamp(40px, 4vw, 56px);
+        --hero-slot: 54px;
+        --hero-gap: 28px;
+      }
+      @media (max-width: 960px) {
+        :root {
+          --hero-h: 470px;
+          --hero-pt: 44px;
+          --hero-pb: 40px;
+        }
+      }
+      @media (max-width: 720px) {
+        :root {
+          --hero-h: 520px;
+          --hero-pt: 40px;
+          --hero-pb: 36px;
+          --hero-gap: 24px;
+        }
+      }
+
+      /* kotak hero */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__) {
+        display: block !important;
+        box-sizing: border-box !important;
+        height: var(--hero-h) !important;
+        min-height: var(--hero-h) !important;
+        margin-block: 0 !important;
+        padding-block: var(--hero-pt) var(--hero-pb) !important;
+      }
+      @media (max-width: 720px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__) {
+          height: auto !important;
+        }
+      }
+      /* pembungkus isi: satu kolom, tanpa jarak atau tinggi tambahan */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        > .wrap {
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin-block: 0 !important;
+        padding-block: 0 !important;
+      }
+
+      /* 1. breadcrumb */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .breadcrumb {
+        display: block !important;
+        margin: 0 0 clamp(20px, 3vw, 32px) !important;
+        font-size: 13.5px !important;
+        line-height: 1.55 !important;
+      }
+
+      /* 2. judul: slot dua baris, satu gaya, tanpa aksen kata */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        h1 {
+        box-sizing: content-box !important;
+        min-height: calc(2 * 1.06em) !important;
+        margin: 0 0 clamp(14px, 1.8vw, 20px) !important;
+        font-size: clamp(32px, 4.2vw, 54px) !important;
+        font-weight: 700 !important;
+        line-height: 1.06 !important;
+        letter-spacing: -0.025em !important;
+        text-wrap: balance;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        h1
+        span,
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        h1
+        em {
+        display: inline !important;
+        font: inherit !important;
+        letter-spacing: inherit !important;
+        color: inherit !important;
+        background: none !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        h1
+        span::after,
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        h1
+        em::after {
+        display: none !important;
+      }
+
+      /* 3. subjudul: slot tiga baris */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        > .wrap
+        > p {
+        max-width: 56ch !important;
+        min-height: calc(3 * 1.65em) !important;
+        margin: 0 !important;
+        font-size: clamp(16px, 1.3vw, 18px) !important;
+        line-height: 1.65 !important;
+      }
+      @media (max-width: 720px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+          h1 {
+          min-height: calc(3 * 1.06em) !important;
+          font-size: 27px !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+          > .wrap
+          > p {
+          min-height: calc(5 * 1.6em) !important;
+          font-size: 15px !important;
+          line-height: 1.6 !important;
+        }
+      }
+
+      /* 4. aksi: tombol, langkah, atau kolom cari. Semuanya mulai di titik
+            yang sama dan memakai tinggi slot yang sama. */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        > .wrap
+        > .btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        box-sizing: border-box !important;
+        width: fit-content !important;
+        min-height: var(--hero-slot) !important;
+        margin: var(--hero-gap) 0 0 !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        > .wrap
+        > .help-search {
+        box-sizing: border-box !important;
+        height: var(--hero-slot) !important;
+        max-width: 480px !important;
+        margin: var(--hero-gap) 0 0 !important;
+        padding: 4px 4px 4px 10px !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .help-search
+        .hx-ico-btn {
+        width: 34px !important;
+        height: 34px !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .help-search
+        input {
+        height: 44px !important;
+        font-size: 16px !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .help-search
+        .hx-go {
+        height: 44px !important;
+        padding: 0 22px !important;
+        font-size: 15px !important;
+      }
+      /* label kolom cari tetap ada untuk pembaca layar, tidak memakan ruang */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .help-search-label {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .help-search
+        button:focus-visible {
+        outline: 3px solid var(--brand, #1f6b45) !important;
+        outline-offset: 3px !important;
+      }
+
+      /* langkah di hero Kontak: tiga kolom, tinggi mengikuti slot */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        > .wrap
+        > .contact-steps {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0 clamp(20px, 3vw, 40px) !important;
+        align-items: start !important;
+        min-height: var(--hero-slot) !important;
+        margin: var(--hero-gap) 0 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+        counter-reset: langkah !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .contact-steps
+        li {
+        display: grid !important;
+        grid-template-columns: auto minmax(0, 1fr) !important;
+        gap: 10px !important;
+        margin: 0 !important;
+        padding: 12px 0 0 !important;
+        border: 0 !important;
+        border-top: 1px solid rgba(128, 128, 128, 0.4) !important;
+        background: none !important;
+        font-size: 14.5px !important;
+        line-height: 1.45 !important;
+        list-style: none !important;
+        counter-increment: langkah !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .contact-steps
+        li::marker {
+        content: "" !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .contact-steps
+        li::before {
+        content: counter(langkah) !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: none !important;
+        font-weight: 700 !important;
+        font-variant-numeric: tabular-nums !important;
+        opacity: 0.7 !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+        .contact-steps
+        li::after {
+        content: none !important;
+        display: none !important;
+      }
+      @media (max-width: 960px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+          > .wrap
+          > .contact-steps {
+          grid-template-columns: minmax(0, 1fr) !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__)
+          .contact-steps
+          li {
+          padding: 8px 0 !important;
+          font-size: 14px !important;
+        }
+      }
+    </style>
+
+    <script id="layar-diam">
+      /* LAYAR DIAM saat memakai filter Produk (Tanaman, Kategori, rel kategori,
+         cari, urutkan, hapus filter). Layar tetap di tempat; Anda yang scroll
+         sendiri. Yang dibatalkan: scrollIntoView, scrollTo, scrollBy, scrollTop,
+         fokus, lompat #hash, smooth scroll, dan geseran karena tinggi halaman di
+         atas filter berubah (blok Produk Andalan menghilang, hasil kosong, dst).
+         Penahan lepas seketika begitu Anda scroll (roda, sentuh, keyboard). */
+      (function () {
+        "use strict";
+        var W = window,
+          D = document,
+          R = D.documentElement,
+          E = Element.prototype;
+        W.__asjStay = true; /* skrip lain tidak perlu memasang penahan kedua */
+        var HOLD = 1800,
+          CAP = 5000;
+        var until = 0,
+          capAt = 0,
+          anchorEl = null,
+          anchorTop = null,
+          raf = 0,
+          internal = false,
+          setSB = false,
+          setOA = false,
+          armedAt = Date.now() + 1800;
+        var lastEl = null,
+          lastTop = null;
+        function active() {
+          return Date.now() < until;
+        }
+        var nat = {
+          to: W.scrollTo,
+          by: W.scrollBy,
+          sc: W.scroll,
+          iv: E.scrollIntoView,
+          eto: E.scrollTo,
+          eby: E.scrollBy,
+          esc: E.scroll,
+          focus: HTMLElement.prototype.focus,
+        };
+        function isDoc(el) {
+          return el === R || el === D.body || el === D.scrollingElement;
+        }
+        function wrap(fn, docOnly) {
+          return function () {
+            if (active() && !internal && (!docOnly || isDoc(this))) return;
+            return fn.apply(this, arguments);
+          };
+        }
+        W.scrollTo = wrap(nat.to);
+        W.scrollBy = wrap(nat.by);
+        W.scroll = wrap(nat.sc);
+        E.scrollIntoView = wrap(nat.iv);
+        if (nat.eto) E.scrollTo = wrap(nat.eto, true);
+        if (nat.eby) E.scrollBy = wrap(nat.eby, true);
+        if (nat.esc) E.scroll = wrap(nat.esc, true);
+        HTMLElement.prototype.focus = function (o) {
+          if (active()) {
+            o = o || {};
+            o.preventScroll = true;
+          }
+          return nat.focus.call(this, o);
+        };
+        try {
+          var d = Object.getOwnPropertyDescriptor(E, "scrollTop");
+          if (d && d.set)
+            Object.defineProperty(E, "scrollTop", {
+              configurable: true,
+              enumerable: d.enumerable,
+              get: d.get,
+              set: function (v) {
+                if (active() && !internal && isDoc(this)) return;
+                d.set.call(this, v);
+              },
+            });
+        } catch (e) {}
+
+        function restore() {
+          if (!anchorEl || !anchorEl.isConnected || anchorTop == null) return;
+          var diff = anchorEl.getBoundingClientRect().top - anchorTop;
+          if (Math.abs(diff) > 0.5) {
+            internal = true;
+            nat.by.call(W, { top: diff, left: 0, behavior: "instant" });
+            internal = false;
+          }
+        }
+        function stop() {
+          raf = 0;
+          anchorEl = null;
+          anchorTop = null;
+          if (setSB) R.style.removeProperty("scroll-behavior");
+          if (setOA) R.style.removeProperty("overflow-anchor");
+          setSB = setOA = false;
+        }
+        function loop() {
+          if (!active()) return stop();
+          restore();
+          raf = requestAnimationFrame(loop);
+        }
+        function hold(el, top, ms) {
+          var now = Date.now();
+          if (!active()) {
+            anchorEl = el;
+            anchorTop = top;
+            capAt = now + CAP;
+          }
+          until = Math.min(Math.max(until, now + ms), capAt);
+          if (!setSB) {
+            R.style.setProperty("scroll-behavior", "auto", "important");
+            setSB = true;
+          }
+          if (!setOA) {
+            R.style.setProperty("overflow-anchor", "none", "important");
+            setOA = true;
+          }
+          if (!raf) raf = requestAnimationFrame(loop);
+        }
+        function release() {
+          until = 0;
+          anchorEl = null;
+          anchorTop = null;
+        }
+
+        /* titik acuan yang stabil: bilah filter (selalu ada di katalog) */
+        function bar() {
+          return (
+            D.getElementById("saringBar") ||
+            D.querySelector("#katalog .pp-controls")
+          );
+        }
+        function sample() {
+          if (active()) return;
+          var b = bar();
+          if (b) {
+            lastEl = b;
+            lastTop = b.getBoundingClientRect().top;
+          }
+        }
+        W.addEventListener(
+          "scroll",
+          function () {
+            sample();
+            if (active() && !internal) restore(); /* tarikan liar: batalkan */
+          },
+          { passive: true },
+        );
+        W.addEventListener("resize", sample);
+        setInterval(sample, 150);
+
+        var SKIP =
+          "#katalog .lot-grid, #productModal, #katalog .recently-viewed, #katalog .catalog-foot, .service-hero";
+        var ANCHORS =
+          ".filter-dropdown, .pp-rail, .search-box, .active-filter-tags, .pp-toolbar, .saring-bar";
+        function arm(e) {
+          var t = e.target;
+          if (!t || !t.closest) return;
+          if (!t.closest("#katalog") || t.closest(SKIP)) return;
+          var a = t.closest(ANCHORS) || bar();
+          if (!a) return;
+          hold(a, a.getBoundingClientRect().top, HOLD);
+        }
+        [
+          "pointerdown",
+          "mousedown",
+          "click",
+          "change",
+          "input",
+          "keydown",
+        ].forEach(function (n) {
+          D.addEventListener(n, arm, true);
+        });
+        /* link #hash ke bagian lain / tombol hero tetap bekerja normal */
+        D.addEventListener(
+          "click",
+          function (e) {
+            var a = e.target.closest && e.target.closest('a[href^="#"]');
+            if (a && !a.closest("#katalog")) release();
+          },
+          true,
+        );
+
+        /* daftar produk berubah dari sebab apa pun (rel, skrip lain, hash) */
+        function watch() {
+          var g = D.getElementById("lotGrid");
+          if (!g || !("MutationObserver" in W)) return;
+          new MutationObserver(function () {
+            if (Date.now() < armedAt) return;
+            if (active()) return hold(anchorEl, anchorTop, 700);
+            sample();
+            if (lastEl) hold(lastEl, lastTop, HOLD);
+          }).observe(g, {
+            subtree: true,
+            childList: true,
+            attributes: true,
+            attributeFilter: ["hidden"],
+          });
+        }
+        /* koreksi SEBELUM frame digambar: setiap tinggi halaman berubah (blok
+           Produk Andalan hilang, daftar menyusut), posisi dikembalikan di frame
+           yang sama, jadi tidak ada kedipan satu frame pun */
+        function watchSize() {
+          if (!("ResizeObserver" in W) || !D.body) return;
+          var ro = new ResizeObserver(function () {
+            if (active()) restore();
+          });
+          ro.observe(D.body);
+          ro.observe(R);
+        }
+        function boot() {
+          watch();
+          watchSize();
+        }
+        if (D.readyState === "loading")
+          D.addEventListener("DOMContentLoaded", boot);
+        else boot();
+
+        /* lepas bila PENGGUNA sendiri yang scroll */
+        W.addEventListener("wheel", release, { passive: true });
+        W.addEventListener("touchmove", release, { passive: true });
+        D.addEventListener(
+          "mousedown",
+          function (e) {
+            if (e.target === R) release();
+          },
+          true,
+        );
+        W.addEventListener("keydown", function (e) {
+          var tag = (e.target && e.target.tagName) || "";
+          if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+          if (/^(Arrow|Page|Home|End| |Spacebar)/.test(e.key)) release();
+        });
+      })();
+    </script>
+    <script id="transisi-produk">
+      /* TRANSISI FILTER PRODUK: pelan tapi mantap.
+         Saat filter/urutan/cari berubah:
+         - kartu yang tetap tampil MELUNCUR halus ke tempat barunya,
+         - kartu yang baru muncul naik pelan satu per satu (berurutan),
+         - kartu yang hilang memudar lebih dulu (bayangan),
+         - tinggi daftar berubah perlahan, jadi bagian di bawahnya tidak melompat.
+         Hanya peningkat: bila gagal / "kurangi animasi" aktif, filter jalan seperti biasa. */
+      (function () {
+        "use strict";
+        var W = window,
+          D = document;
+        if (!Element.prototype.animate || !W.MutationObserver) return;
+        var reduce =
+          W.matchMedia && W.matchMedia("(prefers-reduced-motion: reduce)");
+        if (reduce && reduce.matches) return;
+
+        var DUR = 680,
+          EASE = "cubic-bezier(0.22, 0.8, 0.24, 1)",
+          OUT = 300,
+          STEP = 55,
+          MAXGHOST = 12;
+        var grid,
+          snap = new Map(),
+          snapH = 0,
+          snapTop = 0,
+          fx = new WeakMap(),
+          gridAnim = null,
+          queued = false,
+          armedAt = Date.now() + 2200;
+
+        function tOf(el) {
+          var m = getComputedStyle(el).transform;
+          if (!m || m === "none") return { x: 0, y: 0 };
+          var v = m.match(/matrix3d\(([^)]+)\)/);
+          if (v) {
+            v = v[1].split(",");
+            return { x: parseFloat(v[12]) || 0, y: parseFloat(v[13]) || 0 };
+          }
+          v = m.match(/matrix\(([^)]+)\)/);
+          if (!v) return { x: 0, y: 0 };
+          v = v[1].split(",");
+          return { x: parseFloat(v[4]) || 0, y: parseFloat(v[5]) || 0 };
+        }
+        function isItem(el) {
+          return (
+            el.nodeType === 1 &&
+            !el.hidden &&
+            (el.classList.contains("lot") ||
+              el.classList.contains("pp-group")) &&
+            el.getClientRects().length > 0
+          );
+        }
+        /* posisi tata letak (tanpa transform) relatif ke pojok kiri-atas grid */
+        function measure() {
+          var gr = grid.getBoundingClientRect(),
+            out = new Map();
+          Array.prototype.forEach.call(grid.children, function (el) {
+            if (!isItem(el)) return;
+            var r = el.getBoundingClientRect(),
+              t = tOf(el);
+            out.set(el, {
+              x: r.left - gr.left - t.x,
+              y: r.top - gr.top - t.y,
+              w: r.width,
+              h: r.height,
+            });
+          });
+          return out;
+        }
+        function takeSnap() {
+          if (!grid) return;
+          var gr = grid.getBoundingClientRect();
+          snap = measure();
+          snapH = gr.height;
+          snapTop = gr.top;
+        }
+
+        function ghostOf(el, p) {
+          var g = el.cloneNode(true);
+          g.removeAttribute("hidden");
+          g.hidden = false;
+          g.classList.add("fx-ghost");
+          g.setAttribute("aria-hidden", "true");
+          g.inert = true;
+          Array.prototype.forEach.call(
+            g.querySelectorAll("[id]"),
+            function (n) {
+              n.removeAttribute("id");
+            },
+          );
+          g.style.cssText +=
+            ";position:absolute;margin:0;pointer-events:none;z-index:2;box-sizing:border-box;" +
+            "left:" +
+            p.x +
+            "px;top:" +
+            p.y +
+            "px;width:" +
+            p.w +
+            "px;height:" +
+            p.h +
+            "px;";
+          return g;
+        }
+
+        function process() {
+          queued = false;
+          if (!grid || !snap.size || D.hidden) {
+            takeSnap();
+            return;
+          }
+          /* --- BACA --- */
+          var animH = gridAnim ? grid.getBoundingClientRect().height : null;
+          if (gridAnim) {
+            gridAnim.cancel();
+            gridAnim = null;
+          }
+          var after = measure();
+          var newH = grid.getBoundingClientRect().height;
+          var vh = W.innerHeight || 800;
+          var moves = [],
+            ins = [],
+            outs = [];
+          after.forEach(function (a, el) {
+            var p = snap.get(el);
+            if (p) {
+              var t = tOf(el),
+                dx = p.x + t.x - a.x,
+                dy = p.y + t.y - a.y;
+              if (Math.abs(dx) > 1 || Math.abs(dy) > 1)
+                moves.push({ el: el, dx: dx, dy: dy });
+            } else if (!(el.__rvWait && !el.__rvDone)) {
+              ins.push(
+                el,
+              ); /* kartu yang masih menunggu animasi skrip lain dibiarkan */
+            }
+          });
+          snap.forEach(function (p, el) {
+            if (after.has(el)) return;
+            var vy = snapTop + p.y;
+            if (outs.length < MAXGHOST && vy < vh + 200 && vy + p.h > -200)
+              outs.push({ el: el, p: p });
+          });
+          var from = animH != null ? animH : snapH;
+
+          /* --- TULIS --- */
+          outs.forEach(function (o) {
+            var g = ghostOf(o.el, o.p);
+            grid.appendChild(g);
+            g.animate(
+              [
+                { opacity: 1, transform: "scale(1)" },
+                { opacity: 0, transform: "scale(0.95)" },
+              ],
+              { duration: OUT, easing: "ease-out", fill: "forwards" },
+            ).onfinish = function () {
+              if (g.parentNode) g.parentNode.removeChild(g);
+            };
+          });
+          moves.forEach(function (m) {
+            var old = fx.get(m.el);
+            if (old) old.cancel();
+            var a = m.el.animate(
+              [
+                { transform: "translate(" + m.dx + "px," + m.dy + "px)" },
+                { transform: "translate(0,0)" },
+              ],
+              { duration: DUR, easing: EASE },
+            );
+            fx.set(m.el, a);
+          });
+          ins.forEach(function (el, i) {
+            var old = fx.get(el);
+            if (old) old.cancel();
+            if (el.classList.contains("lot"))
+              el.classList.add("is-in"); /* tidak menunggu pemicu scroll */
+            var a = el.animate(
+              [
+                { opacity: 0, transform: "translateY(26px) scale(0.97)" },
+                { opacity: 1, transform: "translateY(0) scale(1)" },
+              ],
+              {
+                duration: DUR,
+                delay: (outs.length ? 140 : 40) + Math.min(i, 10) * STEP,
+                easing: EASE,
+                fill: "backwards",
+              },
+            );
+            fx.set(el, a);
+          });
+          if (Math.abs(from - newH) > 2) {
+            gridAnim = grid.animate(
+              [{ height: from + "px" }, { height: newH + "px" }],
+              { duration: DUR, easing: EASE },
+            );
+            gridAnim.onfinish = gridAnim.oncancel = function () {
+              gridAnim = null;
+            };
+          }
+          takeSnap();
+          snapH =
+            newH; /* tinggi akhir, bukan tinggi yang sedang dianimasikan */
+        }
+        function schedule() {
+          if (queued) return;
+          queued = true;
+          requestAnimationFrame(process);
+        }
+
+        function init() {
+          grid = D.getElementById("lotGrid");
+          if (!grid) return;
+          if (getComputedStyle(grid).position === "static")
+            grid.style.position = "relative";
+          takeSnap();
+          new MutationObserver(function (recs) {
+            if (Date.now() < armedAt) return;
+            var real = recs.some(function (r) {
+              if (r.target.closest && r.target.closest(".fx-ghost"))
+                return false;
+              if (r.type === "childList") {
+                return Array.prototype.concat
+                  .call(
+                    [],
+                    Array.prototype.slice.call(r.addedNodes),
+                    Array.prototype.slice.call(r.removedNodes),
+                  )
+                  .some(function (n) {
+                    return !(n.classList && n.classList.contains("fx-ghost"));
+                  });
+              }
+              return true;
+            });
+            if (real) schedule();
+          }).observe(grid, {
+            childList: true,
+            attributes: true,
+            subtree: true,
+            attributeFilter: ["hidden"],
+          });
+
+          /* kotak "Produk belum ditemukan": muncul pelan */
+          var empty = D.getElementById("catalogEmpty");
+          if (empty)
+            new MutationObserver(function () {
+              if (Date.now() < armedAt || empty.hidden) return;
+              empty.animate(
+                [
+                  { opacity: 0, transform: "translateY(14px)" },
+                  { opacity: 1, transform: "translateY(0)" },
+                ],
+                { duration: DUR, delay: 120, easing: EASE, fill: "backwards" },
+              );
+            }).observe(empty, {
+              attributes: true,
+              attributeFilter: ["hidden"],
+            });
+
+          /* foto posisi SEBELUM perubahan: tiap kali kontrol katalog disentuh */
+          ["pointerdown", "click", "change", "input", "keydown"].forEach(
+            function (n) {
+              D.addEventListener(
+                n,
+                function (e) {
+                  var t = e.target;
+                  if (!t || !t.closest || !t.closest("#katalog")) return;
+                  if (t.closest(".lot-grid")) return;
+                  if (!queued) takeSnap();
+                },
+                true,
+              );
+            },
+          );
+          W.addEventListener("resize", function () {
+            if (!queued) takeSnap();
+          });
+          setInterval(function () {
+            if (!queued && !D.hidden && Date.now() > armedAt) takeSnap();
+          }, 500);
+        }
+        if (D.readyState === "loading")
+          D.addEventListener("DOMContentLoaded", init);
+        else init();
+      })();
+    </script>
+    <style id="chip-tengah">
+      /* Teks chip kategori (Semua produk, Herbisida, Insektisida, Fungisida, Pupuk,
+         Hayati, Alat Semprot, Perlengkapan) tepat di tengah, padding kiri = kanan */
+      #katalog .pp-rail .pp-cat {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+      #katalog .pp-rail .pp-cat small {
+        display: none !important;
+      }
+    </style>
+    <script id="filter-tenang">
+      /* Filter Produk yang tenang.
+         1) (Penahan layar kini ada di skrip #layar-diam di atas.)
+         2) Angka jumlah di chip/label kategori dihapus (angkanya tidak ikut
+            berubah saat difilter, jadi menyesatkan). Hanya peningkat. */
+      (function () {
+        "use strict";
+        var W = window;
+
+        /* ---- hapus angka jumlah pada chip / label saring ---- */
+        var SKIP_COUNT =
+          ".lot-grid, .catalog-foot, #productModal, .recently-viewed, .pp-band, .filter-dropdown-count, #lotCount, #lotTotal";
+        var NUM_ONLY = /^\s*[\(\[]?\d{1,4}[\)\]]?\s*$/;
+        var TRAIL = /^(.*[A-Za-z]{2}.*?)\s*[\(\[]?\d{1,4}[\)\]]?\s*$/;
+        var COUNTER_WORDS = /ditampilkan|menampilkan|hasil/i;
+        var busy = false;
+        function clean() {
+          var root = document.getElementById("katalog");
+          if (!root || busy) return;
+          busy = true;
+          try {
+            var els = root.querySelectorAll(
+              'button, label, a, li, [class*="chip"], [role="tab"], [role="button"]',
+            );
+            for (var i = 0; i < els.length; i++) {
+              var el = els[i];
+              if (el.closest(SKIP_COUNT)) continue;
+              var txt = el.textContent || "";
+              if (COUNTER_WORDS.test(txt)) continue;
+              var k;
+              for (k = 0; k < el.children.length; k++) {
+                var c = el.children[k];
+                if (c.hasAttribute("data-ct")) continue;
+                if (c.children.length || !NUM_ONLY.test(c.textContent || ""))
+                  continue;
+                if (c.matches(SKIP_COUNT)) continue;
+                var rest = txt.replace(c.textContent, "");
+                if (!/[A-Za-z]{2}/.test(rest)) continue;
+                c.setAttribute("data-ct", "1");
+                c.style.display = "none";
+                c.setAttribute("aria-hidden", "true");
+              }
+              for (k = 0; k < el.childNodes.length; k++) {
+                var n = el.childNodes[k];
+                if (n.nodeType !== 3) continue;
+                var m = TRAIL.exec(n.nodeValue);
+                if (m && m[1] !== n.nodeValue) n.nodeValue = m[1] + " ";
+              }
+            }
+          } catch (e) {}
+          busy = false;
+        }
+        function start() {
+          var root = document.getElementById("katalog");
+          if (!root) return;
+          clean();
+          if ("MutationObserver" in W) {
+            var q = false;
+            new MutationObserver(function () {
+              if (q) return;
+              q = true;
+              requestAnimationFrame(function () {
+                q = false;
+                clean();
+              });
+            }).observe(root, {
+              childList: true,
+              subtree: true,
+              characterData: true,
+            });
+          }
+        }
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", start);
+        else start();
+      })();
+    </script>
+
+    <style id="hero-slot">
+      /* =====================================================================
+         SECTION 1 (HERO): SLOT KOSONG DI SISI KANAN
+         Teks tetap di kolom kiri dengan slot tinggi yang sama di semua halaman.
+         Kolom kanan (lebar --ha-w) selalu disediakan di layar >= 1100px dan
+         setinggi hero. Di bawah 1100px slot turun ke bawah teks. Selama slot
+         kosong, slot tidak terlihat dan tidak memakan ruang.
+         ===================================================================== */
+      :root {
+        --ha-w: 372px;
+        --ha-gap: clamp(40px, 5vw, 72px);
+        --ha-gold: #f2b705;
+      }
+      /* tinggi hero: sama di semua halaman */
+      @media (min-width: 1100px) {
+        :root {
+          --hero-h: clamp(500px, 40vw, 520px);
+        }
+      }
+      html body main > .hero-split:not(#_):not(#__):not(#___) {
+        height: auto !important;
+        min-height: var(--hero-h) !important;
+      }
+      html body main > .hero-split:not(#_):not(#__):not(#___) .hero-aside {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 560px !important;
+        margin: clamp(28px, 5vw, 40px) 0 0 !important;
+        padding: 0 !important;
+      }
+      @media (min-width: 1100px) {
+        html body main > .hero-split:not(#_):not(#__):not(#___) {
+          height: var(--hero-h) !important;
+        }
+        html body main > .hero-split:not(#_):not(#__):not(#___) > .wrap {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1fr) var(--ha-w) !important;
+          column-gap: var(--ha-gap) !important;
+          row-gap: 0 !important;
+          align-items: start !important;
+        }
+        html body main > .hero-split:not(#_):not(#__):not(#___) > .wrap > * {
+          grid-column: 1 !important;
+          min-width: 0 !important;
+        }
+        html
+          body
+          main
+          > .hero-split:not(#_):not(#__):not(#___)
+          > .wrap
+          > .hero-aside {
+          grid-column: 2 !important;
+          grid-row: 1 / span 6 !important;
+          align-self: stretch !important;
+          display: flex !important;
+          align-items: flex-start !important;
+          max-width: none !important;
+          margin: 0 !important;
+          contain: size;
+        }
+        html body main > .hero-split:not(#_):not(#__):not(#___) h1 {
+          font-size: clamp(28px, 3.1vw, 40px) !important;
+        }
+        html body main > .hero-split--free:not(#_):not(#__):not(#___) h1 br {
+          display: none !important;
+        }
+      }
+      /* slot kosong tidak terlihat; begitu diisi, aturan ini otomatis berhenti berlaku */
+      html body main .hero-aside:empty {
+        display: none !important;
+      }
+    </style>
+    <style id="hero-sejajar">
+      /* =====================================================================
+         SECTION 1 (HERO): KIRI DAN KANAN SEJAJAR
+         Kartu di slot kanan dipaksa setinggi kolom kiri: tepi atasnya sejajar
+         dengan breadcrumb, tepi bawahnya sejajar dengan dasar tombol/kolom cari.
+         Isi kartu tersebar rata di antara dua tepi itu, jadi tidak ada lagi
+         kartu yang melayang di tengah atau menjulur keluar. Blok ini identik
+         di semua halaman (tanpa ubah file CSS).
+         ===================================================================== */
+      @media (min-width: 1100px) {
+        html
+          body
+          main
+          > .hero-split:not(#_):not(#__):not(#___)
+          > .wrap
+          > .hero-aside {
+          align-items: stretch !important;
+        }
+        html
+          body
+          main
+          > .hero-split:not(#_):not(#__):not(#___)
+          > .wrap
+          > .hero-aside
+          > :first-child {
+          align-self: stretch !important;
+          box-sizing: border-box !important;
+          width: 100% !important;
+          height: 100% !important;
+          min-height: 0 !important;
+          margin: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          align-items: stretch !important;
+        }
+        html
+          body
+          main
+          > .hero-split:not(#_):not(#__):not(#___)
+          > .wrap
+          > .hero-aside
+          > :first-child
+          > a {
+          align-self: flex-start !important;
+        }
+      }
+
+      /* Kontak: tiga langkah satu baris, setinggi slot tombol di halaman lain */
+      @media (min-width: 961px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          )
+          > .wrap
+          > .contact-steps {
+          display: grid !important;
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+          gap: 0 clamp(16px, 2vw, 28px) !important;
+          align-items: start !important;
+          max-width: 760px !important;
+          height: var(--hero-slot) !important;
+          min-height: 0 !important;
+          margin: var(--hero-gap) 0 0 !important;
+          overflow: visible !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          )
+          > .wrap
+          > .contact-steps
+          li {
+          padding: 10px 0 0 !important;
+          gap: 8px !important;
+          font-size: 13.5px !important;
+          line-height: 1.4 !important;
+        }
+      }
+    </style>
+    <style id="hero-kanan-isi">
+      /* Isi slot kanan Section 1 (hero) halaman Produk: penjelasan singkat jenis produk.
+         Font tidak diatur di sini: mengikuti font situs seperti kartu di halaman lain. */
+      .pf {
+        --pf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+        width: 100%;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.45;
+        text-align: left;
+      }
+      .pf *,
+      .pf *::before,
+      .pf *::after {
+        box-sizing: border-box;
+      }
+      .pf-title {
+        margin: 0;
+        padding-bottom: 9px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+        font-size: 15px;
+        line-height: 21px;
+        font-weight: 700;
+        color: #fff;
+      }
+      /* tab: garis penanda emas meluncur ke tab yang dipilih */
+      .pf-tabs {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      }
+      .pf-tabs legend {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+      .pf-tab {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+        cursor: pointer;
+      }
+      .pf-tab input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .pf-tab span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        padding: 0 4px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.62);
+        white-space: nowrap;
+        transition: color 0.25s ease;
+      }
+      .pf-tab span::before {
+        content: "";
+        position: absolute;
+        inset: 4px 4px 5px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.09);
+        opacity: 0;
+        transform: scale(0.94);
+        transition:
+          opacity 0.25s ease,
+          transform 0.3s var(--pf-ease);
+      }
+      .pf-tab span:hover {
+        color: #fff;
+      }
+      .pf-tab:hover span::before {
+        opacity: 1;
+        transform: none;
+      }
+      .pf-tab input:checked + span {
+        color: #fff;
+      }
+      .pf-tab input:checked + span::before {
+        opacity: 0;
+      }
+      .pf-tab:has(input:focus-visible) {
+        outline: 3px solid #f2b705;
+        outline-offset: -3px;
+        border-radius: 6px;
+      }
+      .pf-ind {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 25%;
+        height: 3px;
+        background: #f2b705;
+        transform: translateX(0);
+        transition: transform 0.45s var(--pf-ease);
+      }
+      .pf-tabs:has(.pf-tab:nth-of-type(2) input:checked) .pf-ind {
+        transform: translateX(100%);
+      }
+      .pf-tabs:has(.pf-tab:nth-of-type(3) input:checked) .pf-ind {
+        transform: translateX(200%);
+      }
+      .pf-tabs:has(.pf-tab:nth-of-type(4) input:checked) .pf-ind {
+        transform: translateX(300%);
+      }
+      /* isi: nama + sasaran, penjelasan, lalu dua keterangan berdampingan */
+      .pf-body {
+        display: contents;
+      }
+      /* tinggi tetap di semua tab, supaya jarak antarblok tidak bergeser saat ganti tab */
+      .pf-main {
+        min-height: 91px;
+      }
+      .pf-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .pf-head .pf-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .pf-head .pf-for {
+        font-size: 13px;
+        font-weight: 600;
+        color: #f2b705;
+      }
+      .pf-what {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .pf-info {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 18px;
+        margin: 0;
+        padding-top: 12px;
+        min-height: 110px;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+      }
+      .pf-info dt {
+        margin: 0 0 3px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .pf-info dd {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.86);
+      }
+      /* ganti isi: pelan memudar keluar, lalu masuk dari bawah */
+      .pf-main,
+      .pf-info dd,
+      .pf-info dt {
+        transition:
+          opacity 0.16s ease,
+          transform 0.16s ease;
+      }
+      .pf-body.is-out .pf-main,
+      .pf-body.is-out .pf-info dd,
+      .pf-body.is-out .pf-info dt {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      .pf-body.is-in .pf-main,
+      .pf-body.is-in .pf-info dd,
+      .pf-body.is-in .pf-info dt {
+        animation: pf-in 0.4s var(--pf-ease) backwards;
+      }
+      .pf-body.is-in .pf-info dd {
+        animation-delay: 0.05s;
+      }
+      @keyframes pf-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (min-width: 1100px) {
+        /* judul sejajar breadcrumb, dasar teks sejajar dasar tombol kiri */
+        .pf {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 10px;
+          height: 100%;
+        }
+      }
+      @media (max-width: 1099px) {
+        .pf > * + * {
+          margin-top: 14px;
+        }
+      }
+      @media (max-width: 420px) {
+        .pf-tab span {
+          font-size: 12.5px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .pf-ind,
+        .pf-tab span,
+        .pf-tab span::before,
+        .pf-main,
+        .pf-info dd,
+        .pf-info dt {
+          transition: none;
+        }
+        .pf-body.is-in .pf-main,
+        .pf-body.is-in .pf-info dd,
+        .pf-body.is-in .pf-info dt {
+          animation: none;
+        }
+      }
+
+      /* Penguat: aturan global situs (p, dl, dd, strong) tidak boleh mengubah jarak dan tinggi baris kartu ini */
+      html body main .hero-aside .pf .pf-title {
+        margin: 0 !important;
+        padding: 0 0 9px !important;
+        font-size: 15px !important;
+        line-height: 21px !important;
+        font-weight: 700 !important;
+      }
+      html body main .hero-aside .pf .pf-tab span {
+        font-size: 13.5px !important;
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
+      }
+      html body main .hero-aside .pf .pf-head {
+        margin: 0 0 8px !important;
+      }
+      html body main .hero-aside .pf .pf-name {
+        font-size: 15px !important;
+        line-height: 1.3 !important;
+        font-weight: 700 !important;
+      }
+      html body main .hero-aside .pf .pf-for {
+        font-size: 13px !important;
+        line-height: 1.3 !important;
+        font-weight: 600 !important;
+      }
+      html body main .hero-aside .pf .pf-what {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important;
+        text-align: justify !important;
+        text-align-last: left !important;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+      html body main .hero-aside .pf .pf-info {
+        margin: 0 !important;
+        padding: 12px 0 0 !important;
+      }
+      html body main .hero-aside .pf .pf-info > div {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      html body main .hero-aside .pf .pf-info dt {
+        margin: 0 0 3px !important;
+        padding: 0 !important;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+      }
+      html body main .hero-aside .pf .pf-info dd {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13.5px !important;
+        line-height: 1.45 !important;
+        font-weight: 400 !important;
+        text-align: justify !important;
+        text-align-last: left !important;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+    </style>
+    <style id="hero-mobile-rapi">
+      /* =====================================================================
+         SECTION 1 (HERO) - PERAPIAN AKHIR, SAMA DI SEMUA HALAMAN
+         1. ukuran judul (h1) diseragamkan di semua halaman
+         2. judul & subjudul rata justify (baris terakhir tetap rata kiri)
+         3. jarak subjudul ke tombol dirapatkan (slot tinggi kosong dibuang)
+         4. kartu kanan Produk diberi ruang napas di HP
+         Selektor dibuat berbobot sangat tinggi (10 lapis) supaya menang atas
+         blok hero-layanan-kunci / hero-layanan-nuklir di layanan.html.
+         ===================================================================== */
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+          #___
+        ):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(
+          #_________
+        ):not(#__________)
+        h1 {
+        font-size: clamp(34px, 3.1vw, 40px) !important;
+        font-weight: 700 !important;
+        line-height: 1.12 !important;
+        letter-spacing: -0.022em !important;
+        min-height: calc(2 * 1.12em) !important;
+        margin: 0 0 16px !important;
+        text-align: justify !important;
+        text-align-last: left !important;
+        text-wrap: wrap !important;
+        hyphens: manual !important;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+          #___
+        ):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(
+          #_________
+        ):not(#__________)
+        > .wrap
+        > p {
+        min-height: 0 !important;
+        text-align: justify !important;
+        text-align-last: left !important;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+          #___
+        ):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(
+          #_________
+        ):not(#__________)
+        > .wrap
+        > .btn,
+      html
+        body
+        main
+        > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+          #___
+        ):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(
+          #_________
+        ):not(#__________)
+        > .wrap
+        > .help-search {
+        margin-top: 24px !important;
+      }
+
+      @media (max-width: 1099px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          h1 {
+          font-size: clamp(34px, 5vw, 42px) !important;
+          min-height: 0 !important;
+          margin-bottom: 14px !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          > .wrap
+          > .btn,
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          > .wrap
+          > .help-search {
+          margin-top: 20px !important;
+        }
+      }
+
+      @media (max-width: 720px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          h1 {
+          font-size: clamp(30px, 8.4vw, 35px) !important;
+          line-height: 1.15 !important;
+          margin-bottom: 14px !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          > .wrap
+          > p {
+          font-size: 15.5px !important;
+          line-height: 1.65 !important;
+          min-height: 0 !important;
+          max-width: none !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          .breadcrumb {
+          margin-bottom: 18px !important;
+        }
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________)
+          > .wrap
+          > .btn {
+          min-height: 50px !important;
+          margin-top: 18px !important;
+        }
+
+        /* ---------- Kartu "Kenali jenis produk" (produk.html) ---------- */
+        html body main .hero-aside:not(#_):not(#__):not(#___) {
+          margin-top: 28px !important;
+          max-width: none !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) {
+          padding: 18px 16px 20px !important;
+          border: 1px solid rgba(255, 255, 255, 0.16) !important;
+          border-radius: 16px !important;
+          background: rgba(255, 255, 255, 0.06) !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-title {
+          padding: 0 0 14px !important;
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          border-bottom: 0 !important;
+        }
+        /* tab jadi 2 x 2 supaya tidak sempit */
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-tabs {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 8px !important;
+          border-bottom: 0 !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-ind {
+          display: none !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-tab span {
+          height: 42px !important;
+          padding: 0 8px !important;
+          font-size: 14px !important;
+          border: 1px solid rgba(255, 255, 255, 0.22) !important;
+          border-radius: 10px !important;
+        }
+        html
+          body
+          main
+          .hero-aside
+          .pf:not(#_):not(#__):not(#___)
+          .pf-tab
+          span::before {
+          display: none !important;
+        }
+        html
+          body
+          main
+          .hero-aside
+          .pf:not(#_):not(#__):not(#___)
+          .pf-tab
+          input:checked
+          + span {
+          background: rgba(242, 183, 5, 0.16) !important;
+          border-color: #f2b705 !important;
+          color: #fff !important;
+        }
+        /* isi */
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-main {
+          min-height: 0 !important;
+          margin-top: 18px !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-head {
+          flex-wrap: wrap !important;
+          gap: 2px 12px !important;
+          margin: 0 0 10px !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-what {
+          font-size: 14.5px !important;
+          line-height: 1.6 !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-info {
+          grid-template-columns: 1fr !important;
+          gap: 14px !important;
+          min-height: 0 !important;
+          margin-top: 18px !important;
+          padding: 16px 0 0 !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-info dt {
+          margin-bottom: 4px !important;
+        }
+        html body main .hero-aside .pf:not(#_):not(#__):not(#___) .pf-info dd {
+          font-size: 14.5px !important;
+          line-height: 1.6 !important;
+        }
+      }
+
+      /* ---- isi hero dibuat simetris atas-bawah ---- */
+      @media (max-width: 1099px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________) {
+          min-height: 0 !important;
+          padding-block: var(--hero-pt) var(--hero-pt) !important;
+        }
+      }
+      @media (min-width: 1100px) {
+        html
+          body
+          main
+          > :is(.about-hero, .service-hero, .help-hero):not(#_):not(#__):not(
+            #___
+          ):not(#____):not(#_____):not(#______):not(#_______):not(
+            #________
+          ):not(#_________):not(#__________) {
+          padding-top: calc(var(--hero-pt) + var(--hero-shift, 0px)) !important;
+        }
+      }
+    </style>
+    <style id="badge-bulat-hp">
+      /* Tombol "Lihat Pesanan" di HP: badge angka dibuat lingkaran sempurna
+         (sebelumnya lonjong karena lebar mengikuti isi). Berlaku di laptop dan HP. */
+      @media all {
+        html
+          body
+          .cart-bar
+          .cart-bar-btn
+          .cart-badge:not(#_):not(#__):not(#___):not(#____):not(#_____) {
+          box-sizing: border-box !important;
+          flex: 0 0 24px !important;
+          width: 24px !important;
+          min-width: 24px !important;
+          max-width: 24px !important;
+          height: 24px !important;
+          aspect-ratio: 1 / 1;
+          padding: 0 !important;
+          border-radius: 50% !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          overflow: hidden;
+          font-size: 12px !important;
+          line-height: 1 !important;
+          letter-spacing: 0 !important;
+          text-align: center;
+          font-variant-numeric: tabular-nums;
+        }
+      }
+    </style>
+    <style id="fix-kecil-css">
+      /* Kolom cari navbar: tanpa kotak hijau tambahan saat disentuh/diklik;
+         hanya garis tepi wadah yang berubah halus */
+      html body .nav-search input,
+      html body .nav-search input:hover,
+      html body .nav-search input:focus,
+      html body .nav-search input:focus-visible,
+      html body .nav-search input:active {
+        outline: 0 !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+        background-color: transparent !important;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      html body .nav-search:focus-within {
+        outline: 0 !important;
+        box-shadow: none !important;
+        border-color: var(--brand, #1b6b43) !important;
+      }
+      html body .nav-search input[type="search"]::-webkit-search-cancel-button,
+      html body .nav-search input[type="search"]::-webkit-search-decoration,
+      html
+        body
+        .nav-search
+        input[type="search"]::-webkit-search-results-button {
+        -webkit-appearance: none;
+        appearance: none;
+        display: none;
+      }
+      html body .nav-search input[type="search"]::-ms-clear {
+        display: none;
+      }
+      html body .nav-search-btn:focus:not(:focus-visible) {
+        outline: 0 !important;
+        box-shadow: none !important;
+      }
+      /* Tombol tutup (×) di menu & Daftar Pesanan: ikon tepat di tengah */
+      html body .drawer-close {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        line-height: 1 !important;
+        font-size: 0 !important;
+        text-align: center;
+        flex: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html body .drawer-close svg {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        flex: none;
+        pointer-events: none;
+      }
+      html body .lightbox-close,
+      html body .product-modal-close {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        line-height: 1 !important;
+        font-size: 0 !important;
+      }
+      html body .lightbox-close svg,
+      html body .product-modal-close svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex: none;
+        pointer-events: none;
+      }
+    </style>
+    <style id="penyempurnaan-final">
+      /* Penyempurnaan akhir (semua halaman): dasar HP yang aman, gulir halus,
+         tipografi rapi, dan laci/keranjang tidak "menembus" ke halaman di belakangnya. */
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scrollbar-gutter: stable;
+        scroll-padding-top: 84px;
+      }
+      body {
+        overflow-x: clip;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      a,
+      button,
+      summary,
+      label,
+      select,
+      [role="button"] {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      img,
+      video {
+        max-width: 100%;
+      }
+      main h1,
+      main h2,
+      main h3 {
+        text-wrap: balance;
+      }
+      main p,
+      main li {
+        text-wrap: pretty;
+      }
+      /* laci menu, keranjang, dan detail produk: gulir tidak merembet ke halaman */
+      .cart-panel,
+      .cart-items,
+      #mobileDrawer,
+      .mobile-drawer,
+      .product-modal-scroll {
+        overscroll-behavior: contain;
+      }
+      .cart-panel,
+      #mobileDrawer,
+      .mobile-drawer {
+        max-height: 100vh;
+        max-height: 100dvh;
+      }
+      /* animasi masuk: hanya naikkan ke lapisan GPU selama belum tampil */
+      html.ax-js .ax-rv:not(.ax-in) {
+        will-change: opacity, transform;
+      }
+      @media (max-width: 900px) {
+        html {
+          scroll-padding-top: 76px;
+        }
+      }
+    </style>
+  </head>
+  <body data-page="produk">
+    <a class="skip-link" href="#mainContent">Lewati ke konten</a>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <div class="brand">
+          <a
+            aria-label="Beranda Agro Sentosa Jaya"
+            href="index.html"
+            class="brand-link"
+          >
+            <img
+              alt="Logo Agro Sentosa Jaya"
+              class="brand-logo"
+              height="80"
+              src="images/Logo_ASJ_Group.png"
+              width="80"
+            />
+            <div class="brand-text">
+              <strong>ASJ Group</strong>
+              <span>Distributor Pupuk, Herbisida &amp; Sarana Pertanian</span>
+            </div>
+          </a>
+        </div>
+        <nav aria-label="Navigasi utama" class="main-nav">
+          <a href="index.html#beranda">Beranda</a>
+          <div class="nav-item-dropdown">
+            <a aria-current="page" class="active" href="produk.html"
+              >Produk <span class="nav-caret"></span
+            ></a>
+            <div class="nav-dropdown">
+              <a href="produk.html?kategori=herbisida">Herbisida</a>
+              <a href="produk.html?kategori=insektisida">Insektisida</a>
+              <a href="produk.html?kategori=fungisida">Fungisida</a>
+              <a href="produk.html?kategori=pupuk">Pupuk</a>
+              <a href="produk.html?kategori=hayati">Hayati</a>
+              <a href="produk.html?kategori=alat">Alat Semprot</a>
+              <a href="produk.html?kategori=perlengkapan">Perlengkapan</a>
+            </div>
+          </div>
+          <a href="tentang.html">Tentang Kami</a>
+          <a href="layanan.html">Area Layanan</a>
+          <a href="faq.html">FAQ</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
+        <div class="header-actions">
+          <div class="nav-search" id="navSearch">
+            <input
+              autocomplete="off"
+              id="navSearchInput"
+              aria-label="Cari produk"
+              placeholder="Cari produk..."
+              type="search"
+            />
+            <button
+              aria-label="Cari produk"
+              class="nav-search-btn"
+              id="navSearchBtn"
+              type="button"
+            >
+              <!-- Ikon Kaca Pembesar -->
+              <svg
+                class="icon-search"
+                fill="none"
+                height="17"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="17"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+              </svg>
+              <!-- Ikon Silang (X) yang akan muncul tepat di bulatan yang sama -->
+              <svg
+                class="icon-close"
+                fill="none"
+                height="17"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="17"
+              >
+                <line x1="18" x2="6" y1="6" y2="18"></line>
+                <line x1="6" x2="18" y1="6" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <a class="btn btn-outline" href="produk.html"> Lihat Katalog </a>
+          <a class="btn btn-solid" href="kontak.html">Hubungi Kami</a>
+          <button
+            aria-label="Buka menu"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-controls="mobileDrawer"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="menu-icon"
+              ><span></span><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      aria-label="Menu navigasi seluler"
+      class="mobile-drawer"
+      id="mobileDrawer"
+    >
+      <div class="drawer-top">
+        <strong class="drawer-brand">ASJ Group</strong>
+        <button
+          aria-label="Tutup menu"
+          class="drawer-close"
+          id="drawerClose"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <nav aria-label="Navigasi seluler">
+        <a href="index.html#beranda">Beranda</a>
+        <a aria-current="page" class="active" href="produk.html">Produk</a>
+        <div class="drawer-sub-wrap">
+          <a class="drawer-sub" href="produk.html?kategori=herbisida"
+            >Herbisida</a
+          ><a class="drawer-sub" href="produk.html?kategori=insektisida"
+            >Insektisida</a
+          ><a class="drawer-sub" href="produk.html?kategori=fungisida"
+            >Fungisida</a
+          ><a class="drawer-sub" href="produk.html?kategori=pupuk">Pupuk</a
+          ><a class="drawer-sub" href="produk.html?kategori=hayati">Hayati</a
+          ><a class="drawer-sub" href="produk.html?kategori=alat"
+            >Alat Semprot</a
+          ><a class="drawer-sub" href="produk.html?kategori=perlengkapan"
+            >Perlengkapan</a
+          >
+        </div>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="layanan.html">Area Layanan</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+      <div class="drawer-cta">
+        <a class="btn btn-solid" data-wa-quick href="kontak.html"
+          >Chat WhatsApp</a
+        ><a class="btn btn-outline" href="produk.html">Lihat Katalog</a>
+      </div>
+    </div>
+    <main id="mainContent">
+      <section class="service-hero hero-split">
+        <div class="wrap">
+          <nav aria-label="Breadcrumb" class="breadcrumb">
+            <a href="index.html">Beranda</a> / Produk
+          </nav>
+          <h1>Katalog<br />Produk</h1>
+          <p>
+            Semua herbisida, insektisida, fungisida, pupuk, produk hayati, alat
+            semprot, dan perlengkapan yang kami distribusikan, cari atau saring
+            sesuai kebutuhan lahan Anda.
+          </p>
+          <a class="btn btn-solid" href="#katalog"
+            >Lihat katalog <span aria-hidden="true">↓</span></a
+          >
+          <!-- SLOT KANAN SECTION 1: taruh konten Anda di dalam <aside> ini.
+               Desktop (>= 1100px): kolom kanan selebar 372px, setinggi hero.
+               Di bawah 1100px: turun ke bawah teks. Sama di semua halaman. -->
+          <aside class="hero-aside" data-slot="hero-kanan">
+            <div class="pf" id="pfBox">
+              <div class="pf-title">Kenali jenis produk</div>
+              <fieldset class="pf-tabs">
+                <legend>Jenis produk</legend>
+                <label class="pf-tab"
+                  ><input
+                    type="radio"
+                    name="pfJenis"
+                    value="herbisida"
+                    checked
+                  /><span>Herbisida</span></label
+                >
+                <label class="pf-tab"
+                  ><input
+                    type="radio"
+                    name="pfJenis"
+                    value="insektisida"
+                  /><span>Insektisida</span></label
+                >
+                <label class="pf-tab"
+                  ><input type="radio" name="pfJenis" value="fungisida" /><span
+                    >Fungisida</span
+                  ></label
+                >
+                <label class="pf-tab"
+                  ><input type="radio" name="pfJenis" value="pupuk" /><span
+                    >Pupuk</span
+                  ></label
+                >
+                <span class="pf-ind" aria-hidden="true"></span>
+              </fieldset>
+              <div class="pf-body" id="pfPanel" aria-live="polite">
+                <div class="pf-main">
+                  <div class="pf-head">
+                    <span class="pf-name" id="pfName">Herbisida</span>
+                    <span class="pf-for" id="pfFor">Untuk gulma</span>
+                  </div>
+                  <div class="pf-what" id="pfWhat"></div>
+                </div>
+                <dl class="pf-info">
+                  <div>
+                    <dt id="pfSasT">Sasaran</dt>
+                    <dd id="pfSas"></dd>
+                  </div>
+                  <div>
+                    <dt>Cara kerja</dt>
+                    <dd id="pfHow"></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section
+        aria-labelledby="ppBandTitle"
+        class="pp-band"
+        hidden
+        id="ppBand"
+      ></section>
+      <section id="katalog">
+        <div class="wrap">
+          <div class="recently-viewed" id="recentlyViewed" hidden>
+            <span class="recently-viewed-label">Baru dilihat</span>
+            <div class="recently-viewed-list" id="recentlyViewedList"></div>
+          </div>
+          <div class="pp-controls">
+            <div class="search-box">
+              <div class="search-input-wrap">
+                <svg
+                  class="search-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                </svg>
+                <input
+                  aria-label="Cari nama produk atau bahan aktif"
+                  id="searchInput"
+                  placeholder='Cari nama produk atau bahan aktif, mis. "glifosat"'
+                  type="search"
+                />
+              </div>
+            </div>
+            <div class="saring-bar" id="saringBar">
+              <span class="saring-label">Saring berdasarkan:</span>
+              <div class="filter-dropdown" data-dropdown="kategori">
+                <button
+                  aria-controls="filterPanel-kategori"
+                  aria-expanded="false"
+                  class="filter-dropdown-btn"
+                  type="button"
+                >
+                  <span class="filter-dropdown-btn-label">Kategori</span>
+                  <span class="filter-dropdown-count" hidden></span>
+                  <span aria-hidden="true" class="filter-dropdown-icon"></span>
+                </button>
+                <div
+                  class="filter-dropdown-panel"
+                  hidden
+                  id="filterPanel-kategori"
+                >
+                  <div class="filter-dropdown-options">
+                    <label class="filter-check">
+                      <input type="checkbox" value="herbisida" />
+                      <span>Herbisida</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="insektisida" />
+                      <span>Insektisida</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="fungisida" />
+                      <span>Fungisida</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="pupuk" />
+                      <span>Pupuk</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="hayati" />
+                      <span>Hayati</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="alat" />
+                      <span>Alat Semprot</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="perlengkapan" />
+                      <span>Perlengkapan</span>
+                    </label>
+                  </div>
+                  <div class="filter-dropdown-actions">
+                    <button class="filter-dropdown-clear" type="button">
+                      Hapus
+                    </button>
+                    <button class="filter-dropdown-apply" type="button">
+                      Terapkan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-dropdown" data-dropdown="tanaman">
+                <button
+                  aria-controls="filterPanel-tanaman"
+                  aria-expanded="false"
+                  class="filter-dropdown-btn"
+                  type="button"
+                >
+                  <span class="filter-dropdown-btn-label">Tanaman</span>
+                  <span class="filter-dropdown-count" hidden></span>
+                  <span aria-hidden="true" class="filter-dropdown-icon"></span>
+                </button>
+                <div
+                  class="filter-dropdown-panel"
+                  hidden
+                  id="filterPanel-tanaman"
+                >
+                  <div class="filter-dropdown-options">
+                    <label class="filter-check">
+                      <input type="checkbox" value="sawit" />
+                      <span>Sawit</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="padi" />
+                      <span>Padi</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="jagung" />
+                      <span>Jagung</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="kopi" />
+                      <span>Kopi</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="karet" />
+                      <span>Karet</span>
+                    </label>
+                    <label class="filter-check">
+                      <input type="checkbox" value="hortikultura" />
+                      <span>Hortikultura</span>
+                    </label>
+                  </div>
+                  <div class="filter-dropdown-actions">
+                    <button class="filter-dropdown-clear" type="button">
+                      Hapus
+                    </button>
+                    <button class="filter-dropdown-apply" type="button">
+                      Terapkan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button class="saring-reset" hidden type="button">
+                Hapus semua filter
+              </button>
+            </div>
+            <div class="active-filter-tags" hidden id="activeFilterTags"></div>
+          </div>
+
+          <noscript>
+            <p class="catalog-error">
+              Katalog produk membutuhkan JavaScript. Aktifkan JavaScript atau
+              hubungi kami lewat halaman <a href="kontak.html">Kontak</a>.
+            </p>
+          </noscript>
+          <div class="lot-grid" id="lotGrid"></div>
+          <div class="catalog-empty" hidden="" id="catalogEmpty">
+            <h3>Produk belum ditemukan.</h3>
+            <p>Coba nama produk, bahan aktif, atau kategori lain.</p>
+            <button class="btn btn-outline" id="resetCatalog" type="button">
+              Reset pencarian
+            </button>
+          </div>
+          <div class="catalog-foot">
+            <span
+              >Menampilkan <strong id="lotCount">0</strong> dari
+              <span id="lotTotal">0</span> produk terdaftar</span
+            >
+            <span>Harga dan stok terkini — hubungi kami untuk konfirmasi.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="footer-row">
+          <div class="footer-brand">
+            <strong>ASJ Group</strong>
+            <p>
+              Distributor herbisida, insektisida, fungisida, pupuk, alat
+              semprot, dan perlengkapan pertanian untuk kebun sawit, padi, dan
+              hortikultura di Kalimantan Barat.
+            </p>
+            <a
+              class="footer-whatsapp"
+              href="https://www.instagram.com/asjgroup.id/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Instagram @asjgroup.id</a
+            >
+          </div>
+          <div class="footer-cols">
+            <div>
+              <h4>Kategori</h4>
+              <a href="produk.html?kategori=herbisida">Herbisida</a>
+              <a href="produk.html?kategori=insektisida">Insektisida</a>
+              <a href="produk.html?kategori=fungisida">Fungisida</a>
+              <a href="produk.html?kategori=pupuk">Pupuk</a>
+              <a href="produk.html?kategori=hayati">Hayati</a>
+            </div>
+            <div>
+              <h4>Perusahaan</h4>
+              <a href="tentang.html">Tentang Kami</a>
+              <a href="layanan.html">Area Layanan</a>
+              <a href="kontak.html">Kontak</a>
+              <a href="faq.html">FAQ &amp; Bantuan</a>
+              <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 ASJ Group. Seluruh hak cipta dilindungi.</span>
+          <span
+            >Gunakan pestisida sesuai label &amp; anjuran — baca petunjuk
+            penggunaan sebelum aplikasi.</span
+          >
+        </div>
+        <a class="footer-whatsapp" data-wa-quick href="kontak.html"
+          >Hubungi admin via WhatsApp ↗</a
+        >
+      </div>
+    </footer>
+    <a
+      aria-label="Hubungi via Kontak"
+      class="wa-float"
+      data-wa-quick
+      href="kontak.html"
+    >
+      <!-- Ikon Logo WhatsApp SVG -->
+      <svg
+        class="wa-icon"
+        fill="currentColor"
+        height="18"
+        viewBox="0 0 24 24"
+        width="18"
+      >
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.612-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+        ></path>
+      </svg>
+      <span class="wa-label">Hubungi Kami</span>
+    </a>
+    <button
+      aria-label="Kembali ke atas"
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+    >
+      ↑
+    </button>
+    <div class="cart-bar" hidden="" id="cartBar">
+      <button class="cart-bar-btn" id="cartOpenBtn" type="button">
+        <span class="cart-badge" id="cartBadge">0</span>
+        <span>Lihat Pesanan</span>
+      </button>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-panel" id="cartPanel">
+      <div class="cart-panel-head">
+        <strong>Daftar Pesanan</strong>
+        <button
+          aria-label="Tutup keranjang"
+          class="drawer-close"
+          id="cartCloseBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <p class="cart-empty" id="cartEmpty">
+        Belum ada produk dipilih. Jelajahi katalog dan tambahkan produk yang
+        Anda butuhkan.
+      </p>
+      <div class="cart-region" id="cartRegion">
+        <label for="cartRegionSelect">Wilayah pengiriman Anda</label>
+        <select id="cartRegionSelect">
+          <option value="">Pilih wilayah...</option>
+        </select>
+        <p class="cart-region-hint is-warning" id="cartRegionHint">
+          Pilih wilayah pengiriman. Pesanan diteruskan ke admin pusat.
+        </p>
+      </div>
+      <div class="cart-panel-foot">
+        <button class="btn btn-outline" id="cartClearBtn" type="button">
+          Kosongkan
+        </button>
+        <a
+          class="btn btn-solid"
+          href="#"
+          id="cartSendBtn"
+          rel="noopener noreferrer"
+          target="_blank"
+          >Kirim via WhatsApp</a
+        >
+      </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+      <button
+        aria-label="Tutup gambar"
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+      <figure>
+        <img decoding="async" alt="" id="lightboxImg" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+    </div>
+    <div class="product-overlay" id="productOverlay"></div>
+    <div class="product-modal" id="productModal">
+      <button
+        aria-label="Tutup detail produk"
+        class="lightbox-close product-modal-close"
+        id="productModalClose"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+      <div class="product-modal-scroll">
+        <div class="product-modal-side">
+          <div class="product-modal-media">
+            <img decoding="async" alt="" id="productModalImg" />
+          </div>
+          <div class="pm-buy">
+            <div class="size-picker-group" id="productModalSizeGroup" hidden>
+              <span class="size-picker-label">Pilih ukuran kemasan</span>
+              <div class="size-picker" id="productModalSizePicker"></div>
+            </div>
+            <div class="lot-actions">
+              <div class="qty-stepper" id="productModalStepper">
+                <button
+                  aria-label="Kurangi jumlah"
+                  class="qty-btn"
+                  data-step="-1"
+                  type="button"
+                >
+                  −
+                </button>
+                <span class="qty-val" data-qty="1">1</span>
+                <button
+                  aria-label="Tambah jumlah"
+                  class="qty-btn"
+                  data-step="1"
+                  type="button"
+                >
+                  +
+                </button>
+              </div>
+              <button class="lot-add" id="productModalAdd" type="button">
+                Tambah ke Pesanan
+              </button>
+            </div>
+            <div class="pm-ask">
+              <label class="pm-ask-label" for="productModalRegion"
+                >Tanya ke sales wilayah mana?</label
+              >
+              <select class="pm-ask-select" id="productModalRegion">
+                <option value="">Pilih wilayah Anda</option>
+              </select>
+              <button class="pm-ask-btn" id="productModalAsk" type="button">
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  width="18"
+                >
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.612-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  ></path>
+                </svg>
+                <span>Tanya via WhatsApp</span>
+              </button>
+              <p class="pm-ask-hint" id="productModalRegionHint" hidden>
+                Pilih wilayah Anda dulu supaya pesan sampai ke sales yang tepat.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="product-modal-body">
+          <span class="lot-tag" id="productModalTag"></span>
+          <h3 id="productModalName"></h3>
+          <p class="lot-active" id="productModalActive"></p>
+          <dl class="lot-specs" id="productModalSpecs"></dl>
+
+          <div class="product-modal-desc pm-section">
+            <h4>Kegunaan</h4>
+            <p id="productModalDesc"></p>
+          </div>
+
+          <!-- Diisi otomatis dari blok .lot-extra pada tiap produk -->
+          <div class="pm-section" id="productModalCropsGroup" hidden>
+            <h4>Cocok untuk tanaman</h4>
+            <ul class="crop-list" id="productModalCrops"></ul>
+          </div>
+          <div class="pm-section" id="productModalBenefitsGroup" hidden>
+            <h4>Keunggulan produk</h4>
+            <ul class="benefit-list" id="productModalBenefits"></ul>
+          </div>
+        </div>
+        <div class="product-modal-related" id="productModalRelated" hidden>
+          <h4>Produk terkait</h4>
+          <div class="related-grid" id="productModalRelatedGrid"></div>
+        </div>
+      </div>
+    </div>
+    <script defer src="js/locations.js?v=20261102"></script>
+    <script defer src="js/sales.js?v=20261102"></script>
+    <script defer src="js/produk-data.js?v=20261102"></script>
+    <script defer src="js/produk-render.js?v=20261102"></script>
+    <script defer src="js/main.js?v=20261102"></script>
+    <script defer src="js/refinements.js?v=20261102"></script>
+    <script defer src="js/cepat.js?v=20261102"></script>
+    <script defer src="js/wa-cepat.js?v=20261102"></script>
+    <script defer src="js/a11y-panel.js?v=20261102"></script>
+    <script defer src="js/produk-plus.js?v=20261102"></script>
+    <script defer src="js/produk-hover.js?v=20261102"></script>
+    <script id="animasi-masuk-js">
+      /* Animasi masuk (muncul saat di-scroll). Hanya peningkat: bila gagal, halaman tetap utuh. Kecualikan blok dengan data-ax="off". */
+      (function () {
+        "use strict";
+        function start() {
+          try {
+            init();
+          } catch (e) {}
+        }
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", start);
+        else start();
+
+        function init() {
+          var HORMATI_KURANGI_ANIMASI = false; /* true = patuhi pengaturan "kurangi animasi" perangkat */
+          if (
+            HORMATI_KURANGI_ANIMASI &&
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            document.documentElement.classList.add("ax-calm");
+            return;
+          }
+
+          var root = document.documentElement;
+          var main = document.querySelector("main");
+          if (!main) return;
+
+          /* garis progres scroll */
+          var bar = document.createElement("div");
+          bar.className = "ax-progress";
+          bar.setAttribute("aria-hidden", "true");
+          document.body.appendChild(bar);
+          var ticking = false;
+          function updateBar() {
+            ticking = false;
+            var max = root.scrollHeight - window.innerHeight;
+            var p =
+              max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+            bar.style.transform = "scaleX(" + p + ")";
+          }
+          window.addEventListener(
+            "scroll",
+            function () {
+              if (ticking) return;
+              ticking = true;
+              requestAnimationFrame(updateBar);
+            },
+            { passive: true },
+          );
+          updateBar();
+
+          /* section yang punya animasi sendiri atau diukur oleh skrip lain */
+          var SKIP_SECTION = ".hero, .asj-about, #cara-pesan, [data-ax='off']";
+          /* blok di dalam section yang tidak boleh digeser */
+          var SKIP_BLOCK =
+            ".branch-explorer, .line-grid, .lot-grid, [data-ax='off']";
+
+          if (!("IntersectionObserver" in window)) return;
+          var vh = window.innerHeight;
+          var targets = [];
+
+          function eligible(el) {
+            if (!el || el.nodeType !== 1) return false;
+            if (el.matches(SKIP_BLOCK)) return false;
+            if (el.querySelector("iframe, canvas, video, .leaflet-container"))
+              return false;
+            var cs = getComputedStyle(el);
+            if (cs.display === "none") return false;
+            if (cs.position !== "static" && cs.position !== "relative")
+              return false;
+            if (cs.animationName !== "none") return false;
+            if (cs.transform !== "none") return false;
+            return true;
+          }
+          function add(el) {
+            /* hanya yang berada di bawah layar saat halaman dibuka */
+            if (eligible(el) && el.getBoundingClientRect().top > vh * 0.95)
+              targets.push(el);
+          }
+
+          Array.prototype.forEach.call(
+            main.querySelectorAll("section"),
+            function (sec) {
+              if (sec.matches(SKIP_SECTION)) return;
+              var wrap = null;
+              for (var c = sec.firstElementChild; c; c = c.nextElementSibling) {
+                if (c.classList.contains("wrap")) {
+                  wrap = c;
+                  break;
+                }
+              }
+              if (!wrap) return;
+              Array.prototype.forEach.call(wrap.children, function (blk) {
+                if (blk.matches(SKIP_BLOCK)) return;
+                var many =
+                  (getComputedStyle(blk).display === "grid" ||
+                    blk.tagName === "UL" ||
+                    blk.tagName === "OL") &&
+                  blk.children.length > 1 &&
+                  !blk.classList.contains("section-head");
+                if (many) Array.prototype.forEach.call(blk.children, add);
+                else add(blk);
+              });
+            },
+          );
+
+          if (!targets.length) return;
+          targets.forEach(function (el) {
+            el.classList.add("ax-rv");
+          });
+          root.classList.add("ax-js");
+
+          function settle(el) {
+            el.classList.remove("ax-rv", "ax-in");
+            el.style.removeProperty("--ax-d");
+          }
+          function show(el) {
+            el.classList.add("ax-in");
+            var done = false;
+            function finish() {
+              if (done) return;
+              done = true;
+              settle(el);
+            }
+            el.addEventListener("transitionend", function (ev) {
+              if (ev.target === el && ev.propertyName === "transform") finish();
+            });
+            setTimeout(finish, 2200);
+          }
+
+          var io = new IntersectionObserver(
+            function (entries) {
+              /* yang masuk layar bersamaan diberi jeda berurutan (maks. 5 langkah) */
+              var visible = entries
+                .filter(function (e) {
+                  return e.isIntersecting;
+                })
+                .sort(function (a, b) {
+                  var A = a.boundingClientRect;
+                  var B = b.boundingClientRect;
+                  return A.top - B.top || A.left - B.left;
+                });
+              visible.forEach(function (e, n) {
+                io.unobserve(e.target);
+                e.target.style.setProperty(
+                  "--ax-d",
+                  Math.min(n, 5) * 70 + "ms",
+                );
+                show(e.target);
+              });
+            },
+            { threshold: 0, rootMargin: "0px 0px -8% 0px" },
+          );
+          targets.forEach(function (el) {
+            io.observe(el);
+          });
+
+          /* pengaman: yang sudah di layar tapi belum muncul, tampilkan paksa */
+          setTimeout(function () {
+            targets.forEach(function (el) {
+              if (
+                el.classList.contains("ax-rv") &&
+                !el.classList.contains("ax-in") &&
+                el.getBoundingClientRect().top < window.innerHeight
+              )
+                show(el);
+            });
+          }, 4000);
+
+          window.addEventListener("beforeprint", function () {
+            targets.forEach(settle);
+          });
+        }
+      })();
+    </script>
+    <script id="santai-scroll">
+      /* Tombol hero "Lihat katalog": turun pelan & halus (easing).
+         - jalan walau perangkat memakai "kurangi animasi"
+         - dipasang di fase capture + stopImmediatePropagation, agar skrip lain
+           tidak membuat halaman melompat instan */
+      (function () {
+        var raf = 0,
+          activeBtn = null;
+        function ease(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        function headerOffset() {
+          var h = document.querySelector("header");
+          if (!h) return 12;
+          var pos = getComputedStyle(h).position;
+          return pos === "fixed" || pos === "sticky" ? h.offsetHeight + 12 : 12;
+        }
+        function done() {
+          if (raf) cancelAnimationFrame(raf);
+          raf = 0;
+          window.removeEventListener("wheel", done);
+          window.removeEventListener("touchstart", done);
+          window.removeEventListener("keydown", onKey);
+          if (activeBtn) activeBtn.classList.remove("is-scrolling");
+          activeBtn = null;
+        }
+        function onKey(e) {
+          if (/^(Arrow|Page|Home|End| |Spacebar)/.test(e.key)) done();
+        }
+        function arrive(el) {
+          el.classList.remove("kt-arrive");
+          void el.offsetWidth;
+          el.classList.add("kt-arrive");
+        }
+        window.addEventListener(
+          "click",
+          function (e) {
+            var a =
+              e.target.closest &&
+              e.target.closest('.service-hero a[href^="#"]');
+            if (!a) return;
+            var id = a.getAttribute("href").slice(1);
+            var target = id && document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            done();
+            var root = document.documentElement;
+            var oldSB = root.style.scrollBehavior;
+            var startY = window.pageYOffset;
+            var endY = Math.max(
+              0,
+              target.getBoundingClientRect().top + startY - headerOffset(),
+            );
+            var dist = endY - startY;
+            if (Math.abs(dist) < 4) return;
+            var dur = Math.min(2000, Math.max(1200, Math.abs(dist) * 1.2));
+            var t0 = null;
+            activeBtn = a;
+            a.classList.add("is-scrolling");
+            root.style.scrollBehavior = "auto"; /* cegah CSS smooth bentrok */
+            window.addEventListener("wheel", done, { passive: true });
+            window.addEventListener("touchstart", done, { passive: true });
+            window.addEventListener("keydown", onKey);
+            function step(ts) {
+              if (t0 === null) t0 = ts;
+              var p = Math.min(1, (ts - t0) / dur);
+              window.scrollTo(0, startY + dist * ease(p));
+              if (p < 1) raf = requestAnimationFrame(step);
+              else {
+                done();
+                root.style.scrollBehavior = oldSB;
+                arrive(target);
+              }
+            }
+            raf = requestAnimationFrame(step);
+            if (history.replaceState) history.replaceState(null, "", "#" + id);
+          },
+          true,
+        );
+      })();
+    </script>
+    <script id="animasi-section-kedua-js">
+      /* Animasi buka halaman untuk section kedua. Hanya peningkat: bila gagal, halaman tetap utuh. Kecualikan blok dengan data-ax="off". */
+      (function () {
+        "use strict";
+        function start() {
+          try {
+            init();
+          } catch (e) {}
+        }
+        start(); /* langsung jalan (tanpa menunggu DOMContentLoaded) supaya tidak ada kedipan */
+
+        function init() {
+          var main = document.querySelector("main");
+          var root = document.documentElement;
+          if (!main || root.classList.contains("ax-calm")) return;
+          if (window.scrollY > 80)
+            return; /* dibuka di tengah halaman (refresh): lewati */
+
+          var CLS = "ax-s2";
+          var vh = window.innerHeight;
+          var BASE = 0.55; /* detik: mulai saat hero hampir selesai */
+          var STEP = 0.07;
+          var n = 0;
+          var SKIP_BLOCK =
+            ".branch-explorer, .line-grid, .lot-grid, [data-ax='off']";
+
+          function visibleNow(el) {
+            var r = el.getBoundingClientRect();
+            return r.height > 0 && r.top < vh * 0.95 && r.bottom > 0;
+          }
+          function ok(el) {
+            if (!el || el.nodeType !== 1 || el.hidden) return false;
+            if (el.matches(SKIP_BLOCK)) return false;
+            if (el.querySelector("iframe, canvas, video, .leaflet-container"))
+              return false;
+            var cs = getComputedStyle(el);
+            if (cs.display === "none" || cs.visibility === "hidden")
+              return false;
+            if (cs.position === "fixed" || cs.position === "absolute")
+              return false;
+            if (cs.animationName !== "none") return false;
+            if (cs.transform !== "none") return false;
+            return visibleNow(el);
+          }
+          function clean(el) {
+            el.classList.remove(CLS);
+            el.style.removeProperty("--s2-d");
+          }
+          function mark(el) {
+            if (!ok(el)) return;
+            el.style.setProperty(
+              "--s2-d",
+              (BASE + Math.min(n, 8) * STEP).toFixed(2) + "s",
+            );
+            el.classList.add(CLS);
+            n++;
+            var done = false;
+            function finish() {
+              if (done) return;
+              done = true;
+              clean(el);
+            }
+            el.addEventListener("animationend", function (ev) {
+              if (ev.target === el) finish();
+            });
+            setTimeout(finish, 3000);
+          }
+
+          var kids = Array.prototype.slice.call(main.children);
+          for (var i = 1; i < kids.length; i++) {
+            var sec = kids[i];
+            if (sec.hidden || sec.matches("[data-ax='off']")) continue;
+            var scs = getComputedStyle(sec);
+            if (scs.display === "none") continue;
+            if (sec.getBoundingClientRect().top >= vh * 0.95) break;
+            if (scs.animationName !== "none")
+              continue; /* sudah punya animasi sendiri */
+
+            var wrap = null;
+            for (var c = sec.firstElementChild; c; c = c.nextElementSibling) {
+              if (c.classList.contains("wrap")) {
+                wrap = c;
+                break;
+              }
+            }
+            var box = wrap || sec;
+            Array.prototype.forEach.call(box.children, function (blk) {
+              if (blk.matches(SKIP_BLOCK)) return;
+              var d = getComputedStyle(blk).display;
+              var many =
+                (d === "grid" ||
+                  blk.tagName === "UL" ||
+                  blk.tagName === "OL" ||
+                  (d === "flex" && blk.children.length >= 3)) &&
+                blk.children.length > 1 &&
+                !blk.classList.contains("section-head");
+              if (many) Array.prototype.forEach.call(blk.children, mark);
+              else mark(blk);
+            });
+          }
+        }
+      })();
+    </script>
+    <script id="animasi-boot-off">
+      document.documentElement.classList.remove("ax-boot");
+    </script>
+    <script id="perbaikan-js">
+      /* perbaikan-js — animasi tambahan (tanpa file luar). Hanya peningkat: bila gagal, halaman tetap utuh.
+   Tidak bergantung pada pengaturan "kurangi animasi". */
+      (function () {
+        "use strict";
+        var EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+        var hasIO = "IntersectionObserver" in window;
+        var hasWAAPI =
+          typeof Element !== "undefined" && !!Element.prototype.animate;
+        var T0 = Date.now();
+        function atLoad() {
+          return Date.now() - T0 < 1800;
+        }
+        function ready(fn) {
+          if (document.readyState === "loading")
+            document.addEventListener("DOMContentLoaded", fn);
+          else fn();
+        }
+        function kids(box) {
+          return box ? Array.prototype.slice.call(box.children) : [];
+        }
+        function all(sel, root) {
+          return Array.prototype.slice.call(
+            (root || document).querySelectorAll(sel),
+          );
+        }
+        function frames(el) {
+          var x = el.__rvX || 0;
+          var y = el.__rvY === undefined ? 26 : el.__rvY;
+          var s = el.__rvS || 1;
+          return [
+            {
+              opacity: 0,
+              transform:
+                "translate(" +
+                x +
+                "px," +
+                y +
+                "px)" +
+                (s !== 1 ? " scale(" + s + ")" : ""),
+            },
+            { opacity: 1, transform: "translate(0,0) scale(1)" },
+          ];
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Muncul berurutan saat terlihat                                      */
+        /* ------------------------------------------------------------------ */
+        var revealIO = null;
+
+        function play(el, delay) {
+          if (el.__rvDone) return;
+          el.__rvDone = true;
+          el.style.opacity = "";
+          if (!hasWAAPI) return;
+          var a = el.animate(frames(el), {
+            duration: 750,
+            delay: delay || 0,
+            easing: EASE,
+            fill: "backwards",
+          });
+          a.onfinish = a.oncancel = function () {
+            try {
+              if (parseFloat(getComputedStyle(el).opacity) < 0.99)
+                el.style.opacity = "1";
+            } catch (e) {}
+          };
+        }
+
+        function prepare(els) {
+          if (!els.length) return;
+          var vh = window.innerHeight || document.documentElement.clientHeight;
+          var now = [];
+          els.forEach(function (el) {
+            if (!el || el.nodeType !== 1 || el.__rvDone || el.__rvWait) return;
+            var cs = getComputedStyle(el);
+            if (cs.display === "none") return;
+            if (cs.animationName !== "none") {
+              el.__rvDone = true; /* sudah punya animasi dari skrip lain */
+              return;
+            }
+            var r = el.getBoundingClientRect();
+            var visible = r.height > 0 && r.top < vh * 0.98 && r.bottom > 0;
+            if (visible || !hasIO) now.push(el);
+            else {
+              el.__rvWait = true;
+              el.style.opacity = "0";
+              revealIO.observe(el);
+            }
+          });
+          now
+            .sort(function (a, b) {
+              var A = a.getBoundingClientRect();
+              var B = b.getBoundingClientRect();
+              return A.top - B.top || A.left - B.left;
+            })
+            .forEach(function (el, i) {
+              el.__rvDone = true;
+              if (!hasWAAPI) return;
+              el.animate(frames(el), {
+                duration: 750,
+                delay:
+                  (atLoad() ? 650 : 100) +
+                  (el.__rvDelay !== undefined
+                    ? el.__rvDelay
+                    : Math.min(i, 7) * 70),
+                easing: EASE,
+                fill: "backwards",
+              });
+            });
+        }
+
+        function mark(list, x, y, s) {
+          list.forEach(function (el) {
+            if (x !== undefined) el.__rvX = x;
+            if (y !== undefined) el.__rvY = y;
+            if (s !== undefined) el.__rvS = s;
+          });
+          return list;
+        }
+
+        /* isi "Rekomendasi unggulan" (#ppBand) — dibuat skrip lain, awalnya hidden */
+        function bandTargets(band) {
+          if (!band || band.hidden || !band.children.length) return [];
+          var cand = all(
+            "h1,h2,h3,h4,p,a,article,li,button,[class*='card'],[class*='item'],[class*='tile']",
+            band,
+          );
+          var set = cand.filter(function (el) {
+            if (el.hidden) return false;
+            /* buang yang berada di dalam kandidat lain (kecuali judul) */
+            var p = el.parentElement;
+            while (p && p !== band) {
+              if (cand.indexOf(p) >= 0 && !/^H[1-4]$/.test(p.tagName))
+                return false;
+              p = p.parentElement;
+            }
+            return true;
+          });
+          return set.length ? set : [band];
+        }
+
+        /* ---- Produk: kolom cari, chip kategori, Tanaman, jumlah produk, Urutkan ----
+     Elemen ini dibuat/diubah skrip situs, jadi dikenali secara struktur, bukan lewat nama class. */
+        function shown(el) {
+          if (!el || el.nodeType !== 1 || el.hidden) return false;
+          var t = el.tagName;
+          if (
+            t === "SCRIPT" ||
+            t === "STYLE" ||
+            t === "NOSCRIPT" ||
+            t === "TEMPLATE"
+          )
+            return false;
+          return getComputedStyle(el).display !== "none";
+        }
+        function ownText(el) {
+          return Array.prototype.some.call(el.childNodes, function (n) {
+            return n.nodeType === 3 && n.textContent.trim();
+          });
+        }
+        function leafs(el, depth) {
+          if (!shown(el)) return [];
+          if (
+            depth >= 4 ||
+            el.matches(
+              "button,a,select,input,textarea,label,[class*='search']",
+            ) ||
+            ownText(el)
+          )
+            return [el];
+          var ch = kids(el).filter(shown);
+          if (!ch.length) return [el];
+          var out = [];
+          ch.forEach(function (c) {
+            out = out.concat(leafs(c, depth + 1));
+          });
+          return out;
+        }
+        function controlTargets() {
+          if (Date.now() - T0 > 3500)
+            return []; /* setelah itu, render ulang karena filter tidak dianimasikan lagi */
+          var wrap = document.querySelector("#katalog > .wrap");
+          if (!wrap) return [];
+          var out = [];
+          kids(wrap).forEach(function (b) {
+            if (
+              b.matches(
+                ".lot-grid,.catalog-empty,.catalog-error,.recently-viewed,.pp-band",
+              ) ||
+              !shown(b)
+            )
+              return;
+            out = out.concat(leafs(b, 0));
+          });
+          out.forEach(function (el, i) {
+            el.__rvY = 20;
+            el.__rvDelay = Math.min(i, 16) * 55;
+          });
+          return out;
+        }
+
+        function collect() {
+          var list = [];
+          /* Tentang (halaman Tentang): Lini Produk */
+          all(".line-grid").forEach(function (g) {
+            list = list.concat(kids(g));
+          });
+          /* Produk: kolom cari, chip, filter, urutan */
+          list = list.concat(controlTargets());
+          /* Produk: kartu katalog */
+          all(".lot-grid").forEach(function (g) {
+            list = list.concat(kids(g));
+          });
+          /* Produk: Rekomendasi unggulan */
+          list = list.concat(bandTargets(document.getElementById("ppBand")));
+          /* Produk: "Baru dilihat" */
+          var rv = document.getElementById("recentlyViewed");
+          if (rv && !rv.hidden) list.push(rv);
+          /* Beranda: strip kategori */
+          all(".cat-strip .cat-list").forEach(function (g) {
+            list = list.concat(kids(g));
+          });
+          /* Beranda: Tentang Kami — foto dari kiri, teks naik berurutan */
+          var story = document.querySelector(".asj-about .asj-story");
+          if (story) {
+            var media = story.querySelector(".asj-story-media");
+            var body = story.querySelector(".asj-story-body");
+            if (media) {
+              media.__rvX = -44;
+              media.__rvY = 0;
+              list.push(media);
+            }
+            if (body) {
+              kids(body).forEach(function (c) {
+                if (c.classList.contains("asj-points")) {
+                  kids(c).forEach(function (li) {
+                    li.__rvY = 22;
+                    list.push(li);
+                  });
+                } else {
+                  c.__rvY = 24;
+                  list.push(c);
+                }
+              });
+            }
+          }
+          return list.filter(function (el, i) {
+            if (list.indexOf(el) !== i) return false;
+            if (el.closest && el.closest("#produk-unggulan")) return false;
+            return true;
+          });
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Angka kategori: langsung angka akhir (tanpa hitung naik), hanya     */
+        /* muncul dengan efek "pop"                                            */
+        /* ------------------------------------------------------------------ */
+        var popIO = null;
+        function watchNumbers() {
+          all(".cat-count, .line-count").forEach(function (el) {
+            if (el.__popWatched) return;
+            el.__popWatched = true;
+            if (popIO) popIO.observe(el);
+          });
+        }
+        function initNumbers() {
+          if (!hasIO || !hasWAAPI) return;
+          popIO = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                popIO.unobserve(e.target);
+                e.target.animate(
+                  [
+                    { opacity: 0, transform: "translateY(12px) scale(0.8)" },
+                    {
+                      opacity: 1,
+                      transform: "translateY(0) scale(1.08)",
+                      offset: 0.65,
+                    },
+                    { opacity: 1, transform: "translateY(0) scale(1)" },
+                  ],
+                  {
+                    duration: 620,
+                    delay: 260,
+                    easing: EASE,
+                    fill: "backwards",
+                  },
+                );
+              });
+            },
+            { threshold: 0.4 },
+          );
+          watchNumbers();
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Produk: kolom cari + saring masuk berurutan saat terlihat           */
+        /* ------------------------------------------------------------------ */
+        function initControls() {
+          var c = document.querySelector(".pp-controls");
+          if (!c) return;
+          c.style.setProperty("--pb-base", atLoad() ? "0.7s" : "0s");
+          function go() {
+            c.classList.add("pb-in");
+          }
+          if (!hasIO) return go();
+          var io = new IntersectionObserver(
+            function (en) {
+              if (
+                en.some(function (e) {
+                  return e.isIntersecting;
+                })
+              ) {
+                io.disconnect();
+                go();
+              }
+            },
+            { threshold: 0.05 },
+          );
+          io.observe(c);
+        }
+
+        /* ------------------------------------------------------------------ */
+        function initReveal() {
+          if (hasIO) {
+            revealIO = new IntersectionObserver(
+              function (entries) {
+                entries
+                  .filter(function (e) {
+                    return e.isIntersecting;
+                  })
+                  .sort(function (a, b) {
+                    var A = a.boundingClientRect;
+                    var B = b.boundingClientRect;
+                    return A.top - B.top || A.left - B.left;
+                  })
+                  .forEach(function (e, i) {
+                    revealIO.unobserve(e.target);
+                    play(e.target, Math.min(i, 6) * 80);
+                  });
+              },
+              { threshold: 0, rootMargin: "0px 0px -4% 0px" },
+            );
+          }
+          var queued = false;
+          function refresh() {
+            queued = false;
+            try {
+              prepare(collect());
+              watchNumbers();
+            } catch (e) {}
+          }
+          function queue() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(refresh);
+          }
+          refresh();
+          if ("MutationObserver" in window) {
+            new MutationObserver(queue).observe(
+              document.querySelector("main") || document.body,
+              {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ["hidden"],
+              },
+            );
+          }
+          window.addEventListener("load", queue);
+          setTimeout(function () {
+            var vh = window.innerHeight;
+            collect().forEach(function (el) {
+              if (el.__rvWait && !el.__rvDone) {
+                var r = el.getBoundingClientRect();
+                if (r.top < vh && r.bottom > 0) {
+                  if (revealIO) revealIO.unobserve(el);
+                  play(el, 0);
+                }
+              }
+            });
+          }, 4000);
+          window.addEventListener("beforeprint", function () {
+            collect().forEach(function (el) {
+              el.style.opacity = "";
+            });
+          });
+        }
+
+        /* Umpan balik saat memakai filter: chip yang dipilih "pop", jumlah produk berganti dengan fade */
+        function initFeedback() {
+          var wrap = document.querySelector("#katalog > .wrap");
+          if (!wrap || !hasWAAPI || !("MutationObserver" in window)) return;
+          function pop(el) {
+            if (el.__fbBusy) return;
+            el.__fbBusy = true;
+            var a = el.animate(
+              [
+                { transform: "scale(0.92)" },
+                { transform: "scale(1.07)", offset: 0.55 },
+                { transform: "scale(1)" },
+              ],
+              { duration: 340, easing: EASE },
+            );
+            a.onfinish = a.oncancel = function () {
+              el.__fbBusy = false;
+            };
+          }
+          function swap(el) {
+            if (el.__fbBusy2) return;
+            el.__fbBusy2 = true;
+            var a = el.animate(
+              [
+                { opacity: 0.25, transform: "translateY(6px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              { duration: 380, easing: EASE },
+            );
+            a.onfinish = a.oncancel = function () {
+              el.__fbBusy2 = false;
+            };
+          }
+          var mo = new MutationObserver(function (list) {
+            if (Date.now() - T0 < 1500) return; /* abaikan render awal */
+            list.forEach(function (m) {
+              var t = m.target;
+              if (m.type === "attributes") {
+                if (
+                  t.nodeType === 1 &&
+                  t.matches(
+                    "button,a,label,[role='button'],[role='tab'],[class*='chip']",
+                  )
+                ) {
+                  if (t.closest(".lot-grid,.lot,#productModal")) return;
+                  pop(t);
+                }
+              } else {
+                var el = t.nodeType === 1 ? t : t.parentElement;
+                while (el && el !== wrap) {
+                  if (
+                    /produk\s+ditampilkan|ditampilkan/i.test(
+                      el.textContent || "",
+                    ) &&
+                    (el.textContent || "").length < 60
+                  ) {
+                    swap(el);
+                    break;
+                  }
+                  el = el.parentElement;
+                }
+              }
+            });
+          });
+          mo.observe(wrap, {
+            subtree: true,
+            attributes: true,
+            attributeFilter: [
+              "class",
+              "aria-pressed",
+              "aria-selected",
+              "aria-checked",
+              "data-active",
+            ],
+            childList: true,
+            characterData: true,
+          });
+        }
+
+        ready(function () {
+          try {
+            initNumbers();
+          } catch (e) {}
+          try {
+            initReveal();
+          } catch (e) {}
+          try {
+            initControls();
+          } catch (e) {}
+          try {
+            initFeedback();
+          } catch (e) {}
+        });
+      })();
+    </script>
+    <script id="navbar-pemisah-js">
+      /* Pasang/lepas kelas .nav-pemisah pada navbar sesuai posisi scroll. Murni peningkat: bila gagal, navbar tetap seperti semula. */
+      (function () {
+        "use strict";
+        try {
+          var h = document.querySelector(".site-header");
+          if (!h) return;
+          var on = false;
+          var queued = false;
+          function update() {
+            queued = false;
+            var y =
+              window.pageYOffset || document.documentElement.scrollTop || 0;
+            var want = y > 8;
+            if (want !== on) {
+              on = want;
+              h.classList.toggle("nav-pemisah", on);
+            }
+          }
+          function queue() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(update);
+          }
+          window.addEventListener("scroll", queue, { passive: true });
+          window.addEventListener("load", queue);
+          update();
+        } catch (e) {}
+      })();
+    </script>
+    <script id="hero-kanan-js">
+      /* Penjelasan singkat jenis produk. Hanya info umum, tanpa filter dan tanpa data cuaca. */
+      (function () {
+        "use strict";
+        try {
+          var box = document.getElementById("pfBox");
+          if (!box) return;
+          var body = document.getElementById("pfPanel");
+          var el = {
+            name: document.getElementById("pfName"),
+            f: document.getElementById("pfFor"),
+            what: document.getElementById("pfWhat"),
+            st: document.getElementById("pfSasT"),
+            sas: document.getElementById("pfSas"),
+            how: document.getElementById("pfHow"),
+          };
+          var D = {
+            herbisida: {
+              n: "Herbisida",
+              f: "Untuk gulma",
+              w: "Obat pengendali gulma, yaitu tumbuhan liar yang berebut hara, air, dan cahaya dengan tanaman utama.",
+              st: "Sasaran",
+              s: "Rumput, gulma daun lebar, dan teki.",
+              h: "Kontak: mengenai daun. Sistemik: diserap sampai ke akar.",
+            },
+            insektisida: {
+              n: "Insektisida",
+              f: "Untuk hama serangga",
+              w: "Obat pengendali serangga yang merusak tanaman dengan memakan atau mengisap bagiannya.",
+              st: "Sasaran",
+              s: "Ulat, wereng, kutu daun, dan penggerek.",
+              h: "Lewat sentuhan, lewat dimakan hama, atau diserap tanaman.",
+            },
+            fungisida: {
+              n: "Fungisida",
+              f: "Untuk penyakit jamur",
+              w: "Obat pengendali jamur penyebab penyakit pada daun, batang, buah, dan akar tanaman.",
+              st: "Sasaran",
+              s: "Bercak daun, busuk, dan karat.",
+              h: "Melindungi sebelum jamur datang, atau menghentikan yang sudah menyerang.",
+            },
+            pupuk: {
+              n: "Pupuk",
+              f: "Bukan pestisida",
+              w: "Tambahan unsur hara agar tanaman tumbuh subur dan berbuah baik.",
+              st: "Unsur utama",
+              s: "Nitrogen, fosfor, dan kalium.",
+              h: "Tidak membasmi hama. Memberi makan tanaman lewat tanah atau daun.",
+            },
+          };
+          var calm =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          var timer = 0;
+          function fill(k) {
+            var d = D[k];
+            el.name.textContent = d.n;
+            el.f.textContent = d.f;
+            el.what.textContent = d.w;
+            el.st.textContent = d.st;
+            el.sas.textContent = d.s;
+            el.how.textContent = d.h;
+          }
+          function show(k) {
+            if (!D[k]) return;
+            clearTimeout(timer);
+            if (calm) return fill(k);
+            body.classList.remove("is-in");
+            body.classList.add("is-out");
+            timer = setTimeout(function () {
+              fill(k);
+              body.classList.remove("is-out");
+              void body.offsetWidth;
+              body.classList.add("is-in");
+              timer = setTimeout(function () {
+                body.classList.remove("is-in");
+              }, 500);
+            }, 160);
+          }
+          box.addEventListener("change", function (e) {
+            if (e.target && e.target.name === "pfJenis") show(e.target.value);
+          });
+          fill("herbisida");
+          /* Sejajarkan dengan kolom kiri: atas = breadcrumb, bawah = dasar tombol kiri.
+             Diukur dari halaman yang sebenarnya, jadi tetap pas dengan font dan CSS situs. */
+          var aside = box.closest(".hero-aside");
+          var mq = window.matchMedia("(min-width: 1100px)");
+          function align() {
+            try {
+              box.style.removeProperty("height");
+              box.style.removeProperty("margin-top");
+              if (!mq.matches || !aside) return;
+              var wrap = aside.parentElement;
+              var bc = wrap.querySelector(".breadcrumb");
+              var btn = wrap.querySelector(":scope > a.btn");
+              if (!bc || !btn) return;
+              var top = bc.getBoundingClientRect().top;
+              var bottom = btn.getBoundingClientRect().bottom;
+              var at = aside.getBoundingClientRect().top;
+              var h = Math.round(bottom - top);
+              var nat = 0;
+              [].forEach.call(box.children, function (c) {
+                nat += c.getBoundingClientRect().height;
+              });
+              box.style.setProperty(
+                "margin-top",
+                Math.max(0, Math.round(top - at)) + "px",
+                "important",
+              );
+              box.style.setProperty(
+                "height",
+                Math.max(h, Math.ceil(nat) + 30) + "px",
+                "important",
+              );
+            } catch (e) {}
+          }
+          align();
+          window.addEventListener("load", align);
+          window.addEventListener("resize", align);
+          if (document.fonts && document.fonts.ready)
+            document.fonts.ready.then(align);
+          if (window.ResizeObserver) {
+            var ro = new ResizeObserver(align);
+            var w = aside && aside.parentElement;
+            if (w) ro.observe(w);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script id="hero-tengah">
+      /* Layar lebar (>= 1100px): tinggi hero tetap, jadi isi (breadcrumb sampai
+         tombol + kartu kanan) digeser turun sedikit supaya jarak kosong di
+         atas dan di bawah sama. Di bawah 1100px tinggi hero mengikuti isi. */
+      (function () {
+        var mq = window.matchMedia("(min-width: 1100px)");
+        function one(hero) {
+          var wrap = hero.querySelector(":scope > .wrap");
+          if (!wrap) return;
+          hero.style.setProperty("--hero-shift", "0px");
+          if (!mq.matches) return;
+          var h = hero.getBoundingClientRect();
+          var w = wrap.getBoundingClientRect();
+          var bottom = w.bottom;
+          var card = wrap.querySelector(":scope > .hero-aside > :first-child");
+          if (card)
+            bottom = Math.max(bottom, card.getBoundingClientRect().bottom);
+          var content = bottom - w.top;
+          var top0 = w.top - h.top;
+          var shift = Math.round((h.height - content) / 2 - top0);
+          hero.style.setProperty("--hero-shift", Math.max(0, shift) + "px");
+        }
+        function all() {
+          try {
+            document
+              .querySelectorAll(
+                "main > .about-hero, main > .service-hero, main > .help-hero",
+              )
+              .forEach(one);
+          } catch (e) {}
+        }
+        var t;
+        function later() {
+          clearTimeout(t);
+          t = setTimeout(all, 60);
+        }
+        all();
+        window.addEventListener("load", function () {
+          all();
+          setTimeout(all, 400);
+          setTimeout(all, 1200);
+        });
+        window.addEventListener("resize", later);
+        if (document.fonts && document.fonts.ready)
+          document.fonts.ready.then(all);
+      })();
+    </script>
+  </body>
+</html>

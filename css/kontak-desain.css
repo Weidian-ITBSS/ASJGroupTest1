@@ -1,0 +1,731 @@
+/* ============================================================
+   KONTAK — DESAIN ULANG (dimuat paling akhir, setelah tambahan.css)
+   Menggantikan kontak-hero.css.
+
+   Alur halaman:
+     hero (krem)  ->  kartu kontak yang menumpuk di batas hero
+     ->  formulir + bantuan isi pesan (putih)  ->  FAQ (krem)
+     ->  ajakan peta (putih)  ->  footer
+
+   Palet: krem, putih, hijau forest. Semua aturan dibatasi
+   body[data-page="kontak"] supaya tidak mengubah halaman lain.
+   ============================================================ */
+body[data-page="kontak"] {
+  --kx-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --kx-overlap: clamp(
+    64px,
+    6.5vw,
+    96px
+  ); /* seberapa jauh kartu kontak masuk ke hero */
+}
+.kx-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- HERO ---------- */
+body[data-page="kontak"] .kx-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(32px, 4vw, 56px) 0
+    calc(var(--kx-overlap) + clamp(56px, 6vw, 80px));
+  background: var(--sand, #f1ece0);
+  border: 0;
+}
+/* hiasan: bidang titik di kanan atas dan cincin tipis di kiri bawah */
+body[data-page="kontak"] .kx-hero::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  right: -160px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(18, 55, 42, 0.17) 1.6px, transparent 1.7px) 0
+    0 / 20px 20px;
+  -webkit-mask-image: radial-gradient(circle, #000 28%, transparent 68%);
+  mask-image: radial-gradient(circle, #000 28%, transparent 68%);
+  pointer-events: none;
+}
+body[data-page="kontak"] .kx-hero::after {
+  content: "";
+  position: absolute;
+  left: -180px;
+  bottom: -230px;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  border: 1px solid rgba(18, 55, 42, 0.12);
+  box-shadow:
+    0 0 0 36px rgba(18, 55, 42, 0.035),
+    0 0 0 37px rgba(18, 55, 42, 0.08);
+  pointer-events: none;
+}
+body[data-page="kontak"] .kx-hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+body[data-page="kontak"] .kx-hero .breadcrumb {
+  margin: 0 0 clamp(28px, 4vw, 48px);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.kx-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.kx-hero-copy {
+  grid-column: 1 / 8;
+  min-width: 0;
+}
+.kx-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.kx-kicker::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+body[data-page="kontak"] .kx-hero h1 {
+  max-width: none;
+  margin: 18px 0 20px;
+  font-size: clamp(36px, 4.7vw, 62px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--deep);
+  text-wrap: balance;
+}
+body[data-page="kontak"] .kx-hero h1 .kx-em {
+  color: var(--brand);
+}
+body[data-page="kontak"] .kx-hero .kx-lede {
+  max-width: 46ch;
+  margin: 0 0 32px;
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.kx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+body[data-page="kontak"] .kx-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 12px 26px;
+  font-size: 16px;
+}
+body[data-page="kontak"] .kx-actions .btn svg {
+  flex: none;
+  margin-right: 10px;
+}
+body[data-page="kontak"] .kx-actions .btn span[aria-hidden="true"] {
+  margin-left: 8px;
+}
+
+/* status jam layanan (diisi js/jam-layanan.js) */
+body[data-page="kontak"] .kx-hero .service-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 9px 18px 9px 14px;
+  background: #fff;
+  border: 1px solid rgba(18, 55, 42, 0.12);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+body[data-page="kontak"] .kx-hero .service-status[hidden] {
+  display: none;
+}
+@keyframes kxPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(30, 122, 76, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(30, 122, 76, 0);
+  }
+}
+body[data-page="kontak"]
+  .kx-hero
+  .service-status[data-state="open"]
+  .status-dot {
+  animation: kxPulse 2.2s ease-out infinite;
+}
+
+/* kartu alur */
+.kx-flow-card {
+  grid-column: 8 / 13;
+  position: relative;
+  min-width: 0;
+  padding: clamp(26px, 3vw, 38px);
+  background: #fff;
+  border: 1px solid rgba(18, 55, 42, 0.1);
+  border-radius: 28px;
+  box-shadow: 0 34px 64px -44px rgba(18, 55, 42, 0.6);
+}
+.kx-flow-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 32px;
+  width: 64px;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: var(--brand);
+}
+.kx-flow-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+body[data-page="kontak"] .kx-flow-title {
+  margin: 8px 0 26px;
+  font-size: clamp(21px, 2vw, 25px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--deep);
+}
+.kx-flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: kxf;
+}
+.kx-flow li {
+  position: relative;
+  min-height: 48px;
+  padding: 0 0 28px 64px;
+}
+.kx-flow li:last-child {
+  padding-bottom: 0;
+}
+.kx-flow li::before {
+  counter-increment: kxf;
+  content: counter(kxf);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--deep);
+  color: var(--sand, #f1ece0);
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 600;
+}
+.kx-flow li:last-child::before {
+  background: var(--brand);
+  color: #fff;
+}
+.kx-flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  bottom: 6px;
+  left: 21px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--brand) 0 5px,
+    transparent 5px 10px
+  );
+  opacity: 0.45;
+}
+.kx-flow strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.kx-flow span {
+  display: block;
+  margin-top: 3px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---------- KARTU KONTAK (menumpuk di batas hero) ---------- */
+body[data-page="kontak"] .kx-channels {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(var(--kx-overlap) * -1);
+  padding: 0;
+  background: transparent;
+}
+.kx-channel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.kx-channel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px 22px 24px;
+  background: #fff;
+  border: 1px solid rgba(18, 55, 42, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 28px 48px -36px rgba(18, 55, 42, 0.55);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
+}
+.kx-ch-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  margin-bottom: 16px;
+}
+.kx-ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sand, #f1ece0);
+  color: var(--brand);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.kx-copy {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-deep);
+  font: 600 13px/1.3 var(--body-font);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.kx-copy[data-state="done"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+.kx-copy[data-state="fail"] {
+  background: #f8e5e0;
+  border-color: #b4412f;
+  color: #7a281a;
+}
+.kx-ch-label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.kx-ch-value {
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--deep);
+  overflow-wrap: anywhere;
+}
+a.kx-ch-value {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kx-channel:hover {
+    border-color: var(--brand);
+    box-shadow: 0 32px 52px -34px rgba(18, 55, 42, 0.6);
+  }
+  .kx-channel:hover .kx-ico {
+    background: var(--brand);
+    color: #fff;
+  }
+  .kx-copy:not([data-state]):hover {
+    background: #e6f0ea;
+    border-color: var(--brand);
+  }
+  a.kx-ch-value:hover {
+    color: var(--brand);
+    text-decoration-color: var(--brand);
+  }
+}
+.kx-copy:not([data-state]):active {
+  background: #d3e6da;
+}
+
+/* ---------- FORMULIR + BANTUAN ---------- */
+body[data-page="kontak"] .contact-main {
+  padding-block: clamp(44px, 5vw, 72px) clamp(56px, 7vw, 96px);
+  background: #fff;
+}
+body[data-page="kontak"] .contact-main .contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
+  align-items: stretch;
+}
+/* kartu formulir (hijau forest): tombol kirim selalu di dasar kartu */
+body[data-page="kontak"] .contact-main .contact-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 28px;
+}
+body[data-page="kontak"] .contact-main .contact-card::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+      rgba(255, 255, 255, 0.14) 1.4px,
+      transparent 1.5px
+    )
+    0 0 / 16px 16px;
+  -webkit-mask-image: radial-gradient(circle, #000 25%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 25%, transparent 70%);
+  pointer-events: none;
+}
+body[data-page="kontak"] .contact-main .contact-card > * {
+  position: relative;
+}
+body[data-page="kontak"] .contact-main .contact-card form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+body[data-page="kontak"] .contact-main .contact-card form .btn {
+  margin-top: auto;
+}
+body[data-page="kontak"]
+  .contact-main
+  .contact-card
+  .contact-field:last-of-type {
+  margin-bottom: 28px;
+}
+
+/* kolom kanan: dua panel krem */
+body[data-page="kontak"] .contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 20px);
+  padding-top: 0;
+}
+body[data-page="kontak"] .contact-side .kx-panel {
+  padding: clamp(22px, 2.6vw, 32px);
+  background: var(--sand, #f1ece0);
+  border-radius: 24px;
+  color: var(--ink);
+}
+.kx-chip {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+body[data-page="kontak"] .contact-side .kx-panel h3 {
+  margin: 0 0 6px;
+  font-size: clamp(19px, 1.8vw, 22px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--deep);
+}
+body[data-page="kontak"] .contact-side .kx-panel > p {
+  max-width: 52ch;
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+/* pilih produk */
+body[data-page="kontak"] .kx-panel .pick-grid {
+  gap: 10px;
+}
+body[data-page="kontak"] .kx-panel .pick {
+  gap: 4px;
+  padding: 10px 10px 12px;
+  background: #fff;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+body[data-page="kontak"] .kx-panel .pick:hover {
+  border-color: var(--brand);
+  transform: none;
+}
+body[data-page="kontak"] .kx-panel .pick img {
+  object-fit: contain;
+  background: #f4f5f1;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+}
+body[data-page="kontak"] .kx-panel .pick[aria-pressed="true"] {
+  background: #eaf4ee;
+  border-color: var(--brand);
+  box-shadow: none;
+}
+body[data-page="kontak"] .kx-panel .pick[aria-pressed="true"]::after {
+  top: 16px;
+  right: 16px;
+  background: var(--brand);
+}
+body[data-page="kontak"] .kx-panel .pick-name {
+  font-size: 14px;
+  color: var(--deep);
+}
+body[data-page="kontak"] .kx-panel .pick-status {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+body[data-page="kontak"] .kx-panel .pick-clear {
+  color: var(--brand-deep);
+}
+body[data-page="kontak"] .kx-panel .pick-more {
+  margin-top: 6px;
+  color: var(--brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(27, 107, 67, 0.35);
+  text-underline-offset: 4px;
+}
+body[data-page="kontak"] .kx-panel .pick-more:hover {
+  color: var(--brand);
+  text-decoration-color: var(--brand);
+}
+/* siapkan info (dulu bagian hijau tersendiri) */
+body[data-page="kontak"] .contact-side .kx-panel.contact-prep {
+  padding: clamp(22px, 2.6vw, 32px);
+  background: var(--sand, #f1ece0);
+  color: var(--ink);
+}
+body[data-page="kontak"] .kx-panel .prep-status {
+  min-height: 0;
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-deep);
+}
+body[data-page="kontak"] .kx-panel .prep-status:empty {
+  display: none;
+}
+body[data-page="kontak"] .kx-panel .prep-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+}
+body[data-page="kontak"] .kx-panel .prep-list li {
+  flex-wrap: nowrap;
+  gap: 16px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+}
+body[data-page="kontak"] .kx-panel .prep-list strong {
+  font-size: 16px;
+  color: var(--deep);
+}
+body[data-page="kontak"] .kx-panel .prep-list li span {
+  margin-top: 2px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+body[data-page="kontak"] .kx-panel .prep-add {
+  min-height: 40px;
+  padding: 6px 16px;
+  border: 1px solid var(--field-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-deep);
+  font-size: 14px;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+body[data-page="kontak"] .kx-panel .prep-add:hover {
+  background: #e6f0ea;
+  border-color: var(--brand);
+  color: var(--brand-deep);
+}
+body[data-page="kontak"] .kx-panel .prep-add:active {
+  background: #d3e6da;
+}
+body[data-page="kontak"] .kx-panel .prep-add[data-done="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+/* pratinjau pesan dihilangkan: isi pesan sudah terlihat di formulir */
+body[data-page="kontak"] .kx-panel .prep-preview {
+  display: none;
+}
+body[data-page="kontak"] .kx-panel :focus-visible {
+  outline-color: var(--focus, #8a5d00) !important;
+}
+
+/* ---------- FAQ & AJAKAN PETA ---------- */
+body[data-page="kontak"] .contact-faq {
+  background: var(--sand, #f1ece0);
+}
+body[data-page="kontak"] .contact-route {
+  background: #fff;
+}
+
+/* ---------- MUNCUL PELAN SAAT DI-SCROLL (jika didukung) ---------- */
+@supports (animation-timeline: view()) {
+  @keyframes kxRise {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .kx-channel,
+  body[data-page="kontak"] .contact-main .contact-card,
+  body[data-page="kontak"] .contact-side .kx-panel {
+    animation: kxRise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+  .kx-channel:nth-child(2) {
+    animation-range: entry 4% entry 44%;
+  }
+  .kx-channel:nth-child(3) {
+    animation-range: entry 8% entry 48%;
+  }
+  .kx-channel:nth-child(4) {
+    animation-range: entry 12% entry 52%;
+  }
+}
+
+/* ---------- RESPONSIF ---------- */
+@media (max-width: 1100px) {
+  .kx-channel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 980px) {
+  .kx-hero-copy,
+  .kx-flow-card {
+    grid-column: 1 / -1;
+  }
+  .kx-flow-card {
+    margin-top: 36px;
+  }
+  body[data-page="kontak"] .contact-main .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  /* di tablet/HP: pilih produk dulu, lalu formulir, lalu siapkan info */
+  body[data-page="kontak"] .contact-side {
+    display: contents;
+  }
+  body[data-page="kontak"] .kx-panel-pick {
+    order: 1;
+  }
+  body[data-page="kontak"] .contact-main .contact-card {
+    order: 2;
+  }
+  body[data-page="kontak"] .kx-panel-prep {
+    order: 3;
+  }
+}
+@media (max-width: 560px) {
+  body[data-page="kontak"] {
+    --kx-overlap: 56px;
+  }
+  .kx-channel-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .kx-actions .btn {
+    width: 100%;
+  }
+  body[data-page="kontak"] .kx-hero .service-status {
+    display: flex;
+    border-radius: 18px;
+  }
+  .kx-flow-card {
+    border-radius: 22px;
+  }
+  body[data-page="kontak"] .kx-panel .prep-list li {
+    flex-wrap: wrap;
+  }
+  body[data-page="kontak"] .kx-panel .prep-add {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kx-channel,
+  body[data-page="kontak"] .contact-main .contact-card,
+  body[data-page="kontak"] .contact-side .kx-panel {
+    animation: none;
+  }
+  body[data-page="kontak"]
+    .kx-hero
+    .service-status[data-state="open"]
+    .status-dot {
+    animation: none;
+  }
+}

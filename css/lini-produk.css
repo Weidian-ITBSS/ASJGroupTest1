@@ -1,0 +1,398 @@
+/* Tentang: section "Lini Produk" (bento) — dimuat SETELAH tambahan.css.
+   Palet: krem, putih, hijau tua. Warna kategori hanya muncul sebagai pil pastel. */
+
+body[data-page="tentang"] .about-lines {
+  --lp-ease: var(--hv-ease, cubic-bezier(0.2, 0.8, 0.2, 1));
+  --lp-deep: var(--forest-deep, var(--deep, #12372a));
+  --lp-card: var(--paper-deep, #f3f4ef);
+  --lp-line: var(--line, #d9ded8);
+  --lp-soft: var(--ink-soft, #4a5851);
+}
+
+/* pil nomor: pastel per kategori */
+.line-card[data-cat="herbisida"] {
+  --pill-bg: var(--c-herbisida-bg, #e3f1e8);
+  --pill-fg: var(--c-herbisida-fg, #1a5233);
+}
+.line-card[data-cat="insektisida"] {
+  --pill-bg: var(--c-insektisida-bg, #f8e5e0);
+  --pill-fg: var(--c-insektisida-fg, #7a281a);
+}
+.line-card[data-cat="fungisida"] {
+  --pill-bg: var(--c-fungisida-bg, #fbefcf);
+  --pill-fg: var(--c-fungisida-fg, #664500);
+}
+.line-card[data-cat="pupuk"] {
+  --pill-bg: var(--c-pupuk-bg, #e2edf8);
+  --pill-fg: var(--c-pupuk-fg, #1b4575);
+}
+.line-card[data-cat="hayati"] {
+  --pill-bg: var(--c-hayati-bg, #dcf0ee);
+  --pill-fg: var(--c-hayati-fg, #0f4f49);
+}
+.line-card[data-cat="alat"] {
+  --pill-bg: var(--c-alat-bg, #e8eaec);
+  --pill-fg: var(--c-alat-fg, #2f3840);
+}
+.line-card[data-cat="perlengkapan"] {
+  --pill-bg: var(--c-perlengkapan-bg, #f1e9dc);
+  --pill-fg: var(--c-perlengkapan-fg, #5a4322);
+}
+
+/* ================= GRID BENTO ================= */
+body[data-page="tentang"] .about-lines .line-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  grid-auto-flow: row dense;
+  gap: 16px;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+body[data-page="tentang"] .about-lines .line-card:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+body[data-page="tentang"] .about-lines .line-cta {
+  grid-column: span 2;
+}
+
+/* ================= KARTU ================= */
+body[data-page="tentang"] .about-lines .line-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  min-width: 0;
+  padding: 22px;
+  overflow: hidden;
+  background: var(--lp-card);
+  border: 1px solid var(--lp-line);
+  border-radius: 18px;
+  color: var(--lp-deep);
+  text-decoration: none;
+  transform: none;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+/* isi hijau tua melebar dari pojok panah saat disorot */
+body[data-page="tentang"] .about-lines .line-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      120% 110% at 100% 100%,
+      rgba(95, 170, 130, 0.28),
+      transparent 62%
+    ),
+    var(--lp-deep);
+  clip-path: circle(0 at calc(100% - 42px) calc(100% - 42px));
+  transition: clip-path 0.65s var(--lp-ease);
+}
+body[data-page="tentang"] .about-lines .line-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="tentang"] .about-lines .line-num {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  color: var(--pill-fg);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.line-body {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+.line-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+body[data-page="tentang"] .about-lines .line-count {
+  font-family: var(--heading-font, inherit);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--lp-deep);
+  transition: color 0.3s ease;
+}
+.line-unit {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lp-soft);
+  transition: color 0.3s ease;
+}
+body[data-page="tentang"] .about-lines .line-card strong {
+  margin-top: 6px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--lp-deep);
+  transition: color 0.3s ease;
+}
+body[data-page="tentang"] .about-lines .line-desc {
+  max-width: 34ch;
+  padding-right: 52px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--lp-soft);
+  transition: color 0.3s ease;
+}
+
+/* panah dalam lingkaran, pojok kanan bawah */
+body[data-page="tentang"] .about-lines .line-arrow {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--lp-line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--lp-deep);
+  font-size: 20px;
+  line-height: 1;
+  transition:
+    transform 0.45s var(--lp-ease),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* ---- kartu besar (Herbisida): hanya lebih besar, warnanya sama seperti yang lain ---- */
+body[data-page="tentang"] .about-lines .line-card:first-child {
+  padding: 28px;
+}
+body[data-page="tentang"] .about-lines .line-card:first-child::before {
+  clip-path: circle(0 at calc(100% - 52px) calc(100% - 52px));
+}
+body[data-page="tentang"] .about-lines .line-card:first-child .line-count {
+  font-size: clamp(72px, 9vw, 108px);
+}
+body[data-page="tentang"] .about-lines .line-card:first-child strong {
+  font-size: clamp(26px, 2.6vw, 32px);
+}
+body[data-page="tentang"] .about-lines .line-card:first-child .line-desc {
+  max-width: 30ch;
+  font-size: 16px;
+}
+body[data-page="tentang"] .about-lines .line-card:first-child .line-arrow {
+  right: 28px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+}
+
+/* ---- hover & fokus keyboard (kartu krem) ---- */
+body[data-page="tentang"] .about-lines .line-card:hover,
+body[data-page="tentang"] .about-lines .line-card:focus-visible {
+  border-color: var(--lp-deep);
+  box-shadow: 0 22px 34px -24px rgba(18, 55, 42, 0.6);
+}
+body[data-page="tentang"] .about-lines .line-card:hover::before,
+body[data-page="tentang"] .about-lines .line-card:focus-visible::before {
+  clip-path: circle(150% at calc(100% - 42px) calc(100% - 42px));
+}
+body[data-page="tentang"] .about-lines .line-card:hover .line-count,
+body[data-page="tentang"] .about-lines .line-card:hover strong,
+body[data-page="tentang"] .about-lines .line-card:focus-visible .line-count,
+body[data-page="tentang"] .about-lines .line-card:focus-visible strong {
+  color: #fff;
+}
+body[data-page="tentang"] .about-lines .line-card:hover .line-desc,
+body[data-page="tentang"] .about-lines .line-card:hover .line-unit,
+body[data-page="tentang"] .about-lines .line-card:focus-visible .line-desc,
+body[data-page="tentang"] .about-lines .line-card:focus-visible .line-unit {
+  color: rgba(255, 255, 255, 0.82);
+}
+body[data-page="tentang"] .about-lines .line-card:hover .line-num,
+body[data-page="tentang"] .about-lines .line-card:focus-visible .line-num {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+body[data-page="tentang"] .about-lines .line-card:hover .line-arrow,
+body[data-page="tentang"] .about-lines .line-card:focus-visible .line-arrow {
+  background: #fff;
+  border-color: #fff;
+  color: var(--lp-deep);
+  transform: translateX(3px) rotate(-45deg);
+}
+body[data-page="tentang"] .about-lines .line-card:first-child:hover::before,
+body[data-page="tentang"]
+  .about-lines
+  .line-card:first-child:focus-visible::before {
+  clip-path: circle(150% at calc(100% - 52px) calc(100% - 52px));
+}
+body[data-page="tentang"] .about-lines .line-card:focus-visible {
+  outline: 3px solid var(--lp-deep);
+  outline-offset: 3px;
+}
+body[data-page="tentang"] .about-lines .line-card:active {
+  transform: scale(0.99);
+}
+
+/* ================= KARTU AJAKAN ================= */
+body[data-page="tentang"] .about-lines .line-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 26px 28px;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      120% 140% at 100% 0%,
+      rgba(95, 170, 130, 0.3),
+      transparent 60%
+    ),
+    repeating-radial-gradient(
+      circle at 112% -20%,
+      transparent 0 22px,
+      rgba(255, 255, 255, 0.055) 22px 23px
+    ),
+    var(--lp-deep);
+  color: #fff;
+}
+.line-cta-kicker {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.line-cta-title {
+  margin: 0;
+  max-width: 30ch;
+  font-size: clamp(19px, 1.8vw, 23px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+}
+.line-total {
+  font-family: var(--heading-font, inherit);
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.line-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+body[data-page="tentang"] .about-lines .line-cta .btn-solid {
+  background: #fff;
+  border-color: #fff;
+  color: var(--lp-deep);
+}
+body[data-page="tentang"] .about-lines .line-cta .btn-solid:hover {
+  background: var(--lp-card);
+  border-color: var(--lp-card);
+}
+body[data-page="tentang"] .about-lines .line-cta .btn-outline {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
+}
+body[data-page="tentang"] .about-lines .line-cta .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* ================= MASUK LAYAR (diaktifkan JS) ================= */
+.line-grid.is-armed > .line-card,
+.line-grid.is-armed > .line-cta {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.line-grid.is-armed.is-in > .line-card,
+.line-grid.is-armed.is-in > .line-cta {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s ease calc(var(--i, 0) * 70ms),
+    transform 0.7s var(--lp-ease) calc(var(--i, 0) * 70ms),
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+
+/* ================= RESPONSIF ================= */
+@media (max-width: 1100px) {
+  body[data-page="tentang"] .about-lines .line-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(190px, auto);
+  }
+  body[data-page="tentang"] .about-lines .line-card:first-child {
+    grid-row: span 1;
+    min-height: 280px;
+  }
+}
+@media (max-width: 640px) {
+  body[data-page="tentang"] .about-lines .line-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 12px;
+  }
+  body[data-page="tentang"] .about-lines .line-card,
+  body[data-page="tentang"] .about-lines .line-card:first-child,
+  body[data-page="tentang"] .about-lines .line-cta {
+    grid-column: auto;
+    min-height: 0;
+    padding: 20px;
+  }
+  body[data-page="tentang"] .about-lines .line-card:first-child .line-count {
+    font-size: 64px;
+  }
+  body[data-page="tentang"] .about-lines .line-arrow,
+  body[data-page="tentang"] .about-lines .line-card:first-child .line-arrow {
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  body[data-page="tentang"] .about-lines .line-desc {
+    padding-right: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="tentang"] .about-lines .line-card,
+  body[data-page="tentang"] .about-lines .line-card::before,
+  .line-arrow,
+  .line-grid.is-armed > .line-card,
+  .line-grid.is-armed > .line-cta {
+    transition: none !important;
+  }
+  .line-grid.is-armed > .line-card,
+  .line-grid.is-armed > .line-cta {
+    opacity: 1;
+    transform: none;
+  }
+  body[data-page="tentang"] .about-lines .line-card:hover .line-arrow {
+    transform: none;
+  }
+}

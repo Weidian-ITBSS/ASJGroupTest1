@@ -1,0 +1,54 @@
+/* ==========================================================================
+   TIPOGRAFI: satu keluarga huruf untuk seluruh situs, yaitu Plus Jakarta Sans.
+   Muat PALING AKHIR di setiap halaman (setelah semua file css lain):
+   <link rel="stylesheet" href="css/tipografi.css" />
+   ========================================================================== */
+
+/* 1. Satu sumber nilai. Semua variabel font menunjuk ke sini. */
+:root {
+  --font: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+  --heading-font: var(--font);
+  --body-font: var(--font);
+  --main-font: var(--font);
+  --font-heading: var(--font);
+  --font-body: var(--font);
+  --font-sans: var(--font);
+}
+
+/* 2. Dasar halaman */
+html {
+  font-family: var(--font);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Pengaman: elemen yang di browser punya font bawaan sendiri
+      (kbd, code, pre, samp, dan kawan-kawan) dipaksa ikut font situs.
+      Aturan ini memakai !important supaya tidak bisa ketimpa file css lain. */
+*,
+*::before,
+*::after {
+  font-family: var(--font) !important;
+  font-stretch: 100%;
+}
+
+/* 4. Kerapian baris: judul seimbang, paragraf tidak menyisakan satu kata sendirian */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+p,
+li,
+figcaption,
+dd {
+  text-wrap: pretty;
+}
